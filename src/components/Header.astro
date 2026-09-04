@@ -1,0 +1,307 @@
+---
+import type { Locale } from '../consts';
+import type { UiDictionary } from '../i18n/types';
+import Logo from './Logo.astro';
+
+interface Props {
+  locale: Locale;
+  t: UiDictionary;
+  currentPath: string;
+  altHref: string;
+}
+
+const { locale, t, currentPath, altHref } = Astro.props;
+
+const base = locale === 'nl' ? '' : '/fr';
+
+const navItems = [
+  { href: `${base}/`, label: t.nav.home },
+  {
+    href: locale === 'nl' ? '/perinatale-begeleiding/' : '/fr/accompagnement-perinatal/',
+    label: t.nav.perinatal,
+  },
+  {
+    href: locale === 'nl' ? '/bekkenbodemtherapie/' : '/fr/reeducation-perineale/',
+    label: t.nav.pelvic,
+  },
+  {
+    href: locale === 'nl' ? '/manuele-therapie/' : '/fr/therapie-manuelle/',
+    label: t.nav.manual,
+  },
+  {
+    href: locale === 'nl' ? '/tarieven/' : '/fr/tarifs/',
+    label: t.nav.rates,
+  },
+  {
+    href: locale === 'nl' ? '/contact/' : '/fr/contact/',
+    label: t.nav.contact,
+  },
+];
+
+function isActive(href: string) {
+  return currentPath === href || (href !== '/' && href !== '/fr/' && currentPath.startsWith(href));
+}
+
+const otherLocale: Locale = locale === 'nl' ? 'fr' : 'nl';
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href={base + '/'}>
+      <Logo />
+      <span class="brand-text">
+        <span class="brand-name">Kim Christiaens</span>
+        <span class="brand-sub">Kinesitherapie</span>
+      </span>
+    </a>
+
+    <button
+      id="nav-toggle"
+      class="nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-nav"
+    >
+      <span class="visually-hidden nav-toggle-label">{t.nav.menu}</span>
+      <span class="nav-toggle-icon" aria-hidden="true"></span>
+    </button>
+
+    <nav id="primary-nav" class="primary-nav" aria-label={t.nav.menu}>
+      <ul>
+        {
+          navItems.map((item) => (
+            <li>
+              <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <a class="lang-switch" href={altHref} hreflang={otherLocale} lang={otherLocale}>
+        {otherLocale.toUpperCase()}
+        <span class="visually-hidden">{t.nav.switchLang}</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: #ffffff;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 0.85rem;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--color-ink);
+  }
+
+  .brand:hover {
+    color: var(--color-ink);
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+  }
+
+  .brand-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+
+  .brand-sub {
+    font-size: 0.78rem;
+    color: var(--color-ink-muted);
+    letter-spacing: 0.03em;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--color-border);
+    background: #fff;
+    cursor: pointer;
+  }
+
+  .nav-toggle-icon,
+  .nav-toggle-icon::before,
+  .nav-toggle-icon::after {
+    display: block;
+    width: 1.35rem;
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    position: relative;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .nav-toggle-icon::before {
+    content: '';
+    position: absolute;
+    top: -0.4rem;
+  }
+
+  .nav-toggle-icon::after {
+    content: '';
+    position: absolute;
+    top: 0.4rem;
+  }
+
+  .nav-toggle[aria-expanded='true'] .nav-toggle-icon {
+    background: transparent;
+  }
+
+  .nav-toggle[aria-expanded='true'] .nav-toggle-icon::before {
+    transform: translateY(0.4rem) rotate(45deg);
+  }
+
+  .nav-toggle[aria-expanded='true'] .nav-toggle-icon::after {
+    transform: translateY(-0.4rem) rotate(-45deg);
+  }
+
+  .primary-nav {
+    display: none;
+  }
+
+  .primary-nav.is-open {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-soft);
+    padding: 1rem 1.5rem 1.5rem;
+  }
+
+  .primary-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .primary-nav ul li {
+    margin: 0;
+  }
+
+  .primary-nav a {
+    display: block;
+    padding: 0.7em 0.5em;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    white-space: nowrap;
+  }
+
+  .primary-nav a:hover {
+    background: var(--color-bg-alt);
+  }
+
+  .primary-nav a[aria-current='page'] {
+    color: var(--color-primary);
+    background: var(--color-bg-alt-2);
+  }
+
+  .primary-nav a.lang-switch {
+    display: inline-flex;
+    align-self: flex-start;
+    margin-top: 0.75rem;
+    padding: 0.5em 1em;
+    border: 2px solid var(--color-ink);
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-decoration: none;
+    color: var(--color-ink);
+    white-space: nowrap;
+  }
+
+  .primary-nav a.lang-switch:hover {
+    background: var(--color-ink);
+    color: #fff;
+  }
+
+  @media (min-width: 78em) {
+    .nav-toggle {
+      display: none;
+    }
+
+    .primary-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .primary-nav ul {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.1rem;
+    }
+
+    .primary-nav a {
+      padding: 0.55em 0.7em;
+      font-size: 0.95rem;
+    }
+
+    .primary-nav a.lang-switch {
+      margin-top: 0;
+      flex: none;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const nav = document.getElementById('primary-nav');
+
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('is-open', !expanded);
+    });
+
+    nav.addEventListener('keydown', (event) => {
+      if (event instanceof KeyboardEvent && event.key === 'Escape') {
+        toggle.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('is-open');
+        toggle.focus();
+      }
+    });
+
+    const mq = window.matchMedia('(min-width: 78em)');
+    mq.addEventListener('change', (event) => {
+      if (event.matches) {
+        nav.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+</script>

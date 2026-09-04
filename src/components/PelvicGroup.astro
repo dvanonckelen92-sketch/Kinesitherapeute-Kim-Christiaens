@@ -1,0 +1,145 @@
+---
+interface Category {
+  title: string;
+  items: string[];
+}
+
+interface Props {
+  id: string;
+  title: string;
+  categories: Category[];
+  treatments: { title: string; items: string[] };
+  open?: boolean;
+}
+
+const { id, title, categories, treatments, open = false } = Astro.props;
+---
+
+<details class="pelvic-group" id={id} open={open}>
+  <summary>
+    <span class="pelvic-group-title">{title}</span>
+    <span class="pelvic-group-icon" aria-hidden="true"></span>
+  </summary>
+  <div class="pelvic-group-body">
+    <div class="pelvic-categories">
+      {
+        categories
+          .filter((c) => c.items.length > 0)
+          .map((category) => (
+            <div class="pelvic-category">
+              <h3>{category.title}</h3>
+              <ul class="check-list">
+                {category.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))
+      }
+    </div>
+    <div class="pelvic-treatments">
+      <h3>{treatments.title}</h3>
+      <ul class="tag-list">
+        {treatments.items.map((item) => <li class="tag">{item}</li>)}
+      </ul>
+    </div>
+  </div>
+</details>
+
+<style>
+  .pelvic-group {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    margin-bottom: 1.25rem;
+    overflow: hidden;
+  }
+
+  .pelvic-group summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.75rem;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .pelvic-group summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .pelvic-group summary:hover {
+    background: var(--color-bg-alt);
+  }
+
+  .pelvic-group-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: var(--radius-full);
+    background: var(--color-bg-alt-2);
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .pelvic-group-icon::before,
+  .pelvic-group-icon::after {
+    content: '';
+    position: absolute;
+    background: var(--color-primary);
+    border-radius: 2px;
+  }
+
+  .pelvic-group-icon::before {
+    top: 50%;
+    left: 25%;
+    right: 25%;
+    height: 2px;
+    transform: translateY(-50%);
+  }
+
+  .pelvic-group-icon::after {
+    left: 50%;
+    top: 25%;
+    bottom: 25%;
+    width: 2px;
+    transform: translateX(-50%);
+    transition: opacity 0.15s ease;
+  }
+
+  .pelvic-group[open] .pelvic-group-icon::after {
+    opacity: 0;
+  }
+
+  .pelvic-group-body {
+    padding: 0 1.75rem 2rem;
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media (min-width: 56em) {
+    .pelvic-group-body {
+      grid-template-columns: 1.4fr 1fr;
+    }
+  }
+
+  .pelvic-categories {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  }
+
+  .pelvic-category h3,
+  .pelvic-treatments h3 {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-primary-dark);
+  }
+
+  .pelvic-group summary:focus-visible {
+    outline: 3px solid var(--color-primary-dark);
+    outline-offset: -3px;
+  }
+</style>

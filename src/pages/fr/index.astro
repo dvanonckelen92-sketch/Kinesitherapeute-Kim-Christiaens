@@ -1,0 +1,205 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+import { getDictionary } from '../../i18n';
+import { SITE } from '../../consts';
+
+const t = getDictionary('fr');
+const h = t.home;
+---
+
+<Layout locale="fr" t={t} title={h.metaTitle} description={h.metaDescription} altHref="/">
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">{h.heroEyebrow}</p>
+        <h1>{h.heroTitle}</h1>
+        <p class="hero-subtitle">{h.heroSubtitle}</p>
+        <p class="hero-text text-muted">{h.heroText}</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/fr/contact/">{t.cta.contact}</a>
+          <a class="btn btn-secondary" href={SITE.phoneHref}>{t.cta.call}: {SITE.phone}</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="210" cy="210" r="200" fill="var(--color-bg-alt-2)" />
+          <path
+            d="M210 320c-70-45-125-97-125-158C85 112 123 78 165 78c21 0 40 10 45 27 5-17 24-27 45-27 42 0 80 34 80 84 0 61-55 113-125 158Z"
+            fill="var(--color-primary)"
+          />
+          <circle cx="210" cy="150" r="16" fill="var(--color-gold-strong)" />
+          <circle cx="90" cy="90" r="18" fill="var(--color-gold-strong)" opacity="0.7" />
+          <circle cx="345" cy="300" r="24" fill="var(--color-primary-soft)" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="about-heading">
+    <div class="container about-grid">
+      <div>
+        <p class="eyebrow">{t.nav.home}</p>
+        <h2 id="about-heading">{h.aboutTitle}</h2>
+      </div>
+      <div class="about-text">
+        {h.aboutText.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="services-heading">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">{t.cta.allServices}</p>
+        <h2 id="services-heading">{h.servicesTitle}</h2>
+        <p class="text-muted">{h.servicesIntro}</p>
+      </div>
+      <div class="services-grid">
+        {h.services.map((service) => <ServiceCard service={service} discoverLabel={t.cta.discover} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="why-heading">
+    <div class="container">
+      <h2 id="why-heading">{h.whyTitle}</h2>
+      <div class="why-grid">
+        {
+          h.whyItems.map((item) => (
+            <div class="why-item">
+              <h3>{item.title}</h3>
+              <p class="text-muted">{item.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="area-heading">
+    <div class="container area-grid">
+      <div>
+        <p class="eyebrow">Saint-Trond · Heers · Hesbaye</p>
+        <h2 id="area-heading">{h.areaTitle}</h2>
+        <p class="text-muted">{h.areaText}</p>
+      </div>
+      <ul class="tag-list" aria-label={h.areaTitle}>
+        {h.areaPlaces.map((place) => <li class="tag">{place}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <CtaBanner
+    title={h.ctaTitle}
+    text={h.ctaText}
+    ctaLabel={t.cta.contact}
+    ctaHref="/fr/contact/"
+    phone={SITE.phone}
+    phoneHref={SITE.phoneHref}
+  />
+</Layout>
+
+<style>
+  .hero {
+    background: linear-gradient(160deg, var(--color-bg-alt) 0%, #fff 60%);
+    padding-block: clamp(2.5rem, 2rem + 3vw, 5rem);
+  }
+
+  .hero-inner {
+    display: grid;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  @media (min-width: 62em) {
+    .hero-inner {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+  }
+
+  .hero-subtitle {
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    font-size: 1.1rem;
+  }
+
+  .hero-text {
+    font-size: 1.1rem;
+    max-width: 52ch;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 1.5rem;
+  }
+
+  .hero-visual {
+    max-width: 22rem;
+    margin-inline: auto;
+  }
+
+  .about-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media (min-width: 56em) {
+    .about-grid {
+      grid-template-columns: 0.8fr 1.2fr;
+    }
+  }
+
+  .about-text p {
+    font-size: 1.05rem;
+  }
+
+  .section-heading {
+    max-width: 60ch;
+    margin-bottom: 2.5rem;
+  }
+
+  .services-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  }
+
+  .why-grid {
+    display: grid;
+    gap: 1.75rem;
+    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
+
+  .why-item h3 {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .why-item h3::before {
+    content: '';
+    width: 0.6rem;
+    height: 0.6rem;
+    margin-top: 0.55em;
+    border-radius: var(--radius-full);
+    background: var(--color-gold-strong);
+    flex-shrink: 0;
+  }
+
+  .area-grid {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  @media (min-width: 56em) {
+    .area-grid {
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+  }
+</style>

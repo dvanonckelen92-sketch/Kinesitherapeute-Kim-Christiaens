@@ -1,0 +1,68 @@
+---
+import type { SubService } from '../i18n/types';
+
+interface Props {
+  service: SubService;
+  index: number;
+}
+
+const { service, index } = Astro.props;
+const headingId = `sub-${service.id}`;
+---
+
+<article class="sub-service" aria-labelledby={headingId} id={service.id}>
+  <div class="sub-service-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</div>
+  <div class="sub-service-body">
+    <h2 id={headingId}>{service.title}</h2>
+    {service.lead && <p class="text-muted">{service.lead}</p>}
+    {
+      service.sections.map((section) => (
+        <div class="sub-service-section">
+          {section.title && <h3>{section.title}</h3>}
+          {section.items.length > 0 && (
+            <ul class="check-list">
+              {section.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))
+    }
+  </div>
+</article>
+
+<style>
+  .sub-service {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+    padding-block: 2.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sub-service:last-child {
+    border-bottom: none;
+  }
+
+  .sub-service-index {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-gold-strong);
+    line-height: 1;
+  }
+
+  .sub-service-body h2 {
+    margin-top: 0;
+  }
+
+  .sub-service-section {
+    margin-top: 1.25rem;
+  }
+
+  .sub-service-section h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.6rem;
+  }
+</style>

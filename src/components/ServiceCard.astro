@@ -1,0 +1,57 @@
+---
+import ServiceIcon from './ServiceIcon.astro';
+import type { ServiceSummary } from '../i18n/types';
+import type { UiDictionary } from '../i18n/types';
+
+interface Props {
+  service: ServiceSummary;
+  discoverLabel: UiDictionary['cta']['discover'];
+}
+
+const { service, discoverLabel } = Astro.props;
+---
+
+<a class="service-card" href={service.href}>
+  <ServiceIcon icon={service.icon} />
+  <h3>{service.title}</h3>
+  <p class="text-muted">{service.description}</p>
+  <span class="service-card-link" aria-hidden="true">{discoverLabel} →</span>
+</a>
+
+<style>
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    text-decoration: none;
+    color: var(--color-ink);
+    box-shadow: var(--shadow-card);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    height: 100%;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-gold-strong);
+    color: var(--color-ink);
+  }
+
+  .service-card h3 {
+    margin: 0.25rem 0 0;
+  }
+
+  .service-card p {
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .service-card-link {
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-top: 0.5rem;
+  }
+</style>

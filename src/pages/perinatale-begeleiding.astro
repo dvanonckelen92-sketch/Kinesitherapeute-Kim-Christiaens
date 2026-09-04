@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import SubServiceBlock from '../components/SubServiceBlock.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import { getDictionary } from '../i18n';
+import { SITE } from '../consts';
+
+const t = getDictionary('nl');
+const p = t.perinatal;
+---
+
+<Layout
+  locale="nl"
+  t={t}
+  title={p.metaTitle}
+  description={p.metaDescription}
+  altHref="/fr/accompagnement-perinatal/"
+>
+  <PageIntro eyebrow={t.nav.perinatal} title={p.title} intro={p.intro} />
+
+  <section class="section">
+    <div class="container">
+      <div class="sub-service-list">
+        {p.subServices.map((service, index) => <SubServiceBlock service={service} index={index} />)}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    title={t.home.ctaTitle}
+    text={t.home.ctaText}
+    ctaLabel={t.cta.contact}
+    ctaHref="/contact/"
+    phone={SITE.phone}
+    phoneHref={SITE.phoneHref}
+  />
+</Layout>
+
+<style>
+  .sub-service-list {
+    max-width: 52rem;
+  }
+</style>

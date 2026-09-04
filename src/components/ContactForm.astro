@@ -1,0 +1,104 @@
+---
+import type { UiDictionary } from '../i18n/types';
+
+interface Props {
+  t: UiDictionary;
+  formName: string;
+  actionHref: string;
+}
+
+const { t, formName, actionHref } = Astro.props;
+const f = t.contact.form;
+---
+
+<form
+  class="contact-form card"
+  name={formName}
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  action={actionHref}
+>
+  <h2>{t.contact.formTitle}</h2>
+  <input type="hidden" name="form-name" value={formName} />
+  <p class="honeypot-field">
+    <label>
+      {f.honeypot}
+      <input name="bot-field" tabindex="-1" autocomplete="off" />
+    </label>
+  </p>
+
+  <div class="form-field">
+    <label for={`${formName}-name`}>{f.name}</label>
+    <input type="text" id={`${formName}-name`} name="naam" autocomplete="name" required />
+  </div>
+
+  <div class="form-field">
+    <label for={`${formName}-email`}>{f.email}</label>
+    <input type="email" id={`${formName}-email`} name="email" autocomplete="email" required />
+  </div>
+
+  <div class="form-field">
+    <label for={`${formName}-phone`}>{f.phone} <span class="text-muted">({f.phoneOptional})</span></label>
+    <input type="tel" id={`${formName}-phone`} name="telefoon" autocomplete="tel" />
+  </div>
+
+  <div class="form-field">
+    <label for={`${formName}-message`}>{f.message}</label>
+    <textarea id={`${formName}-message`} name="bericht" rows="5" required></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">{f.submit}</button>
+</form>
+
+<style>
+  .contact-form {
+    display: grid;
+    gap: 1.1rem;
+  }
+
+  .contact-form h2 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  .honeypot-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .form-field {
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .form-field label {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .form-field input,
+  .form-field textarea {
+    font: inherit;
+    color: var(--color-ink);
+    background: #fff;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 0.65em 0.85em;
+    resize: vertical;
+  }
+
+  .form-field input:focus-visible,
+  .form-field textarea:focus-visible {
+    outline: 3px solid var(--color-primary-dark);
+    outline-offset: 1px;
+    border-color: var(--color-primary-dark);
+  }
+
+  .contact-form .btn {
+    justify-self: start;
+  }
+</style>

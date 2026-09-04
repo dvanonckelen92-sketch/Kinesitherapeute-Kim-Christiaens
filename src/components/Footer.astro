@@ -1,0 +1,196 @@
+---
+import type { Locale } from '../consts';
+import type { UiDictionary } from '../i18n/types';
+import { SITE } from '../consts';
+
+interface Props {
+  locale: Locale;
+  t: UiDictionary;
+}
+
+const { locale, t } = Astro.props;
+
+const serviceLinks =
+  locale === 'nl'
+    ? [
+        { href: '/perinatale-begeleiding/', label: t.nav.perinatal },
+        { href: '/bekkenbodemtherapie/', label: t.nav.pelvic },
+        { href: '/manuele-therapie/', label: t.nav.manual },
+        { href: '/tarieven/', label: t.nav.rates },
+      ]
+    : [
+        { href: '/fr/accompagnement-perinatal/', label: t.nav.perinatal },
+        { href: '/fr/reeducation-perineale/', label: t.nav.pelvic },
+        { href: '/fr/therapie-manuelle/', label: t.nav.manual },
+        { href: '/fr/tarifs/', label: t.nav.rates },
+      ];
+
+const contactHref = locale === 'nl' ? '/contact/' : '/fr/contact/';
+const privacyHref = locale === 'nl' ? '/privacybeleid/' : '/fr/politique-de-confidentialite/';
+const legalHref = locale === 'nl' ? '/wettelijke-vermeldingen/' : '/fr/mentions-legales/';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo-plate">
+        <img src="/logo-full.png" width="1193" height="259" alt="Kinesitherapie Kim Christiaens" loading="lazy" />
+      </div>
+      <p class="text-muted">{t.footer.tagline}</p>
+    </div>
+
+    <nav class="footer-col" aria-label={t.footer.servicesTitle}>
+      <h2>{t.footer.servicesTitle}</h2>
+      <ul>
+        {
+          serviceLinks.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="footer-col">
+      <h2>{t.footer.contactTitle}</h2>
+      <ul class="footer-contact">
+        <li>{SITE.address.full}</li>
+        <li><a href={SITE.phoneHref}>{SITE.phone}</a></li>
+        <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+        <li><a href={contactHref}>{t.cta.contact} →</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>&copy; {year} {SITE.name}. {t.footer.rights}</p>
+    <ul class="footer-meta">
+      <li><a href={legalHref}>{t.footer.legalLink}</a></li>
+      <li><a href={privacyHref}>{t.footer.privacyLink}</a></li>
+      <li>
+        {t.footer.madeBy} <a href="https://www.coopconsult.be" target="_blank" rel="noopener noreferrer">{t.footer.madeByLink}</a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-ink);
+    color: #f4efe3;
+    padding-block: 3.5rem 2rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    gap: 2.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 48em) {
+    .footer-grid {
+      grid-template-columns: 1.4fr 1fr 1fr;
+    }
+  }
+
+  .footer-logo-plate {
+    display: inline-block;
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-logo-plate img {
+    display: block;
+    height: 4.75rem;
+    width: auto;
+  }
+
+  .footer-brand p {
+    max-width: 32ch;
+    color: #d8d0bd;
+  }
+
+  .site-footer h2 {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-gold-strong);
+    margin: 0 0 1rem;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .footer-col a {
+    color: #f4efe3;
+    text-decoration: none;
+  }
+
+  .footer-col a:hover {
+    color: var(--color-gold-strong);
+    text-decoration: underline;
+  }
+
+  .footer-contact li {
+    color: #d8d0bd;
+  }
+
+  .footer-bottom {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(244, 239, 227, 0.15);
+    color: #b9b19c;
+    font-size: 0.85rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+  }
+
+  .footer-bottom p {
+    margin: 0;
+  }
+
+  .footer-meta {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1.5rem;
+    line-height: 1.4;
+  }
+
+  .footer-meta li {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+
+  .footer-meta a {
+    color: #b9b19c;
+    text-decoration: underline;
+  }
+
+  .footer-meta a:hover {
+    color: var(--color-gold-strong);
+  }
+
+  .site-footer a:focus-visible {
+    outline: 3px solid var(--color-gold-strong);
+    outline-offset: 3px;
+    box-shadow: none;
+  }
+</style>

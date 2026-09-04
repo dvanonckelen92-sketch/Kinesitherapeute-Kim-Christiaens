@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import PelvicGroup from '../components/PelvicGroup.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import { getDictionary } from '../i18n';
+import { SITE } from '../consts';
+
+const t = getDictionary('nl');
+const b = t.pelvic;
+---
+
+<Layout
+  locale="nl"
+  t={t}
+  title={b.metaTitle}
+  description={b.metaDescription}
+  altHref="/fr/reeducation-perineale/"
+>
+  <PageIntro eyebrow={t.nav.pelvic} title={b.title} intro={b.intro} />
+
+  <section class="section">
+    <div class="container">
+      {
+        b.groups.map((group, index) => (
+          <PelvicGroup
+            id={group.id}
+            title={group.title}
+            categories={group.categories}
+            treatments={group.treatments}
+            open={index === 0}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <CtaBanner
+    title={t.home.ctaTitle}
+    text={t.home.ctaText}
+    ctaLabel={t.cta.contact}
+    ctaHref="/contact/"
+    phone={SITE.phone}
+    phoneHref={SITE.phoneHref}
+  />
+</Layout>

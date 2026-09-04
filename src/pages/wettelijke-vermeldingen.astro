@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import { getDictionary } from '../i18n';
+
+const t = getDictionary('nl');
+const l = t.legal;
+---
+
+<Layout locale="nl" t={t} title={l.metaTitle} description={l.metaDescription} altHref="/fr/mentions-legales/">
+  <PageIntro eyebrow={t.footer.legalLink} title={l.title} intro={l.intro} />
+
+  <section class="section">
+    <div class="container legal-content">
+      {
+        l.sections.map((section) => (
+          <div class="legal-section">
+            <h2>{section.title}</h2>
+            {section.text.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-content {
+    max-width: 42rem;
+  }
+
+  .legal-section {
+    padding-block: 1.75rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .legal-section:first-child {
+    padding-top: 0;
+  }
+
+  .legal-section:last-child {
+    border-bottom: none;
+  }
+
+  .legal-section h2 {
+    font-size: 1.25rem;
+    margin-top: 0;
+  }
+
+  .legal-section p:last-child {
+    margin-bottom: 0;
+  }
+</style>

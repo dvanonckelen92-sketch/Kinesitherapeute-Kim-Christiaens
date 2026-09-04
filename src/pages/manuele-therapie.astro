@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import { getDictionary } from '../i18n';
+import { SITE } from '../consts';
+
+const t = getDictionary('nl');
+const m = t.manual;
+---
+
+<Layout locale="nl" t={t} title={m.metaTitle} description={m.metaDescription} altHref="/fr/therapie-manuelle/">
+  <PageIntro eyebrow={t.nav.manual} title={m.title} />
+
+  <section class="section">
+    <div class="container manual-grid">
+      <div class="manual-text">
+        {m.intro.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+      <aside class="manual-indications card" aria-labelledby="indications-heading">
+        <h2 id="indications-heading">{m.indicationsTitle}</h2>
+        <ul class="check-list">
+          {m.indications.map((item) => <li>{item}</li>)}
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <CtaBanner
+    title={t.home.ctaTitle}
+    text={t.home.ctaText}
+    ctaLabel={t.cta.contact}
+    ctaHref="/contact/"
+    phone={SITE.phone}
+    phoneHref={SITE.phoneHref}
+  />
+</Layout>
+
+<style>
+  .manual-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 56em) {
+    .manual-grid {
+      grid-template-columns: 1.2fr 0.9fr;
+      align-items: start;
+    }
+  }
+
+  .manual-text p {
+    font-size: 1.08rem;
+  }
+
+  .manual-indications {
+    position: sticky;
+    top: 6rem;
+  }
+</style>

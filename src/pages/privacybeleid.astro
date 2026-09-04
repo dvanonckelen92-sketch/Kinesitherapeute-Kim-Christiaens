@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import { getDictionary } from '../i18n';
+
+const t = getDictionary('nl');
+const p = t.privacy;
+---
+
+<Layout
+  locale="nl"
+  t={t}
+  title={p.metaTitle}
+  description={p.metaDescription}
+  altHref="/fr/politique-de-confidentialite/"
+>
+  <PageIntro eyebrow={t.footer.privacyLink} title={p.title} intro={p.intro} />
+
+  <section class="section">
+    <div class="container privacy-content">
+      <p class="text-muted updated">{p.updated}</p>
+      {
+        p.sections.map((section) => (
+          <div class="privacy-section">
+            <h2>{section.title}</h2>
+            {section.text.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .privacy-content {
+    max-width: 42rem;
+  }
+
+  .updated {
+    margin-bottom: 2.5rem;
+  }
+
+  .privacy-section {
+    padding-block: 1.75rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .privacy-section:last-child {
+    border-bottom: none;
+  }
+
+  .privacy-section h2 {
+    font-size: 1.25rem;
+    margin-top: 0;
+  }
+
+  .privacy-section p:last-child {
+    margin-bottom: 0;
+  }
+</style>
