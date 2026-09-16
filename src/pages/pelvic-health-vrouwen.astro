@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import { getDictionary } from '../i18n';
+import { SITE } from '../consts';
+
+const t = getDictionary('nl');
+const p = t.pelvicWomen;
+---
+
+<Layout
+  locale="nl"
+  t={t}
+  title={p.metaTitle}
+  description={p.metaDescription}
+  breadcrumb={[
+    { label: t.nav.pelvic, href: '/pelvic-health/' },
+    { label: t.nav.pelvicWomen, href: '/pelvic-health-vrouwen/' },
+  ]}
+>
+  <PageIntro eyebrow={p.eyebrow} title={p.title} intro={p.intro} />
+
+  <section class="section">
+    <div class="container">
+      <h2>{p.checklistTitle}</h2>
+      <ul class="check-list topic-list">
+        {p.checklist.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="secondary-heading">
+    <div class="container">
+      <h2 id="secondary-heading">{p.secondaryTitle}</h2>
+      <div class="secondary-text">
+        {p.secondaryText.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    title={t.home.ctaTitle}
+    text={t.home.ctaText}
+    ctaLabel={t.cta.contact}
+    ctaHref="/contact/"
+    phone={SITE.phone}
+    phoneHref={SITE.phoneHref}
+  />
+</Layout>
+
+<style>
+  .topic-list {
+    max-width: 46rem;
+  }
+
+  .secondary-text {
+    max-width: 62ch;
+  }
+</style>

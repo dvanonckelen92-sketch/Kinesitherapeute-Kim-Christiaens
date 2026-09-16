@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import CtaBanner from '../components/CtaBanner.astro';
+import InstagramIcon from '../components/InstagramIcon.astro';
 import { getDictionary } from '../i18n';
 import { SITE } from '../consts';
 
@@ -13,13 +14,12 @@ const h = t.home;
   <section class="hero">
     <div class="container hero-inner">
       <div class="hero-copy">
-        <p class="eyebrow">{h.heroEyebrow}</p>
+        <p class="hero-tagline">{h.heroTagline}</p>
         <h1>{h.heroTitle}</h1>
-        <p class="hero-subtitle">{h.heroSubtitle}</p>
-        <p class="hero-text text-muted">{h.heroText}</p>
+        {h.heroIntro.map((paragraph) => <p class="text-muted">{paragraph}</p>)}
         <div class="hero-actions">
           <a class="btn btn-primary" href="/contact/">{t.cta.contact}</a>
-          <a class="btn btn-secondary" href={SITE.phoneHref}>{t.cta.call}: {SITE.phone}</a>
+          <a class="btn btn-secondary" href="/over-kim/">{t.cta.discover}</a>
         </div>
       </div>
       <div class="hero-visual" aria-hidden="true">
@@ -37,24 +37,10 @@ const h = t.home;
     </div>
   </section>
 
-  <section class="section" aria-labelledby="about-heading">
-    <div class="container about-grid">
-      <div>
-        <p class="eyebrow">{t.nav.home}</p>
-        <h2 id="about-heading">{h.aboutTitle}</h2>
-      </div>
-      <div class="about-text">
-        {h.aboutText.map((paragraph) => <p>{paragraph}</p>)}
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-alt" aria-labelledby="services-heading">
+  <section class="section" aria-labelledby="services-heading">
     <div class="container">
       <div class="section-heading">
-        <p class="eyebrow">{t.cta.allServices}</p>
-        <h2 id="services-heading">{h.servicesTitle}</h2>
-        <p class="text-muted">{h.servicesIntro}</p>
+        <h2 id="services-heading">Waarmee kan ik je helpen</h2>
       </div>
       <div class="services-grid">
         {h.services.map((service) => <ServiceCard service={service} discoverLabel={t.cta.discover} />)}
@@ -62,32 +48,31 @@ const h = t.home;
     </div>
   </section>
 
-  <section class="section" aria-labelledby="why-heading">
+  <section class="section section-alt" aria-labelledby="wholebody-heading">
     <div class="container">
-      <h2 id="why-heading">{h.whyTitle}</h2>
-      <div class="why-grid">
-        {
-          h.whyItems.map((item) => (
-            <div class="why-item">
-              <h3>{item.title}</h3>
-              <p class="text-muted">{item.text}</p>
-            </div>
-          ))
-        }
+      <h2 id="wholebody-heading">{h.wholeBodyTitle}</h2>
+      <div class="wholebody-text">
+        {h.wholeBodyText.map((paragraph) => <p>{paragraph}</p>)}
       </div>
+      <h3 class="approach-heading">{h.approachTitle}</h3>
+      <ul class="check-list approach-list">
+        {h.approachItems.map((item) => <li>{item}</li>)}
+      </ul>
     </div>
   </section>
 
-  <section class="section section-alt" aria-labelledby="area-heading">
-    <div class="container area-grid">
+  <section class="section" aria-labelledby="brand-heading">
+    <div class="container brand-grid">
       <div>
-        <p class="eyebrow">Sint-Truiden · Heers · Haspengouw</p>
-        <h2 id="area-heading">{h.areaTitle}</h2>
-        <p class="text-muted">{h.areaText}</p>
+        <h2 id="brand-heading">{h.brandStoryTitle}</h2>
       </div>
-      <ul class="tag-list" aria-label={h.areaTitle}>
-        {h.areaPlaces.map((place) => <li class="tag">{place}</li>)}
-      </ul>
+      <div class="brand-text">
+        {h.brandStoryText.map((paragraph) => <p class="text-muted">{paragraph}</p>)}
+        <a class="btn btn-secondary" href={SITE.instagramUrl} target="_blank" rel="noopener noreferrer">
+          <InstagramIcon />
+          <span>{SITE.instagram}</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -119,15 +104,15 @@ const h = t.home;
     }
   }
 
-  .hero-subtitle {
+  .hero-tagline {
     font-weight: 700;
     color: var(--color-primary-dark);
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    margin: 0;
   }
 
-  .hero-text {
-    font-size: 1.1rem;
-    max-width: 52ch;
+  .hero-copy h1 {
+    margin-top: 0.6rem;
   }
 
   .hero-actions {
@@ -142,21 +127,6 @@ const h = t.home;
     margin-inline: auto;
   }
 
-  .about-grid {
-    display: grid;
-    gap: 2rem;
-  }
-
-  @media (min-width: 56em) {
-    .about-grid {
-      grid-template-columns: 0.8fr 1.2fr;
-    }
-  }
-
-  .about-text p {
-    font-size: 1.05rem;
-  }
-
   .section-heading {
     max-width: 60ch;
     margin-bottom: 2.5rem;
@@ -168,38 +138,31 @@ const h = t.home;
     grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   }
 
-  .why-grid {
-    display: grid;
-    gap: 1.75rem;
+  .wholebody-text {
+    max-width: 62ch;
+    font-size: 1.05rem;
+  }
+
+  .approach-heading {
     margin-top: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   }
 
-  .why-item h3 {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.6rem;
+  .approach-list {
+    max-width: 46rem;
   }
 
-  .why-item h3::before {
-    content: '';
-    width: 0.6rem;
-    height: 0.6rem;
-    margin-top: 0.55em;
-    border-radius: var(--radius-full);
-    background: var(--color-gold-strong);
-    flex-shrink: 0;
-  }
-
-  .area-grid {
+  .brand-grid {
     display: grid;
     gap: 2rem;
-    align-items: center;
   }
 
   @media (min-width: 56em) {
-    .area-grid {
-      grid-template-columns: 1.2fr 0.8fr;
+    .brand-grid {
+      grid-template-columns: 0.8fr 1.2fr;
     }
+  }
+
+  .brand-text p {
+    font-size: 1.05rem;
   }
 </style>

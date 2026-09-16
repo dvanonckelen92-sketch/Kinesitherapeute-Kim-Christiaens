@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import LectureRequestForm from '../components/LectureRequestForm.astro';
+import { getDictionary } from '../i18n';
+
+const t = getDictionary('nl');
+const l = t.lectures;
+---
+
+<Layout
+  locale="nl"
+  t={t}
+  title={l.metaTitle}
+  description={l.metaDescription}
+  breadcrumb={[{ label: t.nav.lectures, href: '/lezingen-en-workshops/' }]}
+>
+  <PageIntro eyebrow={l.eyebrow} title={l.title} />
+
+  <section class="section">
+    <div class="container intro-grid">
+      <div class="intro-text">
+        {l.intro.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="themes-heading">
+    <div class="container themes-grid">
+      <div>
+        <h2 id="themes-heading">{l.themesTitle}</h2>
+        <ul class="tag-list">
+          {l.themes.map((theme) => <li class="tag">{theme}</li>)}
+        </ul>
+      </div>
+      <div>
+        <h2>{l.audienceTitle}</h2>
+        <p class="text-muted">{l.audienceText}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container form-wrap">
+      <LectureRequestForm t={t} />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .intro-text {
+    max-width: 68ch;
+    font-size: 1.08rem;
+  }
+
+  .themes-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 56em) {
+    .themes-grid {
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+  }
+
+  .form-wrap {
+    max-width: 34rem;
+  }
+</style>

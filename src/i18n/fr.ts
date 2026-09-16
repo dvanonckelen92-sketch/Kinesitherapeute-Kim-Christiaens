@@ -1,7 +1,7 @@
-import type { UiDictionary } from './types';
+import type { FrDictionary } from './types';
 import { SITE } from '../consts';
 
-export const fr: UiDictionary = {
+export const fr: FrDictionary = {
   lang: 'fr',
   htmlLang: 'fr-BE',
   nav: {
@@ -39,7 +39,6 @@ export const fr: UiDictionary = {
     metaTitle: 'Kinésithérapie Kim Christiaens — Heers & Saint-Trond',
     metaDescription:
       'La kinésithérapeute Kim Christiaens à Heers vous accompagne en périnatalité, rééducation périnéale et thérapie manuelle. Plus de 10 ans d’expérience, région de Saint-Trond et Hesbaye.',
-    heroEyebrow: 'Kinésithérapie attentive',
     heroTitle: 'Une kinésithérapie personnalisée, à chaque étape de la vie',
     heroSubtitle: 'Accompagnement périnatal · Rééducation périnéale · Thérapie manuelle',
     heroText:
@@ -57,21 +56,18 @@ export const fr: UiDictionary = {
         description:
           'Accompagnement avant, pendant et après la grossesse : travail du plancher pelvien, préparation à l’accouchement, massage bébé et portage.',
         href: '/fr/accompagnement-perinatal/',
-        icon: 'perinatal',
       },
       {
         title: 'Rééducation périnéale',
         description:
           'Traitement des troubles urinaires, fécaux et sexuels, ainsi que des prolapsus, chez les femmes, les hommes et les enfants.',
         href: '/fr/reeducation-perineale/',
-        icon: 'pelvic',
       },
       {
         title: 'Thérapie manuelle',
         description:
           'Examen et traitement de l’appareil locomoteur en cas de troubles cervicaux, dorsaux, de hanche ou de genou.',
         href: '/fr/therapie-manuelle/',
-        icon: 'manual',
       },
     ],
     whyTitle: 'Pourquoi choisir ce cabinet ?',

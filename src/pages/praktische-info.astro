@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import { getDictionary } from '../i18n';
+import { SITE } from '../consts';
+
+const t = getDictionary('nl');
+const p = t.practical;
+
+const sections = [
+  { title: p.appointmentsTitle, text: p.appointmentsText },
+  { title: p.prescriptionTitle, text: p.prescriptionText },
+  { title: p.ratesTitle, text: p.ratesText },
+  { title: p.cancelTitle, text: p.cancelText },
+  { title: p.reachTitle, text: p.reachText },
+];
+---
+
+<Layout
+  locale="nl"
+  t={t}
+  title={p.metaTitle}
+  description={p.metaDescription}
+  breadcrumb={[{ label: t.nav.practical, href: '/praktische-info/' }]}
+>
+  <PageIntro eyebrow={p.eyebrow} title={p.title} intro={p.intro} />
+
+  <section class="section">
+    <div class="container">
+      <div class="practical-list">
+        {
+          sections.map((section) => (
+            <article class="practical-item card">
+              <h2>{section.title}</h2>
+              <p class="text-muted">{section.text}</p>
+            </article>
+          ))
+        }
+      </div>
+      <a class="btn btn-primary" href="/contact/">{t.cta.contact}</a>
+    </div>
+  </section>
+
+  <CtaBanner
+    title={t.home.ctaTitle}
+    text={t.home.ctaText}
+    ctaLabel={t.cta.contact}
+    ctaHref="/contact/"
+    phone={SITE.phone}
+    phoneHref={SITE.phoneHref}
+  />
+</Layout>
+
+<style>
+  .practical-list {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .practical-item h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+  }
+
+  .practical-item p {
+    margin: 0;
+  }
+</style>

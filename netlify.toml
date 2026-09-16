@@ -1,3 +1,23 @@
 [build]
   command = "npm run build"
   publish = "dist"
+
+[[redirects]]
+  from = "/bekkenbodemtherapie/"
+  to = "/pelvic-health/"
+  status = 301
+
+[[redirects]]
+  from = "/tarieven/"
+  to = "/praktische-info/"
+  status = 301
+
+[[redirects]]
+  from = "/perinatale-begeleiding/"
+  to = "/hormonen-en-levensfasen/"
+  status = 301
+
+[[redirects]]
+  from = "/manuele-therapie/"
+  to = "/bewegen-en-sport/"
+  status = 301

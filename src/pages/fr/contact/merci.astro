@@ -9,7 +9,6 @@ const ty = t.thankyou;
 <Layout locale="fr" t={t} title={ty.metaTitle} description={ty.metaDescription} altHref="/contact/bedankt/" noindex>
   <section class="section thank-you">
     <div class="container">
-      <p class="eyebrow">{t.nav.contact}</p>
       <h1>{ty.title}</h1>
       <p class="text-muted">{ty.text}</p>
       <a class="btn btn-primary" href="/fr/">{t.cta.backHome}</a>
@@ -21,10 +20,6 @@ const ty = t.thankyou;
   .thank-you {
     text-align: center;
     padding-block: clamp(4rem, 3rem + 4vw, 7rem);
-  }
-
-  .thank-you .eyebrow {
-    justify-content: center;
   }
 
   .thank-you .btn {

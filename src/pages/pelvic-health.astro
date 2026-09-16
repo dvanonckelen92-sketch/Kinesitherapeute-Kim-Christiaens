@@ -1,0 +1,102 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import { getDictionary } from '../i18n';
+import { SITE } from '../consts';
+
+const t = getDictionary('nl');
+const p = t.pelvicHome;
+---
+
+<Layout
+  locale="nl"
+  t={t}
+  title={p.metaTitle}
+  description={p.metaDescription}
+  breadcrumb={[{ label: t.nav.pelvic, href: '/pelvic-health/' }]}
+>
+  <PageIntro eyebrow={p.eyebrow} title={p.title} intro={p.intro} />
+
+  <section class="section" aria-labelledby="audiences-heading">
+    <div class="container">
+      <h2 id="audiences-heading" class="visually-hidden">Voor wie</h2>
+      <div class="audience-grid">
+        {
+          p.audiences.map((audience) => (
+            <a class="audience-card" href={audience.href}>
+              <h3>{audience.title}</h3>
+              <p class="text-muted">{audience.description}</p>
+              <span class="audience-link" aria-hidden="true">{t.cta.discover} →</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="expect-heading">
+    <div class="container">
+      <h2 id="expect-heading">{p.expectTitle}</h2>
+      <div class="expect-text">
+        {p.expectText.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    title={t.home.ctaTitle}
+    text={t.home.ctaText}
+    ctaLabel={t.cta.contact}
+    ctaHref="/contact/"
+    phone={SITE.phone}
+    phoneHref={SITE.phoneHref}
+  />
+</Layout>
+
+<style>
+  .audience-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  }
+
+  .audience-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    text-decoration: none;
+    color: var(--color-ink);
+    box-shadow: var(--shadow-card);
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+
+  .audience-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-gold-strong);
+    color: var(--color-ink);
+  }
+
+  .audience-card h3 {
+    margin: 0;
+  }
+
+  .audience-card p {
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .audience-link {
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-top: 0.5rem;
+  }
+
+  .expect-text {
+    max-width: 62ch;
+  }
+</style>

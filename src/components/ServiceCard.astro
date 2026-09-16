@@ -1,5 +1,4 @@
 ---
-import ServiceIcon from './ServiceIcon.astro';
 import type { ServiceSummary } from '../i18n/types';
 import type { UiDictionary } from '../i18n/types';
 
@@ -12,7 +11,6 @@ const { service, discoverLabel } = Astro.props;
 ---
 
 <a class="service-card" href={service.href}>
-  <ServiceIcon icon={service.icon} />
   <h3>{service.title}</h3>
   <p class="text-muted">{service.description}</p>
   <span class="service-card-link" aria-hidden="true">{discoverLabel} →</span>
@@ -41,7 +39,7 @@ const { service, discoverLabel } = Astro.props;
   }
 
   .service-card h3 {
-    margin: 0.25rem 0 0;
+    margin: 0;
   }
 
   .service-card p {

@@ -1,5 +1,13 @@
 export const SITE = {
   name: 'Kinesitherapie Kim Christiaens',
+  /** Korte merknaam, gebruikt als suffix in <title>-tags (binnen het tekenbudget van 50-60 tekens). */
+  brandName: 'The Happy Floor and More',
+  /** Volledige merklockup zoals op het logo: header, hero, alt-tekst van het logo. */
+  brandFull: 'The Happy Floor and More by Kim Christiaens',
+  /** Combinatie voor formele vermeldingen (schema.org, footer-copyright, og:site_name) zoals de brief vraagt. */
+  formalName: 'Kim Christiaens · The Happy Floor and More',
+  instagram: '@thehappyfloorandmore',
+  instagramUrl: 'https://www.instagram.com/thehappyfloorandmore/',
   phone: '+32 498 41 14 41',
   phoneHref: 'tel:+32498411441',
   email: 'info@kimchristiaens.be',

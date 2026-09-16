@@ -1,22 +1,23 @@
 :root {
   color-scheme: light;
 
-  /* Warm, accessible palette derived from the practice's original gold/amber identity */
+  /* Warm, natural palette derived from the "The Happy Floor and More" wordmark (terracotta + ink) */
   --color-bg: #ffffff;
-  --color-bg-alt: #fbf6ea;
-  --color-bg-alt-2: #fdecc8;
-  --color-ink: #211c14;
-  --color-ink-muted: #55503f;
-  --color-border: #e7dcc0;
+  --color-bg-alt: #faf5ec;
+  --color-bg-alt-2: #f3e3d5;
+  --color-ink: #2b2a25;
+  --color-ink-muted: #5a5648;
+  --color-border: #e6dcc9;
 
-  --color-primary: #7d202b; /* deep wine — links, primary buttons, icons */
-  --color-primary-dark: #5c1720;
-  --color-primary-soft: #f4e4e2;
+  --color-primary: #b95734; /* terracotta from the logo — links, primary buttons, icons */
+  --color-primary-dark: #8a4026;
+  --color-primary-soft: #f3ded4;
 
-  --color-gold-strong: #ffae0c; /* vivid amber — decorative surfaces/icons only, never as text color */
-  --color-gold-soft: #ffdb9e;
+  --color-gold-strong: #5b6a47; /* sage green — secondary "natural/green" accent, decorative surfaces/icons on light backgrounds */
+  --color-gold-soft: #dbe3cd;
+  --color-accent-on-dark: #d9835a; /* lightened terracotta — links/headings on the dark footer, needs to read on --color-ink */
 
-  --font-sans: 'Atkinson Hyperlegible', 'Open Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-sans: 'Digits No Slash', 'Atkinson Hyperlegible', 'Open Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-display: 'Source Serif 4 Variable', 'Source Serif 4', Georgia, 'Times New Roman', serif;
 
   --radius-md: 0.75rem;
@@ -27,6 +28,20 @@
   --shadow-card: 0 0.5rem 1.5rem -0.75rem rgba(33, 28, 20, 0.25);
 
   --container-width: 72rem;
+}
+
+/*
+ * Atkinson Hyperlegible draws its "0" with a diagonal slash (by design, to tell it apart
+ * from "O"). That reads as a typo/glitch in a warm, editorial site, so digits everywhere
+ * borrow Source Serif 4's plain numerals instead, via a unicode-range override ahead of
+ * Atkinson Hyperlegible in --font-sans. Everything else keeps using Atkinson Hyperlegible.
+ */
+@font-face {
+  font-family: 'Digits No Slash';
+  src: url('/fonts/source-serif-4-digits.woff2') format('woff2-variations'), url('/fonts/source-serif-4-digits.woff2') format('woff2');
+  font-weight: 200 900;
+  font-display: swap;
+  unicode-range: U+0030-0039;
 }
 
 *,
@@ -176,26 +191,6 @@ button:focus-visible {
   background: var(--color-bg-alt);
 }
 
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
-  font-family: var(--font-sans);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  color: var(--color-primary-dark);
-}
-
-.eyebrow::before {
-  content: '';
-  width: 1.75rem;
-  height: 0.2rem;
-  border-radius: var(--radius-full);
-  background: var(--color-gold-strong);
-}
-
 .btn {
   display: inline-flex;
   align-items: center;
@@ -238,12 +233,12 @@ button:focus-visible {
 
 .btn-gold {
   background: var(--color-gold-strong);
-  color: var(--color-ink);
+  color: #ffffff;
 }
 
 .btn-gold:hover {
-  background: #e69900;
-  color: var(--color-ink);
+  background: #465238;
+  color: #ffffff;
 }
 
 .card {
@@ -301,7 +296,7 @@ button:focus-visible {
   margin-top: 0.15em;
   border-radius: var(--radius-full);
   background-color: var(--color-gold-strong);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23211c14' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='4 12.5 9.5 18 20 5'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='4 12.5 9.5 18 20 5'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 58%;

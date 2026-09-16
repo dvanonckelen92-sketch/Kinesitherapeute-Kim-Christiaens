@@ -9,6 +9,8 @@ interface Props {
 
 const { t, formName, actionHref } = Astro.props;
 const f = t.contact.form;
+const nlForm = t.lang === 'nl' ? t.contact.form : null;
+const privacyHref = t.lang === 'nl' ? '/privacybeleid/' : '/fr/politique-de-confidentialite/';
 ---
 
 <form
@@ -30,7 +32,7 @@ const f = t.contact.form;
 
   <div class="form-field">
     <label for={`${formName}-name`}>{f.name}</label>
-    <input type="text" id={`${formName}-name`} name="naam" autocomplete="name" required />
+    <input type="text" id={`${formName}-name`} name="naam" autocomplete="name" minlength="2" required />
   </div>
 
   <div class="form-field">
@@ -40,13 +42,65 @@ const f = t.contact.form;
 
   <div class="form-field">
     <label for={`${formName}-phone`}>{f.phone} <span class="text-muted">({f.phoneOptional})</span></label>
-    <input type="tel" id={`${formName}-phone`} name="telefoon" autocomplete="tel" />
+    <input
+      type="tel"
+      id={`${formName}-phone`}
+      name="telefoon"
+      autocomplete="tel"
+      inputmode="numeric"
+      pattern="\+?[0-9\s]{8,15}"
+      title="Gebruik alleen cijfers en eventueel een + vooraan (minstens 8 cijfers)"
+    />
   </div>
+
+  {
+    nlForm && (
+      <div class="form-field">
+        <label for={`${formName}-subject`}>{nlForm.subject}</label>
+        <input type="text" id={`${formName}-subject`} name="onderwerp" minlength="2" />
+      </div>
+    )
+  }
 
   <div class="form-field">
     <label for={`${formName}-message`}>{f.message}</label>
-    <textarea id={`${formName}-message`} name="bericht" rows="5" required></textarea>
+    <textarea id={`${formName}-message`} name="bericht" rows="5" minlength="10" required></textarea>
   </div>
+
+  {
+    nlForm && (
+      <fieldset class="form-field">
+        <legend>{nlForm.preferredContactLabel}</legend>
+        <div class="radio-row">
+          <label>
+            <input type="radio" name="voorkeur_contact" value={nlForm.preferredContactEmail} checked />
+            {nlForm.preferredContactEmail}
+          </label>
+          <label>
+            <input type="radio" name="voorkeur_contact" value={nlForm.preferredContactMessage} />
+            {nlForm.preferredContactMessage}
+          </label>
+          <label>
+            <input type="radio" name="voorkeur_contact" value={nlForm.preferredContactPhone} />
+            {nlForm.preferredContactPhone}
+          </label>
+        </div>
+      </fieldset>
+    )
+  }
+
+  {
+    nlForm && (
+      <p class="consent-field text-muted">
+        <label>
+          <input type="checkbox" name="toestemming" required />
+          <span>
+            {nlForm.consent} <a href={privacyHref}>{nlForm.privacyLink}</a>.
+          </span>
+        </label>
+      </p>
+    )
+  }
 
   <button type="submit" class="btn btn-primary">{f.submit}</button>
 </form>
@@ -100,5 +154,53 @@ const f = t.contact.form;
 
   .contact-form .btn {
     justify-self: start;
+  }
+
+  fieldset.form-field {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  fieldset.form-field legend {
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0;
+    margin-bottom: 0.4rem;
+  }
+
+  .radio-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.25rem;
+  }
+
+  .radio-row label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .radio-row input[type='radio'],
+  .consent-field input[type='checkbox'] {
+    accent-color: var(--color-primary);
+  }
+
+  .consent-field {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .consent-field label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5em;
+  }
+
+  .consent-field input[type='checkbox'] {
+    margin-top: 0.2em;
+    flex-shrink: 0;
   }
 </style>

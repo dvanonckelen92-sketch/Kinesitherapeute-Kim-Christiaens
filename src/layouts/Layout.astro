@@ -15,23 +15,29 @@ interface Props {
   t: UiDictionary;
   title: string;
   description: string;
-  altHref: string;
+  /** FR/NL alternate for this exact page, or undefined when no direct translation exists yet. */
+  altHref?: string;
   noindex?: boolean;
+  /** Optional breadcrumb trail (excluding home), used for BreadcrumbList structured data. */
+  breadcrumb?: { label: string; href: string }[];
 }
 
-const { locale, t, title, description, altHref, noindex = false } = Astro.props;
+const { locale, t, title, description, altHref, noindex = false, breadcrumb = [] } = Astro.props;
 const currentPath = Astro.url.pathname;
 const canonicalURL = new URL(currentPath, Astro.site);
-const nlURL = new URL(locale === 'nl' ? currentPath : altHref, Astro.site);
-const frURL = new URL(locale === 'fr' ? currentPath : altHref, Astro.site);
+const nlURL = altHref ? new URL(locale === 'nl' ? currentPath : altHref, Astro.site) : undefined;
+const frURL = altHref ? new URL(locale === 'fr' ? currentPath : altHref, Astro.site) : undefined;
 const ogImageURL = new URL('/og-image.jpg', Astro.site);
+const homeHref = locale === 'nl' ? '/' : '/fr/';
 
-const jsonLd = {
+const jsonLd: Record<string, unknown> = {
   '@context': 'https://schema.org',
-  '@type': 'PhysicalTherapy',
-  name: SITE.name,
+  '@type': ['MedicalBusiness', 'PhysicalTherapy'],
+  name: SITE.formalName,
+  alternateName: SITE.brandFull,
   telephone: SITE.phone,
   email: SITE.email,
+  sameAs: [SITE.instagramUrl],
   address: {
     '@type': 'PostalAddress',
     streetAddress: SITE.address.street,
@@ -47,6 +53,20 @@ const jsonLd = {
   areaServed: ['Heers', 'Sint-Truiden', 'Borgloon', 'Tongeren', 'Landen', 'Waremme'],
   url: canonicalURL.toString(),
 };
+
+const breadcrumbLd =
+  breadcrumb.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [{ label: t.nav.home, href: homeHref }, ...breadcrumb].map((item, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: item.label,
+          item: new URL(item.href, Astro.site).toString(),
+        })),
+      }
+    : undefined;
 ---
 
 <!doctype html>
@@ -56,19 +76,19 @@ const jsonLd = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/png" href="/logo.png" />
     <link rel="apple-touch-icon" href="/logo.png" />
-    <meta name="theme-color" content="#fbf6ea" />
+    <meta name="theme-color" content="#faf5ec" />
     <meta name="generator" content={Astro.generator} />
 
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
     <link rel="canonical" href={canonicalURL} />
-    <link rel="alternate" hreflang="nl-BE" href={nlURL} />
-    <link rel="alternate" hreflang="fr-BE" href={frURL} />
-    <link rel="alternate" hreflang="x-default" href={nlURL} />
+    {nlURL && <link rel="alternate" hreflang="nl-BE" href={nlURL} />}
+    {frURL && <link rel="alternate" hreflang="fr-BE" href={frURL} />}
+    {nlURL && <link rel="alternate" hreflang="x-default" href={nlURL} />}
 
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:site_name" content={SITE.formalName} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
@@ -76,17 +96,18 @@ const jsonLd = {
     <meta property="og:image" content={ogImageURL} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={SITE.name} />
+    <meta property="og:image:alt" content={SITE.formalName} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageURL} />
 
     <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+    {breadcrumbLd && <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbLd)} />}
   </head>
   <body>
     <a class="skip-link" href="#main-content">{t.nav.skipToContent}</a>
-    <Header locale={locale} t={t} currentPath={currentPath} altHref={altHref} />
+    <Header locale={locale} t={t} currentPath={currentPath} />
     <main id="main-content" tabindex="-1">
       <slot />
     </main>

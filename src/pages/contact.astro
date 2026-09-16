@@ -14,12 +14,24 @@ const mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&lay
 const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}`;
 ---
 
-<Layout locale="nl" t={t} title={c.metaTitle} description={c.metaDescription} altHref="/fr/contact/">
-  <PageIntro eyebrow={t.nav.contact} title={c.title} intro={c.intro} />
+<Layout
+  locale="nl"
+  t={t}
+  title={c.metaTitle}
+  description={c.metaDescription}
+  altHref="/fr/contact/"
+  breadcrumb={[{ label: t.nav.contact, href: '/contact/' }]}
+>
+  <PageIntro eyebrow={c.eyebrow} title={c.title} intro={c.intro} />
 
   <section class="section">
     <div class="container contact-grid">
       <div class="contact-cards">
+        <div class="card contact-card contact-card-primary">
+          <h2>{c.emailTitle}</h2>
+          <p><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+          <a class="btn btn-primary" href={`mailto:${SITE.email}`}>{t.cta.email}</a>
+        </div>
         <div class="card contact-card">
           <h2>{c.addressTitle}</h2>
           <p>{SITE.address.street}<br />{SITE.address.postal}</p>
@@ -27,14 +39,10 @@ const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${lat
             {c.mapTitle}
           </a>
         </div>
-        <div class="card contact-card">
+        <div class="contact-card-minor">
           <h2>{c.phoneTitle}</h2>
           <p><a href={SITE.phoneHref}>{SITE.phone}</a></p>
           <p class="text-muted">{c.formNote}</p>
-        </div>
-        <div class="card contact-card">
-          <h2>{c.emailTitle}</h2>
-          <p><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
         </div>
       </div>
 
@@ -57,16 +65,8 @@ const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${lat
 
   <section class="section">
     <div class="container">
-      <h2>{c.linksTitle}</h2>
-      <ul class="links-list">
-        {
-          c.links.map((link) => (
-            <li>
-              <a href={link.href}>{link.label}</a>
-            </li>
-          ))
-        }
-      </ul>
+      <h2>{c.practiceNoteTitle}</h2>
+      <p class="text-muted practice-note">{c.practiceNoteText}</p>
     </div>
   </section>
 </Layout>
@@ -98,6 +98,37 @@ const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${lat
     margin-top: 0.75rem;
   }
 
+  .contact-card-primary {
+    border-color: var(--color-primary);
+    border-width: 2px;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .contact-card-primary h2 {
+    color: var(--color-primary-dark);
+  }
+
+  .contact-card-minor {
+    padding-inline: 0.25rem;
+  }
+
+  .contact-card-minor h2 {
+    margin: 0 0 0.4rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .contact-card-minor p {
+    font-size: 0.95rem;
+  }
+
+  .contact-card-minor a {
+    color: var(--color-ink-muted);
+  }
+
   .map-wrap {
     border-radius: var(--radius-lg);
     overflow: hidden;
@@ -112,17 +143,8 @@ const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${lat
     border: 0;
   }
 
-  .links-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    gap: 0.75rem;
-    max-width: 40rem;
-  }
-
-  .links-list a {
-    font-weight: 600;
+  .practice-note {
+    max-width: 60ch;
   }
 
   .contact-form-wrap {

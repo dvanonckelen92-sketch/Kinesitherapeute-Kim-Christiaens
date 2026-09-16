@@ -1,15 +1,21 @@
-import type { UiDictionary } from './types';
+import type { NlDictionary } from './types';
 import { SITE } from '../consts';
 
-export const nl: UiDictionary = {
+export const nl: NlDictionary = {
   lang: 'nl',
   htmlLang: 'nl-BE',
   nav: {
     home: 'Home',
-    perinatal: 'Perinatale begeleiding',
-    pelvic: 'Bekkenbodemtherapie',
-    manual: 'Manuele therapie',
-    rates: 'Tarieven',
+    about: 'Over Kim',
+    pelvic: 'Pelvic health',
+    pelvicHome: 'Overzicht pelvic health',
+    pelvicWomen: 'Vrouwen',
+    pelvicMen: 'Mannen',
+    pelvicChildren: 'Kinderen',
+    hormones: 'Hormonen en levensfasen',
+    movement: 'Bewegen en sport',
+    lectures: 'Lezingen en workshops',
+    practical: 'Praktische info',
     contact: 'Contact',
     menu: 'Menu',
     closeMenu: 'Menu sluiten',
@@ -19,14 +25,14 @@ export const nl: UiDictionary = {
   cta: {
     call: 'Bel nu',
     email: 'Stuur een e-mail',
-    contact: 'Neem contact op',
+    contact: 'Maak een afspraak',
     discover: 'Meer weten',
-    allServices: 'Alle behandelingen',
+    allServices: 'Alle begeleiding',
     backHome: 'Terug naar home',
   },
   footer: {
-    tagline: 'Perinatale begeleiding, bekkenbodemtherapie en manuele therapie in Heers, Sint-Truiden en Haspengouw.',
-    servicesTitle: 'Behandelingen',
+    tagline: 'Pelvic health, hormonale gezondheid en bewegen in Heers, regio Sint-Truiden en Haspengouw.',
+    servicesTitle: 'Begeleiding',
     contactTitle: 'Contact',
     rights: 'Alle rechten voorbehouden.',
     privacyLink: 'Privacybeleid',
@@ -35,326 +41,348 @@ export const nl: UiDictionary = {
     madeByLink: 'Coop Consult',
   },
   home: {
-    metaTitle: 'Kinesitherapie Kim Christiaens — Heers & Sint-Truiden',
+    metaTitle: 'Bekkenbodem, hormonen en bewegen | The Happy Floor and More',
     metaDescription:
-      'Kinesitherapeute Kim Christiaens in Heers begeleidt je bij perinatale zorg, bekkenbodemtherapie en manuele therapie. Meer dan 10 jaar ervaring, regio Sint-Truiden en Haspengouw.',
-    heroEyebrow: 'Kinesitherapie met aandacht',
-    heroTitle: 'Persoonlijke kinesitherapie voor elke levensfase',
-    heroSubtitle: 'Perinatale begeleiding · Bekkenbodemtherapie · Manuele therapie',
-    heroText:
-      'Meer dan 10 jaar ervaring en een bijzondere beroepsbekwaamheid in pelvische revalidatie en perinatale kinesitherapie, in een rustige praktijk in Heers.',
-    aboutTitle: 'Over de praktijk',
-    aboutText: [
-      'Naast meer dan 10 jaar ervaring als kinesitherapeute en het volgen van allerhande opleidingen, waaronder een postgraduaat manuele therapie, heb ik ook een bijzondere beroepsbekwaamheid in de pelvische revalidatie en perinatale kinesitherapie.',
-      'Naast begeleiding van vrouwen in de perinatale periode, richt deze tak van de kinesitherapie zich ook op de behandeling van klachten van de bekkenbodem, en dit bij mannen, vrouwen en kinderen. Daarnaast wordt de bekkenbodem bekeken als een belangrijke schakel in het stabiliserend spiercorset.',
+      'Kim Christiaens begeleidt vrouwen, mannen en kinderen bij pelvic health, hormonale levensfasen en bewegen. Praktijk in Heers, regio Sint-Truiden en Haspengouw.',
+    heroTagline: 'Pelvic health · Women’s health · Men’s health · Hormonen · Bewegen',
+    heroTitle: 'Je lichaam begrijpen. Voelen. Bewegen. Vertrouwen.',
+    heroIntro: [
+      'Welkom. Ik ben Kim Christiaens, kinesitherapeute gespecialiseerd in pelvic health, hormonale gezondheid en bewegen. Wat begon vanuit mijn passie voor de bekkenbodem, groeide uit tot een bredere kijk op het lichaam: hormonen, ademhaling, beweging, kracht, slaap, stress, herstel en seksualiteit zijn allemaal met elkaar verbonden.',
+      'Ik begeleid vrouwen, mannen en kinderen bij klachten die vaak een grote invloed hebben op het dagelijkse leven, maar waarover niet altijd gemakkelijk gesproken wordt. Denk aan urineverlies, pijn, verzakkingsklachten, plas- en stoelgangproblemen, seksuele klachten of veranderingen tijdens en na een zwangerschap, in de perimenopauze en de menopauze.',
+      'Daarbij kijk ik verder dan de plaats waar je je klacht voelt. Ademhaling, beweging, kracht, spanning, slaap, herstel, hormonen en dagelijkse belasting kunnen allemaal meespelen. Samen zoeken we naar wat jij nodig hebt om je lichaam beter te begrijpen, vrijer te bewegen en opnieuw te vertrouwen in wat het kan.',
     ],
-    servicesTitle: 'Waarmee kan ik je helpen?',
-    servicesIntro: 'Drie gespecialiseerde behandelingen, telkens op maat van jouw lichaam en jouw verhaal.',
     services: [
       {
-        title: 'Perinatale begeleiding',
-        description:
-          'Begeleiding voor, tijdens en na de zwangerschap: van bekkenbodemwerk en bevallingsvoorbereiding tot babymassage en dragen.',
-        href: '/perinatale-begeleiding/',
-        icon: 'perinatal',
+        title: 'Pelvic health',
+        description: 'Begeleiding bij klachten van bekkenbodem, blaas, darmen, pijn en seksualiteit, voor vrouwen, mannen en kinderen.',
+        href: '/pelvic-health/',
       },
       {
-        title: 'Bekkenbodemtherapie',
-        description:
-          'Behandeling van urinaire, faecale en seksuele klachten en verzakkingen bij vrouwen, mannen en kinderen.',
-        href: '/bekkenbodemtherapie/',
-        icon: 'pelvic',
+        title: 'Hormonen en levensfasen',
+        description: 'Inzicht en ondersteuning bij lichamelijke veranderingen doorheen cyclus, zwangerschap, perimenopauze en menopauze.',
+        href: '/hormonen-en-levensfasen/',
       },
       {
-        title: 'Manuele therapie',
-        description:
-          'Onderzoek en behandeling van het bewegingsapparaat bij nek-, rug-, heup- en knieklachten.',
-        href: '/manuele-therapie/',
-        icon: 'manual',
+        title: 'Bewegen en sport',
+        description: 'Gericht werken aan kracht, herstel, coördinatie en vertrouwen in bewegen, ook na blessures of zwangerschap.',
+        href: '/bewegen-en-sport/',
+      },
+      {
+        title: 'Lezingen en workshops',
+        description: 'Begrijpelijke kennis, herkenning en concrete handvatten voor groepen, sporters en zorgprofessionals.',
+        href: '/lezingen-en-workshops/',
       },
     ],
-    whyTitle: 'Waarom kiezen voor deze praktijk?',
-    whyItems: [
-      {
-        title: '10+ jaar ervaring',
-        text: 'Jarenlange klinische ervaring, aangevuld met een postgraduaat manuele therapie en gespecialiseerde bijscholingen.',
-      },
-      {
-        title: 'Erkende specialisatie',
-        text: 'Bijzondere beroepsbekwaamheid in pelvische revalidatie en perinatale kinesitherapie.',
-      },
-      {
-        title: 'Aandacht voor elke patiënt',
-        text: 'Voor vrouwen, mannen en kinderen, met een persoonlijke aanpak op maat van jouw klachten.',
-      },
-      {
-        title: 'Rustige, toegankelijke praktijk',
-        text: 'Een praktijk in Heers, vlot bereikbaar vanuit Sint-Truiden, Haspengouw en het naburige Waalse en Franse grensgebied.',
-      },
+    wholeBodyTitle: 'Een bekkenbodem staat nooit op zichzelf',
+    wholeBodyText: [
+      'Een klacht ontstaat zelden door één spier die simpelweg te zwak of te gespannen is. Hoe je ademt, beweegt, herstelt en omgaat met belasting speelt mee. Ook hormonale veranderingen, stress, slaap, eerdere ervaringen en de fase van je leven kunnen invloed hebben.',
+      'Daarom start begeleiding voor mij met luisteren, onderzoeken en uitleggen. Van daaruit bouwen we een aanpak op die past bij jouw lichaam, jouw verhaal en jouw doelen.',
     ],
-    areaTitle: 'Praktijk in Heers, ook bereikbaar vanuit',
-    areaText:
-      'De praktijk is gevestigd in Heers (Rukkelingen-Loon), op korte afstand van Sint-Truiden. Patiënten uit de ruimere Haspengouwse regio en het aangrenzende Franstalige grensgebied zijn ook van harte welkom.',
-    areaPlaces: ['Heers', 'Sint-Truiden', 'Borgloon', 'Tongeren', 'Landen', 'Waremme'],
+    approachTitle: 'Mijn manier van werken',
+    approachItems: [
+      'Tijd en aandacht voor jouw verhaal',
+      'Duidelijke uitleg over wat er in je lichaam gebeurt',
+      'Onderzoek en behandeling afgestemd op jouw hulpvraag',
+      'Concrete oefeningen en handvatten voor thuis',
+      'Samenwerken met artsen en andere zorgverleners wanneer dat zinvol is',
+    ],
+    brandStoryTitle: 'The Happy Floor and More is mijn bredere verhaal',
+    brandStoryText: [
+      'The Happy Floor and More groeide vanuit mijn passie voor de bekkenbodem en vat samen hoe ik vandaag naar gezondheid kijk. Mijn werk gaat over alles wat met je bekkenbodem verbonden is: hormonen, ademhaling, beweging, kracht, herstel, seksualiteit en je goed voelen in je lichaam.',
+      'De naam verbindt mijn begeleiding, lezingen, workshops en Instagram in één herkenbaar verhaal. Waar je mij ook tegenkomt, je mag dezelfde warme, deskundige en brede benadering verwachten. Volg @thehappyfloorandmore voor inzichten, herkenbare verhalen en praktische informatie.',
+    ],
     ctaTitle: 'Klaar om kennis te maken?',
     ctaText: 'Neem gerust contact op voor een afspraak of met al je vragen. Ik help je graag verder.',
   },
-  perinatal: {
-    metaTitle: 'Perinatale begeleiding — Kinesitherapie Kim Christiaens',
+  about: {
+    metaTitle: 'Over Kim Christiaens | The Happy Floor and More',
     metaDescription:
-      'Begeleiding voor en na de bevalling: prenatale voorbereiding, postnatale revalidatie, babymassage en dragen. Praktijk in Heers, regio Sint-Truiden.',
-    title: 'Perinatale begeleiding',
-    intro:
-      'Zwanger worden, bevallen en moeder worden is een unieke ervaring. Ik begeleid je graag doorheen elke fase, met aandacht voor je lichaam en je herstel.',
-    subServices: [
-      {
-        id: 'prenataal',
-        title: 'Prenataal: bewust zwanger en bevallen',
-        sections: [
-          {
-            title: 'Wat mag je verwachten?',
-            items: [
-              'Leren aanvoelen van de bekkenbodem',
-              'Informatie over het verloop van een zwangerschap en bevalling',
-              'Leren gebruikmaken van bal en ademhaling om weeën op te vangen',
-              'De partner leert om actief te begeleiden',
-              'Behandeling van rug- en bekkenklachten',
-            ],
-          },
-        ],
-      },
-      {
-        id: 'postnataal',
-        title: 'Postnataal: actief moeder zijn',
-        sections: [
-          {
-            title: 'Wat mag je verwachten?',
-            items: [
-              'Versterken van de bekkenbodem en de juiste balans tussen opspannen en loslaten',
-              'Versterken van het bekkencorset en stabilisatietraining',
-              'Reconditionering na de bevalling',
-            ],
-          },
-        ],
-      },
-      {
-        id: 'babymassage',
-        title: 'Babymassage',
-        lead:
-          'Babymassage is een prettige manier om als ouder je baby beter te leren kennen en ermee om te gaan.',
-        sections: [
-          {
-            title: 'Doel',
-            items: [
-              'Baby tot rust leren brengen',
-              'Verlichting bij darmkrampjes en moeilijke stoelgang',
-            ],
-          },
-        ],
-      },
-      {
-        id: 'dragen',
-        title: 'Dragen',
-        lead:
-          'Je baby heeft negen maanden in een knusse, begrensde ruimte vertoefd, waarin het constant gewiegd en gedragen werd, en afgeschermd was voor harde prikkels. Na de geboorte komt je kindje in een grote, koude wereld terecht met veel licht en onbekende geluiden. Daarom is het belangrijk dat het kindje vooral tijdens de eerste levensmaanden veel lichaamscontact en aanrakingen heeft. Een draagdoek is hier perfect voor, en ondertussen hebben ouders hun handen vrij.',
-        sections: [
-          {
-            title: 'Tijdens een consult',
-            items: [
-              'Uitleg over de verschillende manieren van dragen: rekbare doek, geweven doek, draagzak',
-              'De ergonomie van kindje en drager staat centraal',
-              'Aanleren van knopen voor buik- en rugdragen',
-              'Je leert hoe je je draagzak correct afstelt',
-            ],
-          },
-        ],
-      },
-      {
-        id: 'groepslessen',
-        title: 'Groepslessen',
-        lead: 'Binnenkort beschikbaar. Neem gerust contact op om op de hoogte te blijven.',
-        sections: [],
-      },
-    ],
-  },
-  pelvic: {
-    metaTitle: 'Bekkenbodemtherapie — Kinesitherapie Kim Christiaens',
-    metaDescription:
-      'Bekkenbodemtherapie voor vrouwen, mannen en kinderen: urinaire, faecale en seksuele klachten, verzakkingen en meer. Praktijk in Heers, regio Sint-Truiden.',
-    title: 'Bekkenbodemtherapie',
-    intro:
-      'De bekkenbodem speelt een belangrijke rol bij continentie, seksualiteit en houding. Klachten komen voor bij vrouwen, mannen en kinderen, en zijn vaak goed te behandelen.',
-    groups: [
-      {
-        id: 'vrouwen',
-        title: 'Vrouwen',
-        categories: [
-          {
-            title: 'Urinaire problemen',
-            items: [
-              'Stress-incontinentie, urge-incontinentie',
-              'Dysfunctional voiding',
-              'Na chirurgische ingrepen, bv. TOT (transobturatorius tape), TVT (tensionfree vaginal tape)',
-            ],
-          },
-          {
-            title: 'Faecale problemen',
-            items: ['Incontinentie', 'Constipatie', 'Anorectale pijnklachten'],
-          },
-          {
-            title: 'Seksuele problemen',
-            items: ['Vaginisme', 'Dyspareunie (pijn bij betrekkingen)', 'Vulvodynie'],
-          },
-          {
-            title: 'Prolaps',
-            items: ['Verzakkingen'],
-          },
-        ],
-        treatments: {
-          title: 'Kinebehandelingen',
-          items: [
-            'Leren ontspannen van de bekkenbodem',
-            'Versterken van de bekkenbodem',
-            'Drank- en plasschema’s',
-            'Elektrostimulatie',
-            'Biofeedback',
-            'Ballontherapie',
-            'Houdingscorrectie en stabilisatietraining',
-          ],
-        },
-      },
-      {
-        id: 'mannen',
-        title: 'Mannen',
-        categories: [
-          {
-            title: 'Urinaire problemen',
-            items: [
-              'Incontinentie',
-              'Dysfunctional voiding',
-              'Na chirurgische ingrepen, bv. prostatectomie',
-            ],
-          },
-          {
-            title: 'Faecale problemen',
-            items: ['Incontinentie', 'Constipatie', 'Anorectale pijnklachten'],
-          },
-          {
-            title: 'Seksuele problemen',
-            items: ['Vroegtijdige ejaculatie', 'Erectiestoornissen'],
-          },
-        ],
-        treatments: {
-          title: 'Kinebehandelingen',
-          items: [
-            'Leren ontspannen van de bekkenbodem',
-            'Versterken van de bekkenbodem',
-            'Drank- en plasschema’s',
-            'Elektrostimulatie',
-            'Biofeedback',
-            'Ballontraining',
-            'Houdingscorrectie en stabilisatietraining',
-          ],
-        },
-      },
-      {
-        id: 'kinderen',
-        title: 'Kinderen',
-        categories: [
-          {
-            title: 'Urinaire problemen',
-            items: ['Bedplassen', 'Urineverlies'],
-          },
-          {
-            title: 'Darmproblemen',
-            items: ['Stoelgangsverlies', 'Constipatie'],
-          },
-          {
-            title: 'Ophoudgedrag',
-            items: [],
-          },
-        ],
-        treatments: {
-          title: 'Kinebehandeling',
-          items: [
-            'Plas- en drankschema',
-            'Dag- en nachtwekkers',
-            'Aanleren van ontspannen en opspannen van de bekkenbodem',
-            'Elektrostimulatie',
-            'Biofeedback',
-            'Ballontherapie',
-            'Massage',
-            'Stabilisatietraining en houdingscorrectie',
-          ],
-        },
-      },
-    ],
-  },
-  manual: {
-    metaTitle: 'Manuele therapie — Kinesitherapie Kim Christiaens',
-    metaDescription:
-      'Manuele therapie voor hoofd-, nek-, rug-, heup- en knieklachten. Onderzoek en behandeling van het bewegingsapparaat. Praktijk in Heers, regio Sint-Truiden.',
-    title: 'Manuele therapie',
+      'Kim Christiaens is kinesitherapeute met een bijzondere beroepsbekwaamheid in pelvische revalidatie, perinatale kinesitherapie en hormonale gezondheid.',
+    eyebrow: 'Over Kim',
+    title: 'Nieuwsgierig naar het lichaam en naar het verhaal erachter',
     intro: [
-      'Manuele therapie is bedoeld om klachten in het bewegingsapparaat te onderzoeken en te behandelen. Vaak is een overbelasting van een spier-pees-gewricht de oorzaak van de klacht, waardoor bewegen moeilijk en pijnlijk wordt.',
-      'De manueel therapeut gebruikt specifieke bewegingen — mobilisaties en manipulaties — om de functiestoornis te herstellen. Daarnaast wordt ook aandacht besteed aan actieve revalidatie via stretching en actieve oefeningen.',
+      'Ik ben Kim Christiaens, kinesitherapeute en voortdurend nieuwsgierig naar hoe het lichaam werkt, verandert en zich aanpast.',
+      'Mijn interesse in pelvic health is doorheen de jaren steeds groter geworden. Niet alleen omdat de bekkenbodem een fascinerend stukje anatomie is, maar vooral omdat klachten in het bekken zo’n grote invloed kunnen hebben op hoe iemand zich voelt, beweegt en leeft. Ik vind het belangrijk dat daarover gepraat kan worden, zonder schaamte, zonder taboes en zonder het gevoel dat je lichaam je in de steek laat.',
+      'Door mijn opleidingen en ervaring specialiseerde ik me in pelvische revalidatie, perinatale kinesitherapie, manuele therapie, women’s health, men’s pelvic health en hormonale gezondheid. Tegelijk werd mijn kijk breder. Ik kijk niet alleen naar een spier of gewricht, maar naar de persoon die voor mij zit: hoe beweeg je, hoe belast en herstel je, wat verandert er in je leven en wat vertelt je lichaam? Dat zijn vaak belangrijkere vragen dan alleen waar het pijn doet.',
     ],
-    indicationsTitle: 'Voor welke klachten is manuele therapie geschikt?',
-    indications: [
-      'Hoofd- en nekpijn',
-      'Nek- en schouderklachten, eventueel uitstralend naar de arm of vingers',
-      'Lage rugklachten en bekkenklachten',
-      'Heup- en/of knieklachten',
+    approachTitle: 'Mijn manier van werken',
+    approachText: [
+      'Ik hou van duidelijke uitleg, praktische handvatten en samen zoeken naar wat werkt. Ik wil dat je na een consult niet alleen naar huis gaat met oefeningen, maar ook met meer inzicht en vertrouwen in je eigen lichaam.',
+      'Het uiteindelijke doel is niet dat je afhankelijk blijft van therapie, maar dat je opnieuw weet wat je lichaam nodig heeft en hoe je daar zelf mee aan de slag kunt.',
+    ],
+    educationTitle: 'Opleidingen en expertise',
+    educationIntro:
+      'Een beknopte selectie toont de basisopleiding, erkende bijzondere beroepsbekwaamheid en vervolgopleidingen die rechtstreeks aansluiten bij het huidige aanbod.',
+    education: [
+      'Master in de revalidatiewetenschappen en kinesitherapie, optie pediatrische revalidatie — KU Leuven, 2007',
+      'Manuele therapie — VMTV, 2011',
+      'Bijzondere beroepsbekwaamheid in de pelvische reëducatie en perinatale kinesitherapie — interuniversitaire opleiding, 2017',
+      'Dry Needling Pelvic Floor — Gahl, De Berekuyl, 2021',
+      'Postgraduaat Lifestylecoaching en kinesitherapie, 2022',
+      'Pelvic Organ Prolapse Program, pessariumtherapie — dr. N’Dongo Abdallahi, BICAP, 2022',
+      'The Athletic Pelvis — Bill Taylor, 2023',
+      'Postgraduaat Body in Balance, Muscle Chains — FICO, 2024-2025',
+      'Biofeedback and Ultrasound in Pelvic Health — Montse Rejano, 2025',
+      'Women in Balance: expert in cyclus en menopauze — SmartEducation, 2026',
     ],
   },
-  rates: {
-    metaTitle: 'Tarieven — Kinesitherapie Kim Christiaens',
-    metaDescription: 'Tarieven kinesitherapie Kim Christiaens, praktijk in Heers, regio Sint-Truiden.',
-    title: 'Tarieven',
-    intro: 'Een duidelijk overzicht van de behandelingskost.',
-    items: [
-      { label: 'Statuut', value: 'Gedeconventioneerd' },
-      { label: 'Tarief courante behandeling', value: '€ 31,50' },
+  pelvicHome: {
+    metaTitle: 'Pelvic health Heers | The Happy Floor and More',
+    metaDescription:
+      'Begeleiding bij bekkenbodemklachten voor vrouwen, mannen en kinderen: urineverlies, pijn, verzakking en meer. Praktijk in Heers, regio Sint-Truiden.',
+    eyebrow: 'Pelvic health',
+    title: 'Klachten in het bekken verdienen aandacht',
+    intro:
+      'Bekkenbodemklachten komen vaak voor, maar kunnen heel persoonlijk en moeilijk bespreekbaar zijn. Je hoeft niet precies te weten welke spier of structuur het probleem veroorzaakt. We beginnen bij wat jij ervaart en wat je opnieuw wilt kunnen.',
+    audiences: [
+      {
+        title: 'Vrouwen',
+        description: 'Urineverlies, verzakking, pijn, endometriose, PCOS, cyclus- en vruchtbaarheidsklachten, zwangerschap en postpartum.',
+        href: '/pelvic-health-vrouwen/',
+      },
+      {
+        title: 'Mannen',
+        description: 'Klachten voor of na prostaatbehandeling, urineverlies, bekkenpijn, plasproblemen en seksuele klachten.',
+        href: '/pelvic-health-mannen/',
+      },
+      {
+        title: 'Kinderen',
+        description: 'Bedplassen, urine- of stoelgangsverlies, constipatie, ophoudgedrag en moeilijk ontspannen bij toiletbezoek.',
+        href: '/pelvic-health-kinderen/',
+      },
     ],
-    note:
-      'Heb je vragen over terugbetaling door je ziekenfonds? Neem gerust contact op, dan bekijken we dit samen.',
+    expectTitle: 'Wat kun je verwachten',
+    expectText: [
+      'Tijdens de intake brengen we je klachten, gewoonten, belasting en doelen in kaart. Onderzoek gebeurt altijd met uitleg en toestemming. Afhankelijk van je hulpvraag kunnen observatie, functieonderzoek, echografie of andere meet- en feedbackmethoden worden gebruikt.',
+      'De behandeling kan bestaan uit educatie, ademhalings- en ontspanningstechnieken, gerichte spiertraining, manuele technieken, gedragsadvies, oefentherapie en een stapsgewijze opbouw naar dagelijkse activiteiten of sport.',
+    ],
+  },
+  pelvicWomen: {
+    metaTitle: 'Pelvic health voor vrouwen | The Happy Floor and More',
+    metaDescription:
+      'Bekkenbodemklachten bij vrouwen: urineverlies, verzakking, pijn, endometriose, PCOS en klachten rond zwangerschap. Praktijk in Heers, regio Sint-Truiden.',
+    eyebrow: 'Pelvic health · Vrouwen',
+    title: 'Je klachten zijn niet iets waar je zomaar mee moet leren leven',
+    intro:
+      'Bekkenbodemklachten kunnen ontstaan of veranderen na een zwangerschap of bevalling, bij hormonale veranderingen, na een operatie, tijdens het sporten of zonder duidelijke aanleiding. Ze kunnen invloed hebben op bewegen, werken, slapen, seks en zelfvertrouwen.',
+    checklistTitle: 'Je kunt onder andere terecht met',
+    checklist: [
+      'Urineverlies of plotse aandrang',
+      'Moeilijk plassen of de blaas niet goed kunnen ledigen',
+      'Constipatie, stoelgangsverlies of anorectale pijn',
+      'Een zwaar of drukkend gevoel en verzakkingsklachten',
+      'Pijn in het bekken, de vulva of vagina',
+      'Pijn bij seks of moeite met ontspannen',
+      'Endometriose en aanhoudende menstruatie- of bekkenpijn',
+      'PCOS en klachten die samenhangen met de cyclus',
+      'Cyclusproblemen, onvruchtbaarheid of moeite om zwanger te worden',
+      'Klachten tijdens de zwangerschap of na de bevalling',
+    ],
+    secondaryTitle: 'De juiste balans',
+    secondaryText: [
+      'Een goede bekkenbodem is niet alleen sterk. De spieren moeten ook kunnen ontspannen, reageren en samenwerken met je ademhaling en de rest van je lichaam. Daarom is ‘meer aanspannen’ lang niet altijd de oplossing.',
+      'Samen onderzoeken we wat bij jou meespeelt en bouwen we gericht aan controle, comfort, kracht en vertrouwen.',
+    ],
+  },
+  pelvicMen: {
+    metaTitle: 'Pelvic health voor mannen | The Happy Floor and More',
+    metaDescription:
+      'Bekkenbodemklachten bij mannen: urineverlies, plasproblemen, bekkenpijn en seksuele klachten, onder meer na een prostaatoperatie. Praktijk in Heers.',
+    eyebrow: 'Pelvic health · Mannen',
+    title: 'Gerichte begeleiding bij klachten waarover weinig wordt gesproken',
+    intro:
+      'Ook mannen kunnen bekkenbodemklachten ontwikkelen, bijvoorbeeld na een prostaatoperatie, bij chronische pijn in het bekkengebied, bij plasproblemen of bij seksuele klachten.',
+    checklistTitle: 'Je kunt onder andere terecht met',
+    checklist: [
+      'Urineverlies voor of na een prostaatbehandeling',
+      'Sterke aandrang of vaak moeten plassen',
+      'Moeilijk starten, persen of onvolledig leegplassen',
+      'Chronische bekkenpijn of spanning',
+      'Anorectale klachten of constipatie',
+      'Seksuele problemen, zoals erectiestoornissen, pijn bij seks of problemen met ejaculatie',
+    ],
+    secondaryTitle: 'Persoonlijk en discreet',
+    secondaryText: [
+      'We bespreken rustig wat je ervaart en welke invloed dit heeft op je dagelijkse leven. Onderzoek en behandeling worden stap voor stap uitgelegd en gebeuren alleen met jouw toestemming.',
+      'De begeleiding richt zich niet alleen op spierkracht, maar ook op coördinatie, ontspanning, ademhaling, drukregulatie en de opbouw naar dagelijkse activiteiten of sport.',
+    ],
+  },
+  pelvicChildren: {
+    metaTitle: 'Pelvic health voor kinderen | The Happy Floor and More',
+    metaDescription:
+      'Bedplassen, urineverlies, stoelgangsverlies en constipatie bij kinderen: een aanpak op maat, zonder druk. Praktijk in Heers, regio Sint-Truiden.',
+    eyebrow: 'Pelvic health · Kinderen',
+    title: 'Leren luisteren naar de signalen van het lichaam',
+    intro:
+      'Plas- en stoelgangproblemen zijn voor een kind en het gezin vaak belastend. Schaamte, frustratie en strijd rond toiletmomenten kunnen snel ontstaan. Het is belangrijk om te weten dat dit meestal geen kwestie is van onwil.',
+    checklistTitle: 'Kinderen kunnen onder andere terecht met',
+    checklist: [
+      'Bedplassen',
+      'Urineverlies overdag',
+      'Vaak of heel dringend moeten plassen',
+      'Stoelgangsverlies',
+      'Constipatie en pijn bij het toiletbezoek',
+      'Lang ophouden van plas of stoelgang',
+      'Moeite met ontspannen of een verkeerde perstechniek',
+    ],
+    secondaryTitle: 'Een aanpak op maat van het kind',
+    secondaryText: [
+      'We maken de werking van blaas, darmen en bekkenbodem begrijpelijk en zoeken samen naar haalbare gewoonten. Waar nodig gebruiken we een plas- of stoelgangdagboek, speelse oefeningen, ademhaling, echografie als visuele feedback en praktische afspraken voor thuis.',
+      'Ouders worden betrokken op een manier die ondersteunt zonder extra druk te creëren. Wanneer bredere ontwikkeling, prikkelverwerking of emoties meespelen, kan samenwerking met andere zorgverleners zinvol zijn.',
+    ],
+  },
+  hormones: {
+    metaTitle: 'Hormonen en levensfasen | The Happy Floor and More',
+    metaDescription:
+      'Begeleiding bij hormonale veranderingen: cyclus, zwangerschap, postpartum, perimenopauze en menopauze. Praktijk in Heers, regio Sint-Truiden.',
+    eyebrow: 'Hormonen en levensfasen',
+    title: 'Je lichaam verandert en dat mag beter begrepen worden',
+    intro:
+      'Hormonen beïnvloeden veel meer dan alleen de menstruatiecyclus. Ze kunnen meespelen in energie, slaap, herstel, spierkracht, bindweefsel, botgezondheid, lichaamssamenstelling, stemming, seksualiteit en het functioneren van de bekkenbodem. Van de puberteit, via fertiliteit en de periode rond zwangerschap en bevalling, tot de perimenopauze en menopauze: elke levensfase brengt andere veranderingen en mogelijke klachten mee.',
+    helpTitle: 'Waarmee kan ik helpen',
+    helpItems: [
+      'Veranderingen in je lichaam beter begrijpen',
+      'Bewegen en trainen aanpassen aan je belastbaarheid',
+      'Spierkracht, botbelasting en herstel gericht opbouwen',
+      'Bekkenbodemklachten in hun bredere context bekijken',
+      'Praktische leefstijlkeuzes bespreekbaar en haalbaar maken',
+      'Gericht doorverwijzen wanneer medische beoordeling nodig is',
+    ],
+    approachTitle: 'Een brede en haalbare aanpak',
+    approachText: [
+      'We bekijken welke aanpassingen in beweging, krachttraining, slaap, stressregulatie, herstel en dagelijkse gewoonten jouw lichaam kunnen ondersteunen. Ook voeding en, wanneer passend, zorgvuldig gekozen supplementen kunnen worden besproken als onderdeel van een bredere aanpak.',
+    ],
+    referralText:
+      'Bij aandoeningen zoals endometriose en PCOS, bij uitgesproken cyclusproblemen of wanneer zwanger worden moeilijk lukt, sluit deze begeleiding aan bij medische opvolging. Waar nodig stem ik af met of verwijs ik door naar een huisarts, gynaecoloog, endocrinoloog, fertiliteitsarts of diëtist, zodat alle onderdelen van de begeleiding veilig bij elkaar passen.',
+  },
+  movement: {
+    metaTitle: 'Bewegen en sport | The Happy Floor and More',
+    metaDescription:
+      'Terug bewegen en sporten met vertrouwen na urineverlies, drukgevoel, pijn of blessures. Praktijk in Heers, regio Sint-Truiden en Haspengouw.',
+    eyebrow: 'Bewegen en sport',
+    title: 'Bewegen met vertrouwen in je lichaam',
+    intro: [
+      'Bewegen is een belangrijk onderdeel van gezondheid en herstel. Toch kan sporten onzeker maken wanneer je last hebt van urineverlies, drukgevoel, pijn, terugkerende blessures of een lichaam dat anders reageert dan vroeger.',
+      'Ik help je begrijpen welke factoren meespelen en hoe je beweging opnieuw kunt opbouwen. Daarbij kijken we niet alleen naar de bekkenbodem, maar ook naar ademhaling, romp, heupen, kracht, coördinatie, belastbaarheid en herstel.',
+    ],
+    helpTitle: 'Mogelijke hulpvragen',
+    helpItems: [
+      'Klachten bij het lopen, zoals urineverlies, aandrang, drukgevoel of bekkenpijn',
+      'Urineverlies of drukgevoel tijdens springen of krachttraining',
+      'Terugkeer naar lopen en sport na zwangerschap of bevalling',
+      'Bekken-, lies-, adductor- of hamstringklachten',
+      'Moeite met drukregulatie tijdens heffen en tillen',
+      'Kracht en belastbaarheid opbouwen tijdens hormonale veranderingen',
+      'Opnieuw leren bewegen na pijn of een periode van inactiviteit',
+    ],
+    closingText:
+      'Het doel is niet om beweging te vermijden, maar om te zoeken hoe je veilig en duurzaam kunt blijven doen wat belangrijk voor je is.',
+  },
+  lectures: {
+    metaTitle: 'Lezingen en workshops | The Happy Floor and More',
+    metaDescription:
+      'Lezingen en workshops over pelvic health, hormonale veranderingen en bewegen, op maat van patiënten, sporters, zorgprofessionals en bedrijven.',
+    eyebrow: 'Lezingen en workshops',
+    title: 'Kennis die herkenbaar en bruikbaar wordt',
+    intro: [
+      'Naast mijn werk in de praktijk geef ik lezingen en workshops over pelvic health, vrouwen- en mannengezondheid, hormonale veranderingen en bewegen.',
+      'Ik hou ervan om ingewikkelde materie begrijpelijk te maken en wetenschappelijke kennis te vertalen naar iets waar mensen in hun dagelijkse leven of professionele praktijk echt iets mee kunnen. Geen droge opsomming van theorie, maar een helder verhaal met kennis, herkenning en concrete handvatten.',
+    ],
+    themesTitle: 'Mogelijke thema’s',
+    themes: [
+      'Menopauze en bewegen',
+      'Hormonen en sport',
+      'Bekkenbodem en stress',
+      'Pelvic health binnen sport en revalidatie',
+      'Women’s health',
+      'Men’s pelvic health',
+      'Bekkenbodem en seksualiteit',
+      'Het lichaam tijdens en na de zwangerschap',
+    ],
+    audienceTitle: 'Voor wie',
+    audienceText:
+      'Lezingen en workshops kunnen worden aangepast aan patiënten, sporters, zorgprofessionals, verenigingen, bedrijven en andere groepen. Inhoud, duur en niveau worden afgestemd op het publiek en de vraag van de organisator.',
+    form: {
+      title: 'Vraag informatie of een voorstel aan',
+      orgName: 'Naam organisatie',
+      contactPerson: 'Contactpersoon',
+      audience: 'Doelgroep',
+      attendees: 'Verwacht aantal deelnemers',
+      theme: 'Gewenst thema',
+      preferredDate: 'Voorkeursdatum',
+      location: 'Locatie',
+      extra: 'Extra toelichting',
+      submit: 'Versturen',
+      honeypot: 'Laat dit veld leeg',
+    },
+  },
+  practical: {
+    metaTitle: 'Praktische info | The Happy Floor and More',
+    metaDescription:
+      'Afspraken, tarieven, annulatie en bereikbaarheid bij The Happy Floor and More by Kim Christiaens in Heers, regio Sint-Truiden.',
+    eyebrow: 'Praktische info',
+    title: 'Praktische informatie',
+    intro:
+      'Alles wat je moet weten voor en tussen je afspraken: hoe een eerste consult verloopt, wat een behandeling kost en hoe je me het snelst bereikt.',
+    appointmentsTitle: 'Afspraken',
+    appointmentsText:
+      'Voor een eerste afspraak wordt voldoende tijd voorzien om je hulpvraag, voorgeschiedenis en doelen te bespreken en, indien passend, het onderzoek te starten. Vervolgafspraken worden afgestemd op je traject.',
+    prescriptionTitle: 'Voorschrift en terugbetaling',
+    prescriptionText:
+      'De actuele informatie over voorschrift, terugbetaling, conventioneringsstatus en betalingsmogelijkheden wordt hier binnenkort aangevuld. Heb je hier nu al een vraag over, neem dan gerust contact op.',
+    ratesTitle: 'Tarieven',
+    ratesText:
+      'De actuele tarieven worden op dit moment nagekeken en volgen hier binnenkort. Vraag ernaar via het contactformulier of per e-mail, dan bezorg ik je meteen de juiste bedragen en de duur van een intake en een vervolgbehandeling.',
+    cancelTitle: 'Annuleren',
+    cancelText:
+      'Kun je niet aanwezig zijn? Verwittig dan zo snel mogelijk. Afspraken die minder dan 24 uur vooraf worden geannuleerd, kunnen worden aangerekend, behalve bij overmacht.',
+    reachTitle: 'Bereikbaarheid',
+    reachText:
+      'Voor een afspraak of vraag ontvang ik het liefst een e-mail of een berichtje. Tijdens behandelingen kan ik de telefoon niet opnemen en voicemail beluisteren is voor mij minder praktisch. Via een geschreven bericht kan ik sneller en gerichter antwoorden. Berichten worden doorgaans binnen drie werkdagen beantwoord.',
   },
   contact: {
-    metaTitle: 'Contact — Kinesitherapie Kim Christiaens',
+    metaTitle: 'Contact | The Happy Floor and More',
     metaDescription:
-      'Maak een afspraak bij Kinesitherapie Kim Christiaens in Heers, regio Sint-Truiden. Bel, mail of kom langs.',
-    title: 'Contact',
-    intro: 'Heb je een vraag of wil je een afspraak maken? Ik help je graag verder.',
+      'Maak een afspraak bij The Happy Floor and More by Kim Christiaens in Heers, regio Sint-Truiden. Stuur een e-mail of bericht, of kom langs.',
+    eyebrow: 'Contact',
+    title: 'Je hoeft niet eerst alles zelf uit te zoeken',
+    intro:
+      'Heb je een vraag en weet je niet goed waar je moet beginnen? Vertel kort waar je tegenaan loopt en wat je graag opnieuw zou willen kunnen. Van daaruit bekijken we welke begeleiding passend is.',
     addressTitle: 'Adres',
     phoneTitle: 'Telefoon',
     emailTitle: 'E-mail',
     mapTitle: 'Route naar de praktijk',
-    linksTitle: 'Nuttige links',
-    links: [
-      { label: 'Vroedvrouw Ilse', href: '#' },
-      { label: 'Onze videotraining op YouTube (vraag meer informatie)', href: '#' },
-    ],
-    formNote: 'Je kan me het snelst bereiken via telefoon of e-mail.',
+    formNote: 'Voorkeur voor geschreven contact, gelieve geen voicemail achter te laten.',
     formTitle: 'Stuur een bericht',
     form: {
       name: 'Naam',
       email: 'E-mailadres',
       phone: 'Telefoonnummer',
       phoneOptional: 'optioneel',
+      subject: 'Onderwerp',
+      preferredContactLabel: 'Voorkeursmanier van contact',
+      preferredContactEmail: 'E-mail',
+      preferredContactMessage: 'Bericht',
+      preferredContactPhone: 'Telefoon',
       message: 'Bericht',
+      consent: 'Ik ga akkoord dat mijn gegevens gebruikt worden om mijn vraag te beantwoorden.',
+      privacyLink: 'Lees het privacybeleid',
       submit: 'Versturen',
       honeypot: 'Laat dit veld leeg',
     },
+    practiceNoteTitle: 'Praktijk in het groen',
+    practiceNoteText:
+      'De praktijk ligt in een rustige, landelijke omgeving in Heers. Foto’s van de praktijk en praktische informatie over parkeren, toegankelijkheid en de ingang volgen hier zodra ze beschikbaar zijn.',
   },
   thankyou: {
-    metaTitle: 'Bericht verzonden — Kinesitherapie Kim Christiaens',
+    metaTitle: 'Bericht verzonden | The Happy Floor and More',
     metaDescription: 'Bedankt voor je bericht. Ik neem zo snel mogelijk contact met je op.',
     title: 'Bedankt voor je bericht!',
     text: 'Ik heb je bericht ontvangen en neem zo snel mogelijk contact met je op.',
   },
   privacy: {
-    metaTitle: 'Privacybeleid — Kinesitherapie Kim Christiaens',
-    metaDescription: 'Hoe Kinesitherapie Kim Christiaens omgaat met je gegevens via het contactformulier en websitestatistieken.',
+    metaTitle: 'Privacybeleid | The Happy Floor and More',
+    metaDescription: 'Hoe The Happy Floor and More by Kim Christiaens omgaat met je gegevens via het contactformulier en websitestatistieken.',
     title: 'Privacybeleid',
     intro:
       'Deze pagina legt uit welke gegevens deze website verzamelt, waarvoor ze gebruikt worden en hoe je ze kan laten aanpassen of verwijderen.',
@@ -363,13 +391,13 @@ export const nl: UiDictionary = {
       {
         title: 'Verantwoordelijke',
         text: [
-          'Deze website wordt beheerd door Kim Christiaens, kinesitherapeute, Bovelingenstraat 387, 3870 Heers (verwerkingsverantwoordelijke in de zin van de AVG/GDPR). Voor vragen over je gegevens kan je terecht op info@kimchristiaens.be.',
+          'Deze website wordt beheerd door Kim Christiaens, kinesitherapeute, handelend onder de naam The Happy Floor and More, Bovelingenstraat 387, 3870 Heers (verwerkingsverantwoordelijke in de zin van de AVG/GDPR). Voor vragen over je gegevens kan je terecht op info@kimchristiaens.be.',
         ],
       },
       {
         title: 'Contactformulier',
         text: [
-          'Wanneer je het contactformulier invult, worden de gegevens die je zelf invult (naam, e-mailadres, eventueel telefoonnummer en je bericht) enkel gebruikt om je vraag te beantwoorden of een afspraak te bevestigen. Dit gebeurt op basis van jouw toestemming bij het versturen van het formulier en, waar van toepassing, om stappen te zetten voorafgaand aan een behandelingsovereenkomst (art. 6.1.a en 6.1.b AVG).',
+          'Wanneer je een contactformulier of aanvraagformulier invult, worden de gegevens die je zelf invult enkel gebruikt om je vraag te beantwoorden, een afspraak te bevestigen of een aanvraag voor een lezing of workshop te behandelen. Dit gebeurt op basis van jouw toestemming bij het versturen van het formulier en, waar van toepassing, om stappen te zetten voorafgaand aan een behandelingsovereenkomst (art. 6.1.a en 6.1.b AVG).',
           'Deze gegevens worden niet gebruikt voor marketing en niet doorgegeven aan derden, buiten de hierna vermelde verwerkers. Ze worden bewaard tot maximaal 12 maanden na de laatste contactname, tenzij er een afspraak of behandelrelatie uit voortvloeit — in dat geval gelden de wettelijke bewaartermijnen voor patiëntendossiers.',
         ],
       },
@@ -403,8 +431,8 @@ export const nl: UiDictionary = {
     ],
   },
   legal: {
-    metaTitle: 'Wettelijke vermeldingen — Kinesitherapie Kim Christiaens',
-    metaDescription: 'Wettelijke identificatiegegevens van Kinesitherapie Kim Christiaens, conform het Wetboek van Economisch Recht.',
+    metaTitle: 'Wettelijke vermeldingen | The Happy Floor and More',
+    metaDescription: 'Wettelijke identificatiegegevens van Kim Christiaens (The Happy Floor and More), conform het Wetboek van Economisch Recht.',
     title: 'Wettelijke vermeldingen',
     intro:
       'Conform het Belgische Wetboek van Economisch Recht (Boek XII) vind je hieronder de wettelijke identificatiegegevens van deze praktijk en website.',
@@ -415,6 +443,7 @@ export const nl: UiDictionary = {
           `Kim Christiaens, kinesitherapeute, met praktijkadres ${SITE.address.full}.`,
           `Telefoon: ${SITE.phone} — E-mail: ${SITE.email}.`,
           `Ondernemingsnummer (KBO): ${SITE.companyNumber || 'wordt aangevuld'}.`,
+          `Handelsnaam: The Happy Floor and More. Dit is een commerciële naam waaronder Kim Christiaens haar diensten aanbiedt, geen aparte rechtspersoon.`,
         ],
       },
       {

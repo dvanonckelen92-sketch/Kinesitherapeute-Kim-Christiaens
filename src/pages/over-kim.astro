@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import { getDictionary } from '../i18n';
+import { SITE } from '../consts';
+
+const t = getDictionary('nl');
+const a = t.about;
+---
+
+<Layout
+  locale="nl"
+  t={t}
+  title={a.metaTitle}
+  description={a.metaDescription}
+  breadcrumb={[{ label: t.nav.about, href: '/over-kim/' }]}
+>
+  <PageIntro eyebrow={a.eyebrow} title={a.title} />
+
+  <section class="section">
+    <div class="container intro-grid">
+      <div class="intro-text">
+        {a.intro.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="approach-heading">
+    <div class="container approach-grid">
+      <div>
+        <h2 id="approach-heading">{a.approachTitle}</h2>
+      </div>
+      <div class="approach-text">
+        {a.approachText.map((paragraph) => <p class="text-muted">{paragraph}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="education-heading">
+    <div class="container">
+      <h2 id="education-heading">{a.educationTitle}</h2>
+      <p class="text-muted education-intro">{a.educationIntro}</p>
+      <ul class="check-list education-list">
+        {a.education.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <CtaBanner
+    title={t.home.ctaTitle}
+    text={t.home.ctaText}
+    ctaLabel={t.cta.contact}
+    ctaHref="/contact/"
+    phone={SITE.phone}
+    phoneHref={SITE.phoneHref}
+  />
+</Layout>
+
+<style>
+  .intro-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .intro-text {
+    max-width: 68ch;
+    font-size: 1.08rem;
+  }
+
+  .approach-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media (min-width: 56em) {
+    .approach-grid {
+      grid-template-columns: 0.8fr 1.2fr;
+    }
+  }
+
+  .approach-text p {
+    font-size: 1.05rem;
+  }
+
+  .education-intro {
+    max-width: 60ch;
+    margin-bottom: 1.75rem;
+  }
+
+  .education-list {
+    max-width: 60rem;
+  }
+</style>

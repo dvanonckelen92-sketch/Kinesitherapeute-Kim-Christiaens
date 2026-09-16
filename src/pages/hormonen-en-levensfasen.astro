@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import { getDictionary } from '../i18n';
+import { SITE } from '../consts';
+
+const t = getDictionary('nl');
+const h = t.hormones;
+---
+
+<Layout
+  locale="nl"
+  t={t}
+  title={h.metaTitle}
+  description={h.metaDescription}
+  breadcrumb={[{ label: t.nav.hormones, href: '/hormonen-en-levensfasen/' }]}
+>
+  <PageIntro eyebrow={h.eyebrow} title={h.title} intro={h.intro} />
+
+  <section class="section">
+    <div class="container">
+      <h2>{h.helpTitle}</h2>
+      <ul class="check-list topic-list">
+        {h.helpItems.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="approach-heading">
+    <div class="container">
+      <h2 id="approach-heading">{h.approachTitle}</h2>
+      <div class="approach-text">
+        {h.approachText.map((paragraph) => <p>{paragraph}</p>)}
+        <p class="text-muted">{h.referralText}</p>
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    title={t.home.ctaTitle}
+    text={t.home.ctaText}
+    ctaLabel={t.cta.contact}
+    ctaHref="/contact/"
+    phone={SITE.phone}
+    phoneHref={SITE.phoneHref}
+  />
+</Layout>
+
+<style>
+  .topic-list {
+    max-width: 46rem;
+  }
+
+  .approach-text {
+    max-width: 62ch;
+  }
+</style>

@@ -5,10 +5,9 @@ import { getDictionary } from '../i18n';
 const t = getDictionary('nl');
 ---
 
-<Layout locale="nl" t={t} title={`404 — ${t.notFound.title}`} description={t.notFound.text} altHref="/fr/" noindex>
+<Layout locale="nl" t={t} title={`404: ${t.notFound.title}`} description={t.notFound.text} altHref="/fr/" noindex>
   <section class="section not-found">
     <div class="container">
-      <p class="eyebrow">404</p>
       <h1>{t.notFound.title}</h1>
       <p class="text-muted">{t.notFound.text}</p>
       <a class="btn btn-primary" href="/">{t.cta.backHome}</a>
@@ -20,10 +19,6 @@ const t = getDictionary('nl');
   .not-found {
     text-align: center;
     padding-block: clamp(4rem, 3rem + 4vw, 7rem);
-  }
-
-  .not-found .eyebrow {
-    justify-content: center;
   }
 
   .not-found .btn {
