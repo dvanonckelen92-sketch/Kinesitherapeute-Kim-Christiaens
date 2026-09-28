@@ -4,11 +4,11 @@ interface Props {
   text: string;
   ctaLabel: string;
   ctaHref: string;
-  phone: string;
-  phoneHref: string;
+  secondaryLabel: string;
+  secondaryHref: string;
 }
 
-const { title, text, ctaLabel, ctaHref, phone, phoneHref } = Astro.props;
+const { title, text, ctaLabel, ctaHref, secondaryLabel, secondaryHref } = Astro.props;
 ---
 
 <section class="cta-banner">
@@ -19,7 +19,7 @@ const { title, text, ctaLabel, ctaHref, phone, phoneHref } = Astro.props;
     </div>
     <div class="cta-actions">
       <a class="btn btn-gold" href={ctaHref}>{ctaLabel}</a>
-      <a class="btn btn-secondary-inverse" href={phoneHref}>{phone}</a>
+      <a class="btn btn-secondary-inverse" href={secondaryHref}>{secondaryLabel}</a>
     </div>
   </div>
 </section>

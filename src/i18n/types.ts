@@ -29,6 +29,8 @@ interface NavBase {
 interface CtaLabels {
   call: string;
   email: string;
+  /** Secundaire knop in de CTA-banner: Kim wil liefst geschreven contact, geen telefoon. */
+  mailKim: string;
   contact: string;
   discover: string;
   allServices: string;
@@ -202,11 +204,14 @@ export interface NlDictionary {
     title: string;
     intro: string;
     appointmentsTitle: string;
-    appointmentsText: string;
-    prescriptionTitle: string;
-    prescriptionText: string;
+    appointmentsText: string[];
     ratesTitle: string;
-    ratesText: string;
+    rates: { label: string; duration: string; price: string }[];
+    ratesNote: string;
+    prescriptionTitle: string;
+    prescriptionText: string[];
+    paymentTitle: string;
+    paymentText: string;
     cancelTitle: string;
     cancelText: string;
     reachTitle: string;

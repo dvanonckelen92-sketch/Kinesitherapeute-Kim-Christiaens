@@ -15,7 +15,7 @@ const b = t.pelvic;
   t={t}
   title={b.metaTitle}
   description={b.metaDescription}
-  altHref="/bekkenbodemtherapie/"
+ 
 >
   <PageIntro eyebrow={t.nav.pelvic} title={b.title} intro={b.intro} />
 
@@ -40,7 +40,7 @@ const b = t.pelvic;
     text={t.home.ctaText}
     ctaLabel={t.cta.contact}
     ctaHref="/fr/contact/"
-    phone={SITE.phone}
-    phoneHref={SITE.phoneHref}
+    secondaryLabel={t.cta.mailKim}
+    secondaryHref={`mailto:${SITE.email}`}
   />
 </Layout>

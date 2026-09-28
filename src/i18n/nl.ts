@@ -25,6 +25,7 @@ export const nl: NlDictionary = {
   cta: {
     call: 'Bel nu',
     email: 'Stuur een e-mail',
+    mailKim: 'Mail Kim',
     contact: 'Maak een afspraak',
     discover: 'Meer weten',
     allServices: 'Alle begeleiding',
@@ -41,10 +42,10 @@ export const nl: NlDictionary = {
     madeByLink: 'Coop Consult',
   },
   home: {
-    metaTitle: 'Bekkenbodem, hormonen en bewegen | The Happy Floor and More',
+    metaTitle: 'Bekkenbodem, hormonen en bewegen | The Happy Floor',
     metaDescription:
       'Kim Christiaens begeleidt vrouwen, mannen en kinderen bij pelvic health, hormonale levensfasen en bewegen. Praktijk in Heers, regio Sint-Truiden en Haspengouw.',
-    heroTagline: 'Pelvic health · Women’s health · Men’s health · Hormonen · Bewegen',
+    heroTagline: SITE.descriptor,
     heroTitle: 'Je lichaam begrijpen. Voelen. Bewegen. Vertrouwen.',
     heroIntro: [
       'Welkom. Ik ben Kim Christiaens, kinesitherapeute gespecialiseerd in pelvic health, hormonale gezondheid en bewegen. Wat begon vanuit mijn passie voor de bekkenbodem, groeide uit tot een bredere kijk op het lichaam: hormonen, ademhaling, beweging, kracht, slaap, stress, herstel en seksualiteit zijn allemaal met elkaar verbonden.',
@@ -86,16 +87,16 @@ export const nl: NlDictionary = {
       'Concrete oefeningen en handvatten voor thuis',
       'Samenwerken met artsen en andere zorgverleners wanneer dat zinvol is',
     ],
-    brandStoryTitle: 'The Happy Floor and More is mijn bredere verhaal',
+    brandStoryTitle: 'The Happy Floor is mijn bredere verhaal',
     brandStoryText: [
-      'The Happy Floor and More groeide vanuit mijn passie voor de bekkenbodem en vat samen hoe ik vandaag naar gezondheid kijk. Mijn werk gaat over alles wat met je bekkenbodem verbonden is: hormonen, ademhaling, beweging, kracht, herstel, seksualiteit en je goed voelen in je lichaam.',
-      'De naam verbindt mijn begeleiding, lezingen, workshops en Instagram in één herkenbaar verhaal. Waar je mij ook tegenkomt, je mag dezelfde warme, deskundige en brede benadering verwachten. Volg @thehappyfloorandmore voor inzichten, herkenbare verhalen en praktische informatie.',
+      'The Happy Floor groeide vanuit mijn passie voor de bekkenbodem en vat samen hoe ik vandaag naar gezondheid kijk. Mijn werk gaat over alles wat met je bekkenbodem verbonden is: hormonen, ademhaling, beweging, kracht, herstel, seksualiteit en je goed voelen in je lichaam.',
+      'De naam verbindt mijn begeleiding, lezingen, workshops en Instagram in één herkenbaar verhaal. Waar je mij ook tegenkomt, je mag dezelfde warme, deskundige en brede benadering verwachten. Volg @thehappyfloorandmore op Instagram voor inzichten, herkenbare verhalen en praktische informatie.',
     ],
     ctaTitle: 'Klaar om kennis te maken?',
     ctaText: 'Neem gerust contact op voor een afspraak of met al je vragen. Ik help je graag verder.',
   },
   about: {
-    metaTitle: 'Over Kim Christiaens | The Happy Floor and More',
+    metaTitle: 'Over Kim Christiaens | The Happy Floor',
     metaDescription:
       'Kim Christiaens is kinesitherapeute met een bijzondere beroepsbekwaamheid in pelvische revalidatie, perinatale kinesitherapie en hormonale gezondheid.',
     eyebrow: 'Over Kim',
@@ -127,7 +128,7 @@ export const nl: NlDictionary = {
     ],
   },
   pelvicHome: {
-    metaTitle: 'Pelvic health Heers | The Happy Floor and More',
+    metaTitle: 'Pelvic health Heers | The Happy Floor',
     metaDescription:
       'Begeleiding bij bekkenbodemklachten voor vrouwen, mannen en kinderen: urineverlies, pijn, verzakking en meer. Praktijk in Heers, regio Sint-Truiden.',
     eyebrow: 'Pelvic health',
@@ -158,7 +159,7 @@ export const nl: NlDictionary = {
     ],
   },
   pelvicWomen: {
-    metaTitle: 'Pelvic health voor vrouwen | The Happy Floor and More',
+    metaTitle: 'Pelvic health voor vrouwen | The Happy Floor',
     metaDescription:
       'Bekkenbodemklachten bij vrouwen: urineverlies, verzakking, pijn, endometriose, PCOS en klachten rond zwangerschap. Praktijk in Heers, regio Sint-Truiden.',
     eyebrow: 'Pelvic health · Vrouwen',
@@ -185,7 +186,7 @@ export const nl: NlDictionary = {
     ],
   },
   pelvicMen: {
-    metaTitle: 'Pelvic health voor mannen | The Happy Floor and More',
+    metaTitle: 'Pelvic health voor mannen | The Happy Floor',
     metaDescription:
       'Bekkenbodemklachten bij mannen: urineverlies, plasproblemen, bekkenpijn en seksuele klachten, onder meer na een prostaatoperatie. Praktijk in Heers.',
     eyebrow: 'Pelvic health · Mannen',
@@ -208,7 +209,7 @@ export const nl: NlDictionary = {
     ],
   },
   pelvicChildren: {
-    metaTitle: 'Pelvic health voor kinderen | The Happy Floor and More',
+    metaTitle: 'Pelvic health voor kinderen | The Happy Floor',
     metaDescription:
       'Bedplassen, urineverlies, stoelgangsverlies en constipatie bij kinderen: een aanpak op maat, zonder druk. Praktijk in Heers, regio Sint-Truiden.',
     eyebrow: 'Pelvic health · Kinderen',
@@ -232,7 +233,7 @@ export const nl: NlDictionary = {
     ],
   },
   hormones: {
-    metaTitle: 'Hormonen en levensfasen | The Happy Floor and More',
+    metaTitle: 'Hormonen en levensfasen | The Happy Floor',
     metaDescription:
       'Begeleiding bij hormonale veranderingen: cyclus, zwangerschap, postpartum, perimenopauze en menopauze. Praktijk in Heers, regio Sint-Truiden.',
     eyebrow: 'Hormonen en levensfasen',
@@ -256,7 +257,7 @@ export const nl: NlDictionary = {
       'Bij aandoeningen zoals endometriose en PCOS, bij uitgesproken cyclusproblemen of wanneer zwanger worden moeilijk lukt, sluit deze begeleiding aan bij medische opvolging. Waar nodig stem ik af met of verwijs ik door naar een huisarts, gynaecoloog, endocrinoloog, fertiliteitsarts of diëtist, zodat alle onderdelen van de begeleiding veilig bij elkaar passen.',
   },
   movement: {
-    metaTitle: 'Bewegen en sport | The Happy Floor and More',
+    metaTitle: 'Bewegen en sport | The Happy Floor',
     metaDescription:
       'Terug bewegen en sporten met vertrouwen na urineverlies, drukgevoel, pijn of blessures. Praktijk in Heers, regio Sint-Truiden en Haspengouw.',
     eyebrow: 'Bewegen en sport',
@@ -279,7 +280,7 @@ export const nl: NlDictionary = {
       'Het doel is niet om beweging te vermijden, maar om te zoeken hoe je veilig en duurzaam kunt blijven doen wat belangrijk voor je is.',
   },
   lectures: {
-    metaTitle: 'Lezingen en workshops | The Happy Floor and More',
+    metaTitle: 'Lezingen en workshops | The Happy Floor',
     metaDescription:
       'Lezingen en workshops over pelvic health, hormonale veranderingen en bewegen, op maat van patiënten, sporters, zorgprofessionals en bedrijven.',
     eyebrow: 'Lezingen en workshops',
@@ -317,22 +318,31 @@ export const nl: NlDictionary = {
     },
   },
   practical: {
-    metaTitle: 'Praktische info | The Happy Floor and More',
+    metaTitle: 'Praktische info | The Happy Floor',
     metaDescription:
-      'Afspraken, tarieven, annulatie en bereikbaarheid bij The Happy Floor and More by Kim Christiaens in Heers, regio Sint-Truiden.',
+      'Afspraken, tarieven, annulatie en bereikbaarheid bij The Happy Floor by Kim Christiaens in Heers, regio Sint-Truiden.',
     eyebrow: 'Praktische info',
     title: 'Praktische informatie',
     intro:
       'Alles wat je moet weten voor en tussen je afspraken: hoe een eerste consult verloopt, wat een behandeling kost en hoe je me het snelst bereikt.',
     appointmentsTitle: 'Afspraken',
-    appointmentsText:
-      'Voor een eerste afspraak wordt voldoende tijd voorzien om je hulpvraag, voorgeschiedenis en doelen te bespreken en, indien passend, het onderzoek te starten. Vervolgafspraken worden afgestemd op je traject.',
-    prescriptionTitle: 'Voorschrift en terugbetaling',
-    prescriptionText:
-      'De actuele informatie over voorschrift, terugbetaling, conventioneringsstatus en betalingsmogelijkheden wordt hier binnenkort aangevuld. Heb je hier nu al een vraag over, neem dan gerust contact op.',
+    appointmentsText: [
+      'Een eerste intake duurt ongeveer 60 minuten. Zo is er voldoende tijd om je hulpvraag, voorgeschiedenis en doelen te bespreken en, indien passend, het onderzoek te starten.',
+      'Vervolgbehandelingen duren 30 minuten en worden afgestemd op je traject.',
+    ],
     ratesTitle: 'Tarieven',
-    ratesText:
-      'De actuele tarieven worden op dit moment nagekeken en volgen hier binnenkort. Vraag ernaar via het contactformulier of per e-mail, dan bezorg ik je meteen de juiste bedragen en de duur van een intake en een vervolgbehandeling.',
+    rates: [
+      { label: 'Eerste intake', duration: 'ongeveer 60 minuten', price: '€ 92 tot € 100' },
+      { label: 'Vervolgbehandeling', duration: '30 minuten', price: '€ 46' },
+    ],
+    ratesNote: 'De prijs van de intake hangt af van de precieze invulling ervan.',
+    prescriptionTitle: 'Voorschrift en terugbetaling',
+    prescriptionText: [
+      'Voor terugbetaling door je ziekenfonds heb je een voorschrift van je arts nodig.',
+      'Ik ben gedeconventioneerd: mijn tarieven zijn niet gebonden aan de officiële RIZIV-tarieven. Je krijgt wel een deel van de kosten terugbetaald via je ziekenfonds. Hoeveel dat is, hangt af van je statuut.',
+    ],
+    paymentTitle: 'Betalen',
+    paymentText: 'Je betaalt per sessie, via Bancontact of Payconiq.',
     cancelTitle: 'Annuleren',
     cancelText:
       'Kun je niet aanwezig zijn? Verwittig dan zo snel mogelijk. Afspraken die minder dan 24 uur vooraf worden geannuleerd, kunnen worden aangerekend, behalve bij overmacht.',
@@ -341,9 +351,9 @@ export const nl: NlDictionary = {
       'Voor een afspraak of vraag ontvang ik het liefst een e-mail of een berichtje. Tijdens behandelingen kan ik de telefoon niet opnemen en voicemail beluisteren is voor mij minder praktisch. Via een geschreven bericht kan ik sneller en gerichter antwoorden. Berichten worden doorgaans binnen drie werkdagen beantwoord.',
   },
   contact: {
-    metaTitle: 'Contact | The Happy Floor and More',
+    metaTitle: 'Contact | The Happy Floor',
     metaDescription:
-      'Maak een afspraak bij The Happy Floor and More by Kim Christiaens in Heers, regio Sint-Truiden. Stuur een e-mail of bericht, of kom langs.',
+      'Maak een afspraak bij The Happy Floor by Kim Christiaens in Heers, regio Sint-Truiden. Stuur een e-mail of bericht, of kom langs.',
     eyebrow: 'Contact',
     title: 'Je hoeft niet eerst alles zelf uit te zoeken',
     intro:
@@ -375,14 +385,14 @@ export const nl: NlDictionary = {
       'De praktijk ligt in een rustige, landelijke omgeving in Heers. Foto’s van de praktijk en praktische informatie over parkeren, toegankelijkheid en de ingang volgen hier zodra ze beschikbaar zijn.',
   },
   thankyou: {
-    metaTitle: 'Bericht verzonden | The Happy Floor and More',
+    metaTitle: 'Bericht verzonden | The Happy Floor',
     metaDescription: 'Bedankt voor je bericht. Ik neem zo snel mogelijk contact met je op.',
     title: 'Bedankt voor je bericht!',
     text: 'Ik heb je bericht ontvangen en neem zo snel mogelijk contact met je op.',
   },
   privacy: {
-    metaTitle: 'Privacybeleid | The Happy Floor and More',
-    metaDescription: 'Hoe The Happy Floor and More by Kim Christiaens omgaat met je gegevens via het contactformulier en websitestatistieken.',
+    metaTitle: 'Privacybeleid | The Happy Floor',
+    metaDescription: 'Hoe The Happy Floor by Kim Christiaens omgaat met je gegevens via het contactformulier en websitestatistieken.',
     title: 'Privacybeleid',
     intro:
       'Deze pagina legt uit welke gegevens deze website verzamelt, waarvoor ze gebruikt worden en hoe je ze kan laten aanpassen of verwijderen.',
@@ -391,7 +401,7 @@ export const nl: NlDictionary = {
       {
         title: 'Verantwoordelijke',
         text: [
-          'Deze website wordt beheerd door Kim Christiaens, kinesitherapeute, handelend onder de naam The Happy Floor and More, Bovelingenstraat 387, 3870 Heers (verwerkingsverantwoordelijke in de zin van de AVG/GDPR). Voor vragen over je gegevens kan je terecht op info@kimchristiaens.be.',
+          `Deze website wordt beheerd door ${SITE.legalName}, de praktijk van Kim Christiaens, kinesitherapeute, ${SITE.address.full} (verwerkingsverantwoordelijke in de zin van de AVG/GDPR). Voor vragen over je gegevens kan je terecht op ${SITE.email}.`,
         ],
       },
       {
@@ -431,8 +441,8 @@ export const nl: NlDictionary = {
     ],
   },
   legal: {
-    metaTitle: 'Wettelijke vermeldingen | The Happy Floor and More',
-    metaDescription: 'Wettelijke identificatiegegevens van Kim Christiaens (The Happy Floor and More), conform het Wetboek van Economisch Recht.',
+    metaTitle: 'Wettelijke vermeldingen | The Happy Floor',
+    metaDescription: 'Wettelijke identificatiegegevens van The Happy Floor VOF, de praktijk van Kim Christiaens, conform het Wetboek van Economisch Recht.',
     title: 'Wettelijke vermeldingen',
     intro:
       'Conform het Belgische Wetboek van Economisch Recht (Boek XII) vind je hieronder de wettelijke identificatiegegevens van deze praktijk en website.',
@@ -440,10 +450,10 @@ export const nl: NlDictionary = {
       {
         title: 'Identificatie',
         text: [
-          `Kim Christiaens, kinesitherapeute, met praktijkadres ${SITE.address.full}.`,
+          `${SITE.legalName}, praktijk van Kim Christiaens, kinesitherapeute, met praktijkadres ${SITE.address.full}.`,
           `Telefoon: ${SITE.phone} — E-mail: ${SITE.email}.`,
           `Ondernemingsnummer (KBO): ${SITE.companyNumber || 'wordt aangevuld'}.`,
-          `Handelsnaam: The Happy Floor and More. Dit is een commerciële naam waaronder Kim Christiaens haar diensten aanbiedt, geen aparte rechtspersoon.`,
+          `Merknaam: ${SITE.brandFull}.`,
         ],
       },
       {
@@ -461,7 +471,7 @@ export const nl: NlDictionary = {
       {
         title: 'Aansprakelijkheid',
         text: [
-          'De inhoud van deze website is met zorg samengesteld, maar heeft een informatief karakter en vervangt geen medisch advies of onderzoek. Kim Christiaens is niet aansprakelijk voor eventuele onjuistheden of voor schade die zou voortvloeien uit het gebruik van deze website.',
+          `De inhoud van deze website is met zorg samengesteld, maar heeft een informatief karakter en vervangt geen medisch advies of onderzoek. ${SITE.legalName} is niet aansprakelijk voor eventuele onjuistheden of voor schade die zou voortvloeien uit het gebruik van deze website.`,
         ],
       },
       {

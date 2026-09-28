@@ -10,7 +10,7 @@ const t = getDictionary('fr');
 const p = t.perinatal;
 ---
 
-<Layout locale="fr" t={t} title={p.metaTitle} description={p.metaDescription} altHref="/perinatale-begeleiding/">
+<Layout locale="fr" t={t} title={p.metaTitle} description={p.metaDescription}>
   <PageIntro eyebrow={t.nav.perinatal} title={p.title} intro={p.intro} />
 
   <section class="section">
@@ -26,8 +26,8 @@ const p = t.perinatal;
     text={t.home.ctaText}
     ctaLabel={t.cta.contact}
     ctaHref="/fr/contact/"
-    phone={SITE.phone}
-    phoneHref={SITE.phoneHref}
+    secondaryLabel={t.cta.mailKim}
+    secondaryHref={`mailto:${SITE.email}`}
   />
 </Layout>
 

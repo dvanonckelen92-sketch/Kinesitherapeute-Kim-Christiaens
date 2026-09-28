@@ -19,6 +19,7 @@ export const fr: FrDictionary = {
   cta: {
     call: 'Appeler',
     email: 'Envoyer un e-mail',
+    mailKim: 'Écrire à Kim',
     contact: 'Prendre contact',
     discover: 'En savoir plus',
     allServices: 'Tous les traitements',
@@ -361,7 +362,7 @@ export const fr: FrDictionary = {
       {
         title: 'Responsable du traitement',
         text: [
-          'Ce site est géré par Kim Christiaens, kinésithérapeute, Bovelingenstraat 387, 3870 Heers (responsable du traitement au sens du RGPD). Pour toute question sur vos données, contactez info@kimchristiaens.be.',
+          `Ce site est géré par ${SITE.legalName}, le cabinet de Kim Christiaens, kinésithérapeute, ${SITE.address.full} (responsable du traitement au sens du RGPD). Pour toute question sur vos données, contactez ${SITE.email}.`,
         ],
       },
       {
@@ -410,9 +411,10 @@ export const fr: FrDictionary = {
       {
         title: 'Identification',
         text: [
-          `Kim Christiaens, kinésithérapeute, cabinet situé ${SITE.address.full}.`,
+          `${SITE.legalName}, cabinet de Kim Christiaens, kinésithérapeute, situé ${SITE.address.full}.`,
           `Téléphone : ${SITE.phone} — E-mail : ${SITE.email}.`,
           `Numéro d’entreprise (BCE) : ${SITE.companyNumber || 'à compléter'}.`,
+          `Marque : ${SITE.brandFull}.`,
         ],
       },
       {
@@ -430,7 +432,7 @@ export const fr: FrDictionary = {
       {
         title: 'Responsabilité',
         text: [
-          'Le contenu de ce site est établi avec soin, mais a un caractère informatif et ne remplace pas un avis ou un examen médical. Kim Christiaens ne peut être tenue responsable d’éventuelles inexactitudes ni des dommages résultant de l’utilisation de ce site.',
+          `Le contenu de ce site est établi avec soin, mais a un caractère informatif et ne remplace pas un avis ou un examen médical. ${SITE.legalName} ne peut être tenue responsable d’éventuelles inexactitudes ni des dommages résultant de l’utilisation de ce site.`,
         ],
       },
       {

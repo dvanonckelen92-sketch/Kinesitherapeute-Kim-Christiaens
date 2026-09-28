@@ -9,7 +9,7 @@ const t = getDictionary('fr');
 const m = t.manual;
 ---
 
-<Layout locale="fr" t={t} title={m.metaTitle} description={m.metaDescription} altHref="/manuele-therapie/">
+<Layout locale="fr" t={t} title={m.metaTitle} description={m.metaDescription}>
   <PageIntro eyebrow={t.nav.manual} title={m.title} />
 
   <section class="section">
@@ -31,8 +31,8 @@ const m = t.manual;
     text={t.home.ctaText}
     ctaLabel={t.cta.contact}
     ctaHref="/fr/contact/"
-    phone={SITE.phone}
-    phoneHref={SITE.phoneHref}
+    secondaryLabel={t.cta.mailKim}
+    secondaryHref={`mailto:${SITE.email}`}
   />
 </Layout>
 

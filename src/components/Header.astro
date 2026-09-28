@@ -1,16 +1,24 @@
 ---
 import type { Locale } from '../consts';
 import type { UiDictionary } from '../i18n/types';
+import { SITE } from '../consts';
 
 interface Props {
   locale: Locale;
   t: UiDictionary;
   currentPath: string;
+  /** Vertaalde versie van deze pagina; zonder vertaling linkt de taalkeuze naar de andere homepage. */
+  altHref?: string;
 }
 
-const { locale, t, currentPath } = Astro.props;
+const { locale, t, currentPath, altHref } = Astro.props;
 
 const base = locale === 'nl' ? '' : '/fr';
+const otherLangHref = altHref ?? (locale === 'nl' ? '/fr/' : '/');
+const langLinks = [
+  { code: 'nl', label: 'NL', href: locale === 'nl' ? currentPath : otherLangHref },
+  { code: 'fr', label: 'FR', href: locale === 'fr' ? currentPath : otherLangHref },
+] as const;
 
 type NavItem = { href: string; label: string; children?: { href: string; label: string }[] };
 
@@ -52,18 +60,30 @@ function isActive(href: string) {
     <a class="brand" href={base + '/'}>
       <img
         class="brand-mark"
-        src="/logo-header.png"
-        width="1655"
-        height="288"
-        alt="The Happy Floor"
+        src="/logo-horizontal.svg"
+        width="1479"
+        height="287"
+        alt={SITE.brandFull}
         loading="eager"
         decoding="async"
       />
-      <span class="brand-signature">
-        <span class="brand-and">and more</span>
-        <span class="brand-by">by Kim Christiaens</span>
-      </span>
     </a>
+
+    <ul class="lang-switch">
+      {
+        langLinks.map((lang) => (
+          <li>
+            {lang.code === locale ? (
+              <span aria-current="true" lang={lang.code}>{lang.label}</span>
+            ) : (
+              <a href={lang.href} hreflang={lang.code} lang={lang.code} title={t.nav.switchLang}>
+                {lang.label}
+              </a>
+            )}
+          </li>
+        ))
+      }
+    </ul>
 
     <button
       id="nav-toggle"
@@ -135,41 +155,59 @@ function isActive(href: string) {
   .brand {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
-    flex: none;
+    flex: 0 1 auto;
+    min-width: 0;
+    margin-right: auto;
   }
 
   .brand-mark {
-    height: 1.45rem;
+    display: block;
+    height: clamp(2.3rem, 1.6rem + 2.4vw, 3.4rem);
     width: auto;
+    max-width: 100%;
   }
 
-  .brand-signature {
+  .lang-switch {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    line-height: 1.2;
-    padding-top: 0.1rem;
-    border-left: 1px solid var(--color-border);
-    padding-left: 0.45rem;
-  }
-
-  .brand-and {
-    font-family: var(--font-sans);
-    font-size: 0.52rem;
+    align-items: center;
+    flex: none;
+    font-size: 0.85rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    white-space: nowrap;
-    color: var(--color-ink-muted);
+    letter-spacing: 0.04em;
   }
 
-  .brand-by {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: 0.7rem;
-    white-space: nowrap;
+  .lang-switch li {
+    margin: 0;
+  }
+
+  .lang-switch li + li::before {
+    content: '|';
+    color: var(--color-border);
+    padding-inline: 0.1rem;
+  }
+
+  .lang-switch a,
+  .lang-switch span {
+    display: inline-block;
+    padding: 0.35em 0.3em;
+    border-radius: var(--radius-md);
+  }
+
+  .lang-switch span {
     color: var(--color-ink);
+  }
+
+  .lang-switch a {
+    color: var(--color-ink-muted);
+    text-decoration: none;
+  }
+
+  .lang-switch a:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
   }
 
   .nav-toggle {
@@ -324,6 +362,10 @@ function isActive(href: string) {
   @media (min-width: 80em) {
     .nav-toggle {
       display: none;
+    }
+
+    .lang-switch {
+      order: 3;
     }
 
     .primary-nav {
