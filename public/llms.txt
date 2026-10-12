@@ -1,6 +1,6 @@
 # The Happy Floor by Kim Christiaens
 
-> Kim Christiaens is kinesitherapeute in Heers (regio Sint-Truiden, Haspengouw, België), gespecialiseerd in pelvic health, hormonale gezondheid en bewegen. Merknaam: The Happy Floor by Kim Christiaens (Pelvic Health · Hormonen · Bewegen), uitgebaat door The Happy Floor VOF. Instagram: @thehappyfloorandmore. Website beschikbaar in het Nederlands; de Franse pagina's volgen voorlopig nog de vorige indeling.
+> Kim Christiaens is kinesitherapeute in Heers (regio Sint-Truiden, Haspengouw, België), gespecialiseerd in pelvic health, hormonale gezondheid en bewegen. Merknaam: The Happy Floor by Kim Christiaens (Pelvic Health · Hormonen · Bewegen), uitgebaat door The Happy Floor VOF. Instagram: @thehappyfloorandmore. Website beschikbaar in het Nederlands en het Frans, met dezelfde pagina's in beide talen.
 
 Kim Christiaens heeft een bijzondere beroepsbekwaamheid in pelvische revalidatie en perinatale kinesitherapie, en specialiseerde zich verder in manuele therapie, women's health, men's pelvic health en hormonale gezondheid. De praktijk is gevestigd in Heers (Rukkelingen-Loon) en behandelt vrouwen, mannen en kinderen uit de regio Sint-Truiden, Haspengouw en het aangrenzende Franstalige grensgebied. Kim geeft ook lezingen en workshops over pelvic health, hormonen en bewegen.
 
@@ -22,13 +22,16 @@ Kim Christiaens heeft een bijzondere beroepsbekwaamheid in pelvische revalidatie
 
 ## Pages en français
 
-Les pages françaises suivent encore l'ancienne structure du site (kinésithérapie périnatale, rééducation périnéale, thérapie manuelle) et seront traduites professionnellement vers la nouvelle structure ci-dessus dans une phase ultérieure.
-
-- [Accueil](https://www.kimchristiaens.be/fr/): présentation du cabinet et des trois traitements.
-- [Accompagnement périnatal](https://www.kimchristiaens.be/fr/accompagnement-perinatal/)
-- [Rééducation périnéale](https://www.kimchristiaens.be/fr/reeducation-perineale/)
-- [Thérapie manuelle](https://www.kimchristiaens.be/fr/therapie-manuelle/)
-- [Tarifs](https://www.kimchristiaens.be/fr/tarifs/)
-- [Contact](https://www.kimchristiaens.be/fr/contact/)
+- [Accueil](https://www.kimchristiaens.be/fr/): l'histoire de The Happy Floor, les quatre formes d'accompagnement et la promesse « comprendre votre corps, ressentir, bouger, lui faire confiance ».
+- [À propos de Kim](https://www.kimchristiaens.be/fr/a-propos/): formation, expérience et manière de travailler de Kim Christiaens.
+- [Santé pelvienne](https://www.kimchristiaens.be/fr/sante-pelvienne/): aperçu des troubles du plancher pelvien et de l'accompagnement, avec des pages pour les femmes, les hommes et les enfants.
+- [Santé pelvienne des femmes](https://www.kimchristiaens.be/fr/sante-pelvienne-femmes/): fuites urinaires, prolapsus, douleurs, endométriose, SOPK, grossesse et postpartum.
+- [Santé pelvienne des hommes](https://www.kimchristiaens.be/fr/sante-pelvienne-hommes/): troubles après un traitement de la prostate, fuites urinaires, douleurs pelviennes et troubles sexuels.
+- [Santé pelvienne des enfants](https://www.kimchristiaens.be/fr/sante-pelvienne-enfants/): pipi au lit, fuites urinaires ou de selles, constipation et comportements de rétention.
+- [Hormones et étapes de la vie](https://www.kimchristiaens.be/fr/hormones-et-etapes-de-la-vie/): cycle, grossesse, postpartum, périménopause et ménopause.
+- [Mouvement et sport](https://www.kimchristiaens.be/fr/mouvement-et-sport/): reprendre le mouvement et le sport avec confiance après des troubles ou des blessures.
+- [Conférences et ateliers](https://www.kimchristiaens.be/fr/conferences-et-ateliers/): thèmes, publics et formulaire de demande.
+- [Informations pratiques](https://www.kimchristiaens.be/fr/informations-pratiques/): durée et prix du premier rendez-vous et du suivi, prescription et remboursement (déconventionnée), paiement, annulation et disponibilité.
+- [Contact](https://www.kimchristiaens.be/fr/contact/): adresse, e-mail, formulaire de contact, téléphone et itinéraire ; Kim préfère un contact par e-mail ou par message écrit.
 - [Politique de confidentialité](https://www.kimchristiaens.be/fr/politique-de-confidentialite/)
 - [Mentions légales](https://www.kimchristiaens.be/fr/mentions-legales/)

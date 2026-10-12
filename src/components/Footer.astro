@@ -1,35 +1,28 @@
 ---
 import type { Locale } from '../consts';
-import type { UiDictionary } from '../i18n/types';
+import type { Dictionary } from '../i18n';
+import { route } from '../i18n';
 import { SITE } from '../consts';
 import InstagramIcon from './InstagramIcon.astro';
 
 interface Props {
   locale: Locale;
-  t: UiDictionary;
+  t: Dictionary;
 }
 
 const { locale, t } = Astro.props;
 
-const serviceLinks =
-  t.lang === 'nl'
-    ? [
-        { href: '/pelvic-health/', label: t.nav.pelvic },
-        { href: '/hormonen-en-levensfasen/', label: t.nav.hormones },
-        { href: '/bewegen-en-sport/', label: t.nav.movement },
-        { href: '/lezingen-en-workshops/', label: t.nav.lectures },
-        { href: '/praktische-info/', label: t.nav.practical },
-      ]
-    : [
-        { href: '/fr/accompagnement-perinatal/', label: t.nav.perinatal },
-        { href: '/fr/reeducation-perineale/', label: t.nav.pelvic },
-        { href: '/fr/therapie-manuelle/', label: t.nav.manual },
-        { href: '/fr/tarifs/', label: t.nav.rates },
-      ];
+const serviceLinks = [
+  { href: route('pelvic', locale), label: t.nav.pelvic },
+  { href: route('hormones', locale), label: t.nav.hormones },
+  { href: route('movement', locale), label: t.nav.movement },
+  { href: route('lectures', locale), label: t.nav.lectures },
+  { href: route('practical', locale), label: t.nav.practical },
+];
 
-const contactHref = locale === 'nl' ? '/contact/' : '/fr/contact/';
-const privacyHref = locale === 'nl' ? '/privacybeleid/' : '/fr/politique-de-confidentialite/';
-const legalHref = locale === 'nl' ? '/wettelijke-vermeldingen/' : '/fr/mentions-legales/';
+const contactHref = route('contact', locale);
+const privacyHref = route('privacy', locale);
+const legalHref = route('legal', locale);
 const year = new Date().getFullYear();
 ---
 

@@ -4,10 +4,12 @@ Astro-website voor de kinesitherapiepraktijk van Kim Christiaens in Heers (regio
 
 ## Structuur
 
-- `src/pages/*.astro` — Nederlandstalige pagina's (standaard, geen taalprefix)
-- `src/pages/fr/*.astro` — Franstalige pagina's (`/fr/...`)
-- `src/i18n/nl.ts`, `src/i18n/fr.ts` — alle site- en paginateksten per taal
-- `src/components/` — herbruikbare UI-onderdelen (Header, Footer, ServiceCard, PelvicGroup, ...)
+- `src/views/*.astro` — de opmaak van elke pagina, gedeeld door NL en FR
+- `src/pages/*.astro` — Nederlandstalige routes (standaard, geen taalprefix); elk bestand rendert een view met `locale="nl"`
+- `src/pages/fr/*.astro` — Franstalige routes (`/fr/...`), dezelfde views met `locale="fr"`
+- `src/i18n/nl.ts`, `src/i18n/fr.ts` — alle site- en paginateksten per taal, in dezelfde structuur
+- `src/i18n/routes.ts` — koppelt de NL- en FR-URL van elke pagina (navigatie, taalkeuze, hreflang)
+- `src/components/` — herbruikbare UI-onderdelen (Header, Footer, ServiceCard, formulieren, ...)
 - `src/styles/global.css` — kleurenpalet, typografie en toegankelijkheidsstijlen (focus states, skip-link, ...)
 - `src/consts.ts` — adres, telefoon, e-mail en coördinaten van de praktijk
 

@@ -7,28 +7,29 @@ import '@fontsource/atkinson-hyperlegible/400-italic.css';
 import '@fontsource-variable/source-serif-4/standard.css';
 import '../styles/global.css';
 import type { Locale } from '../consts';
-import type { UiDictionary } from '../i18n/types';
+import { getDictionary, route as routeHref, type RouteKey } from '../i18n';
 import { SITE } from '../consts';
 
 interface Props {
   locale: Locale;
-  t: UiDictionary;
   title: string;
   description: string;
-  /** FR/NL alternate for this exact page, or undefined when no direct translation exists yet. */
-  altHref?: string;
+  /** Sleutel van deze pagina in ROUTES; levert de hreflang-tags en de taalkeuze. Leeg op de 404. */
+  route?: RouteKey;
   noindex?: boolean;
   /** Optional breadcrumb trail (excluding home), used for BreadcrumbList structured data. */
   breadcrumb?: { label: string; href: string }[];
 }
 
-const { locale, t, title, description, altHref, noindex = false, breadcrumb = [] } = Astro.props;
+const { locale, title, description, route, noindex = false, breadcrumb = [] } = Astro.props;
+const t = getDictionary(locale);
 const currentPath = Astro.url.pathname;
 const canonicalURL = new URL(currentPath, Astro.site);
-const nlURL = altHref ? new URL(locale === 'nl' ? currentPath : altHref, Astro.site) : undefined;
-const frURL = altHref ? new URL(locale === 'fr' ? currentPath : altHref, Astro.site) : undefined;
+const nlURL = route ? new URL(routeHref(route, 'nl'), Astro.site) : undefined;
+const frURL = route ? new URL(routeHref(route, 'fr'), Astro.site) : undefined;
+const altHref = route ? routeHref(route, locale === 'nl' ? 'fr' : 'nl') : undefined;
 const ogImageURL = new URL('/og-image.jpg', Astro.site);
-const homeHref = locale === 'nl' ? '/' : '/fr/';
+const homeHref = routeHref('home', locale);
 
 const jsonLd: Record<string, unknown> = {
   '@context': 'https://schema.org',
@@ -100,7 +101,7 @@ const breadcrumbLd =
     <meta property="og:image" content={ogImageURL} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={`${SITE.brandFull} — ${SITE.descriptor}`} />
+    <meta property="og:image:alt" content={`${SITE.brandFull} — ${t.home.heroTagline}`} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />

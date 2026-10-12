@@ -1,16 +1,18 @@
 ---
-import type { UiDictionary } from '../i18n/types';
+import { getDictionary, route } from '../i18n';
+import type { Locale } from '../consts';
 
 interface Props {
-  t: UiDictionary;
-  formName: string;
-  actionHref: string;
+  locale: Locale;
 }
 
-const { t, formName, actionHref } = Astro.props;
+const { locale } = Astro.props;
+const t = getDictionary(locale);
 const f = t.contact.form;
-const nlForm = t.lang === 'nl' ? t.contact.form : null;
-const privacyHref = t.lang === 'nl' ? '/privacybeleid/' : '/fr/politique-de-confidentialite/';
+// Netlify herkent elk formulier aan zijn naam; NL en FR komen apart binnen.
+const formName = `contact-${locale}`;
+const actionHref = route('thanks', locale);
+const privacyHref = route('privacy', locale);
 ---
 
 <form
@@ -49,58 +51,46 @@ const privacyHref = t.lang === 'nl' ? '/privacybeleid/' : '/fr/politique-de-conf
       autocomplete="tel"
       inputmode="numeric"
       pattern="\+?[0-9\s]{8,15}"
-      title="Gebruik alleen cijfers en eventueel een + vooraan (minstens 8 cijfers)"
+      title={f.phoneHint}
     />
   </div>
 
-  {
-    nlForm && (
-      <div class="form-field">
-        <label for={`${formName}-subject`}>{nlForm.subject}</label>
-        <input type="text" id={`${formName}-subject`} name="onderwerp" minlength="2" />
-      </div>
-    )
-  }
+  <div class="form-field">
+    <label for={`${formName}-subject`}>{f.subject}</label>
+    <input type="text" id={`${formName}-subject`} name="onderwerp" minlength="2" />
+  </div>
 
   <div class="form-field">
     <label for={`${formName}-message`}>{f.message}</label>
     <textarea id={`${formName}-message`} name="bericht" rows="5" minlength="10" required></textarea>
   </div>
 
-  {
-    nlForm && (
-      <fieldset class="form-field">
-        <legend>{nlForm.preferredContactLabel}</legend>
-        <div class="radio-row">
-          <label>
-            <input type="radio" name="voorkeur_contact" value={nlForm.preferredContactEmail} checked />
-            {nlForm.preferredContactEmail}
-          </label>
-          <label>
-            <input type="radio" name="voorkeur_contact" value={nlForm.preferredContactMessage} />
-            {nlForm.preferredContactMessage}
-          </label>
-          <label>
-            <input type="radio" name="voorkeur_contact" value={nlForm.preferredContactPhone} />
-            {nlForm.preferredContactPhone}
-          </label>
-        </div>
-      </fieldset>
-    )
-  }
+  <fieldset class="form-field">
+    <legend>{f.preferredContactLabel}</legend>
+    <div class="radio-row">
+      <label>
+        <input type="radio" name="voorkeur_contact" value={f.preferredContactEmail} checked />
+        {f.preferredContactEmail}
+      </label>
+      <label>
+        <input type="radio" name="voorkeur_contact" value={f.preferredContactMessage} />
+        {f.preferredContactMessage}
+      </label>
+      <label>
+        <input type="radio" name="voorkeur_contact" value={f.preferredContactPhone} />
+        {f.preferredContactPhone}
+      </label>
+    </div>
+  </fieldset>
 
-  {
-    nlForm && (
-      <p class="consent-field text-muted">
-        <label>
-          <input type="checkbox" name="toestemming" required />
-          <span>
-            {nlForm.consent} <a href={privacyHref}>{nlForm.privacyLink}</a>.
-          </span>
-        </label>
-      </p>
-    )
-  }
+  <p class="consent-field text-muted">
+    <label>
+      <input type="checkbox" name="toestemming" required />
+      <span>
+        {f.consent} <a href={privacyHref}>{f.privacyLink}</a>.
+      </span>
+    </label>
+  </p>
 
   <button type="submit" class="btn btn-primary">{f.submit}</button>
 </form>

@@ -21,3 +21,24 @@
   from = "/manuele-therapie/"
   to = "/bewegen-en-sport/"
   status = 301
+
+# Oude Franse indeling, vervangen door dezelfde structuur als de NL-site
+[[redirects]]
+  from = "/fr/reeducation-perineale/"
+  to = "/fr/sante-pelvienne/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/tarifs/"
+  to = "/fr/informations-pratiques/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/accompagnement-perinatal/"
+  to = "/fr/hormones-et-etapes-de-la-vie/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/therapie-manuelle/"
+  to = "/fr/mouvement-et-sport/"
+  status = 301

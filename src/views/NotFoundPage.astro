@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getDictionary, route } from '../i18n';
+import type { Locale } from '../consts';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getDictionary(locale);
+---
+
+<Layout locale={locale} title={`404: ${t.notFound.title}`} description={t.notFound.text} noindex>
+  <section class="section not-found">
+    <div class="container">
+      <h1>{t.notFound.title}</h1>
+      <p class="text-muted">{t.notFound.text}</p>
+      <a class="btn btn-primary" href={route('home', locale)}>{t.cta.backHome}</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .not-found {
+    text-align: center;
+    padding-block: clamp(4rem, 3rem + 4vw, 7rem);
+  }
+
+  .not-found .btn {
+    margin-top: 1.5rem;
+  }
+</style>

@@ -1,7 +1,8 @@
-import type { NlDictionary } from './types';
+import type { Dictionary } from './types';
+import { ROUTES } from './routes';
 import { SITE } from '../consts';
 
-export const nl: NlDictionary = {
+export const nl: Dictionary = {
   lang: 'nl',
   htmlLang: 'nl-BE',
   nav: {
@@ -52,26 +53,27 @@ export const nl: NlDictionary = {
       'Ik begeleid vrouwen, mannen en kinderen bij klachten die vaak een grote invloed hebben op het dagelijkse leven, maar waarover niet altijd gemakkelijk gesproken wordt. Denk aan urineverlies, pijn, verzakkingsklachten, plas- en stoelgangproblemen, seksuele klachten of veranderingen tijdens en na een zwangerschap, in de perimenopauze en de menopauze.',
       'Daarbij kijk ik verder dan de plaats waar je je klacht voelt. Ademhaling, beweging, kracht, spanning, slaap, herstel, hormonen en dagelijkse belasting kunnen allemaal meespelen. Samen zoeken we naar wat jij nodig hebt om je lichaam beter te begrijpen, vrijer te bewegen en opnieuw te vertrouwen in wat het kan.',
     ],
+    servicesTitle: 'Waarmee kan ik je helpen',
     services: [
       {
         title: 'Pelvic health',
         description: 'Begeleiding bij klachten van bekkenbodem, blaas, darmen, pijn en seksualiteit, voor vrouwen, mannen en kinderen.',
-        href: '/pelvic-health/',
+        href: ROUTES.pelvic.nl,
       },
       {
         title: 'Hormonen en levensfasen',
         description: 'Inzicht en ondersteuning bij lichamelijke veranderingen doorheen cyclus, zwangerschap, perimenopauze en menopauze.',
-        href: '/hormonen-en-levensfasen/',
+        href: ROUTES.hormones.nl,
       },
       {
         title: 'Bewegen en sport',
         description: 'Gericht werken aan kracht, herstel, coördinatie en vertrouwen in bewegen, ook na blessures of zwangerschap.',
-        href: '/bewegen-en-sport/',
+        href: ROUTES.movement.nl,
       },
       {
         title: 'Lezingen en workshops',
         description: 'Begrijpelijke kennis, herkenning en concrete handvatten voor groepen, sporters en zorgprofessionals.',
-        href: '/lezingen-en-workshops/',
+        href: ROUTES.lectures.nl,
       },
     ],
     wholeBodyTitle: 'Een bekkenbodem staat nooit op zichzelf',
@@ -135,21 +137,22 @@ export const nl: NlDictionary = {
     title: 'Klachten in het bekken verdienen aandacht',
     intro:
       'Bekkenbodemklachten komen vaak voor, maar kunnen heel persoonlijk en moeilijk bespreekbaar zijn. Je hoeft niet precies te weten welke spier of structuur het probleem veroorzaakt. We beginnen bij wat jij ervaart en wat je opnieuw wilt kunnen.',
+    audiencesTitle: 'Voor wie',
     audiences: [
       {
         title: 'Vrouwen',
         description: 'Urineverlies, verzakking, pijn, endometriose, PCOS, cyclus- en vruchtbaarheidsklachten, zwangerschap en postpartum.',
-        href: '/pelvic-health-vrouwen/',
+        href: ROUTES.pelvicWomen.nl,
       },
       {
         title: 'Mannen',
         description: 'Klachten voor of na prostaatbehandeling, urineverlies, bekkenpijn, plasproblemen en seksuele klachten.',
-        href: '/pelvic-health-mannen/',
+        href: ROUTES.pelvicMen.nl,
       },
       {
         title: 'Kinderen',
         description: 'Bedplassen, urine- of stoelgangsverlies, constipatie, ophoudgedrag en moeilijk ontspannen bij toiletbezoek.',
-        href: '/pelvic-health-kinderen/',
+        href: ROUTES.pelvicChildren.nl,
       },
     ],
     expectTitle: 'Wat kun je verwachten',
@@ -335,7 +338,6 @@ export const nl: NlDictionary = {
       { label: 'Eerste intake', duration: 'ongeveer 60 minuten', price: '€ 92 tot € 100' },
       { label: 'Vervolgbehandeling', duration: '30 minuten', price: '€ 46' },
     ],
-    ratesNote: 'De prijs van de intake hangt af van de precieze invulling ervan.',
     prescriptionTitle: 'Voorschrift en terugbetaling',
     prescriptionText: [
       'Voor terugbetaling door je ziekenfonds heb je een voorschrift van je arts nodig.',
@@ -369,6 +371,7 @@ export const nl: NlDictionary = {
       email: 'E-mailadres',
       phone: 'Telefoonnummer',
       phoneOptional: 'optioneel',
+      phoneHint: 'Gebruik alleen cijfers en eventueel een + vooraan (minstens 8 cijfers)',
       subject: 'Onderwerp',
       preferredContactLabel: 'Voorkeursmanier van contact',
       preferredContactEmail: 'E-mail',

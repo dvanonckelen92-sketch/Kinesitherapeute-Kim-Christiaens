@@ -1,0 +1,174 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import InstagramIcon from '../components/InstagramIcon.astro';
+import { getDictionary, route } from '../i18n';
+import type { Locale } from '../consts';
+import { SITE } from '../consts';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getDictionary(locale);
+const h = t.home;
+---
+
+<Layout locale={locale} route="home" title={h.metaTitle} description={h.metaDescription}>
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <p class="hero-tagline">{h.heroTagline}</p>
+        <h1>{h.heroTitle}</h1>
+        {h.heroIntro.map((paragraph) => <p class="text-muted">{paragraph}</p>)}
+        <div class="hero-actions">
+          <a class="btn btn-primary" href={route('contact', locale)}>{t.cta.contact}</a>
+          <a class="btn btn-secondary" href={route('about', locale)}>{t.cta.discover}</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="210" cy="210" r="200" fill="var(--color-bg-alt-2)" />
+          <path
+            d="M210 320c-70-45-125-97-125-158C85 112 123 78 165 78c21 0 40 10 45 27 5-17 24-27 45-27 42 0 80 34 80 84 0 61-55 113-125 158Z"
+            fill="var(--color-primary)"
+          />
+          <circle cx="210" cy="150" r="16" fill="var(--color-gold-strong)" />
+          <circle cx="90" cy="90" r="18" fill="var(--color-gold-strong)" opacity="0.7" />
+          <circle cx="345" cy="300" r="24" fill="var(--color-primary-soft)" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="services-heading">
+    <div class="container">
+      <div class="section-heading">
+        <h2 id="services-heading">{h.servicesTitle}</h2>
+      </div>
+      <div class="services-grid">
+        {h.services.map((service) => <ServiceCard service={service} discoverLabel={t.cta.discover} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="wholebody-heading">
+    <div class="container">
+      <h2 id="wholebody-heading">{h.wholeBodyTitle}</h2>
+      <div class="wholebody-text">
+        {h.wholeBodyText.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+      <h3 class="approach-heading">{h.approachTitle}</h3>
+      <ul class="check-list approach-list">
+        {h.approachItems.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="brand-heading">
+    <div class="container brand-grid">
+      <div>
+        <h2 id="brand-heading">{h.brandStoryTitle}</h2>
+      </div>
+      <div class="brand-text">
+        {h.brandStoryText.map((paragraph) => <p class="text-muted">{paragraph}</p>)}
+        <a class="btn btn-secondary" href={SITE.instagramUrl} target="_blank" rel="noopener noreferrer">
+          <InstagramIcon />
+          <span>{SITE.instagram}</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    title={h.ctaTitle}
+    text={h.ctaText}
+    ctaLabel={t.cta.contact}
+    ctaHref={route('contact', locale)}
+    secondaryLabel={t.cta.mailKim}
+    secondaryHref={`mailto:${SITE.email}`}
+  />
+</Layout>
+
+<style>
+  .hero {
+    background: linear-gradient(160deg, var(--color-bg-alt) 0%, #fff 60%);
+    padding-block: clamp(2.5rem, 2rem + 3vw, 5rem);
+  }
+
+  .hero-inner {
+    display: grid;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  @media (min-width: 62em) {
+    .hero-inner {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+  }
+
+  .hero-tagline {
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    font-size: 1.05rem;
+    margin: 0;
+  }
+
+  .hero-copy h1 {
+    margin-top: 0.6rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 1.5rem;
+  }
+
+  .hero-visual {
+    max-width: 22rem;
+    margin-inline: auto;
+  }
+
+  .section-heading {
+    max-width: 60ch;
+    margin-bottom: 2.5rem;
+  }
+
+  .services-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  }
+
+  .wholebody-text {
+    max-width: 62ch;
+    font-size: 1.05rem;
+  }
+
+  .approach-heading {
+    margin-top: 2rem;
+  }
+
+  .approach-list {
+    max-width: 46rem;
+  }
+
+  .brand-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media (min-width: 56em) {
+    .brand-grid {
+      grid-template-columns: 0.8fr 1.2fr;
+    }
+  }
+
+  .brand-text p {
+    font-size: 1.05rem;
+  }
+</style>

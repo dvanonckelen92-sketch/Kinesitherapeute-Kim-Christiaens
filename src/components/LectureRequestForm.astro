@@ -1,13 +1,15 @@
 ---
-import type { NlDictionary } from '../i18n/types';
+import { getDictionary, route } from '../i18n';
+import type { Locale } from '../consts';
 
 interface Props {
-  t: NlDictionary;
+  locale: Locale;
 }
 
-const { t } = Astro.props;
+const { locale } = Astro.props;
+const t = getDictionary(locale);
 const f = t.lectures.form;
-const formName = 'lezing-nl';
+const formName = `lezing-${locale}`;
 ---
 
 <form
@@ -16,7 +18,7 @@ const formName = 'lezing-nl';
   method="POST"
   data-netlify="true"
   netlify-honeypot="bot-field"
-  action="/contact/bedankt/"
+  action={route('thanks', locale)}
 >
   <h2>{f.title}</h2>
   <input type="hidden" name="form-name" value={formName} />

@@ -1,28 +1,5 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
-import { getDictionary } from '../../../i18n';
-
-const t = getDictionary('fr');
-const ty = t.thankyou;
+import ThankYouPage from '../../../views/ThankYouPage.astro';
 ---
 
-<Layout locale="fr" t={t} title={ty.metaTitle} description={ty.metaDescription} altHref="/contact/bedankt/" noindex>
-  <section class="section thank-you">
-    <div class="container">
-      <h1>{ty.title}</h1>
-      <p class="text-muted">{ty.text}</p>
-      <a class="btn btn-primary" href="/fr/">{t.cta.backHome}</a>
-    </div>
-  </section>
-</Layout>
-
-<style>
-  .thank-you {
-    text-align: center;
-    padding-block: clamp(4rem, 3rem + 4vw, 7rem);
-  }
-
-  .thank-you .btn {
-    margin-top: 1.5rem;
-  }
-</style>
+<ThankYouPage locale="fr" />

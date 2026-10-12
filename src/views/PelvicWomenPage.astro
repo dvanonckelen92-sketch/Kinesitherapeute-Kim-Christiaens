@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import { getDictionary, route } from '../i18n';
+import type { Locale } from '../consts';
+import { SITE } from '../consts';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getDictionary(locale);
+const p = t.pelvicWomen;
+---
+
+<Layout
+  locale={locale}
+  route="pelvicWomen"
+  title={p.metaTitle}
+  description={p.metaDescription}
+  breadcrumb={[
+    { label: t.nav.pelvic, href: route('pelvic', locale) },
+    { label: t.nav.pelvicWomen, href: route('pelvicWomen', locale) },
+  ]}
+>
+  <PageIntro eyebrow={p.eyebrow} title={p.title} intro={p.intro} />
+
+  <section class="section">
+    <div class="container">
+      <h2>{p.checklistTitle}</h2>
+      <ul class="check-list topic-list">
+        {p.checklist.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="secondary-heading">
+    <div class="container">
+      <h2 id="secondary-heading">{p.secondaryTitle}</h2>
+      <div class="secondary-text">
+        {p.secondaryText.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    title={t.home.ctaTitle}
+    text={t.home.ctaText}
+    ctaLabel={t.cta.contact}
+    ctaHref={route('contact', locale)}
+    secondaryLabel={t.cta.mailKim}
+    secondaryHref={`mailto:${SITE.email}`}
+  />
+</Layout>
+
+<style>
+  .topic-list {
+    max-width: 46rem;
+  }
+
+  .secondary-text {
+    max-width: 62ch;
+  }
+</style>

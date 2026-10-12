@@ -1,11 +1,12 @@
 ---
 import type { Locale } from '../consts';
-import type { UiDictionary } from '../i18n/types';
+import type { Dictionary } from '../i18n';
+import { route } from '../i18n';
 import { SITE } from '../consts';
 
 interface Props {
   locale: Locale;
-  t: UiDictionary;
+  t: Dictionary;
   currentPath: string;
   /** Vertaalde versie van deze pagina; zonder vertaling linkt de taalkeuze naar de andere homepage. */
   altHref?: string;
@@ -13,8 +14,8 @@ interface Props {
 
 const { locale, t, currentPath, altHref } = Astro.props;
 
-const base = locale === 'nl' ? '' : '/fr';
-const otherLangHref = altHref ?? (locale === 'nl' ? '/fr/' : '/');
+const homeHref = route('home', locale);
+const otherLangHref = altHref ?? route('home', locale === 'nl' ? 'fr' : 'nl');
 const langLinks = [
   { code: 'nl', label: 'NL', href: locale === 'nl' ? currentPath : otherLangHref },
   { code: 'fr', label: 'FR', href: locale === 'fr' ? currentPath : otherLangHref },
@@ -22,42 +23,33 @@ const langLinks = [
 
 type NavItem = { href: string; label: string; children?: { href: string; label: string }[] };
 
-const navItems: NavItem[] =
-  t.lang === 'nl'
-    ? [
-        { href: '/over-kim/', label: t.nav.about },
-        {
-          href: '/pelvic-health/',
-          label: t.nav.pelvic,
-          children: [
-            { href: '/pelvic-health/', label: t.nav.pelvicHome },
-            { href: '/pelvic-health-vrouwen/', label: t.nav.pelvicWomen },
-            { href: '/pelvic-health-mannen/', label: t.nav.pelvicMen },
-            { href: '/pelvic-health-kinderen/', label: t.nav.pelvicChildren },
-          ],
-        },
-        { href: '/hormonen-en-levensfasen/', label: t.nav.hormones },
-        { href: '/bewegen-en-sport/', label: t.nav.movement },
-        { href: '/lezingen-en-workshops/', label: t.nav.lectures },
-        { href: '/praktische-info/', label: t.nav.practical },
-        { href: '/contact/', label: t.nav.contact },
-      ]
-    : [
-        { href: '/fr/accompagnement-perinatal/', label: t.nav.perinatal },
-        { href: '/fr/reeducation-perineale/', label: t.nav.pelvic },
-        { href: '/fr/therapie-manuelle/', label: t.nav.manual },
-        { href: '/fr/tarifs/', label: t.nav.rates },
-        { href: '/fr/contact/', label: t.nav.contact },
-      ];
+const navItems: NavItem[] = [
+  { href: route('about', locale), label: t.nav.about },
+  {
+    href: route('pelvic', locale),
+    label: t.nav.pelvic,
+    children: [
+      { href: route('pelvic', locale), label: t.nav.pelvicHome },
+      { href: route('pelvicWomen', locale), label: t.nav.pelvicWomen },
+      { href: route('pelvicMen', locale), label: t.nav.pelvicMen },
+      { href: route('pelvicChildren', locale), label: t.nav.pelvicChildren },
+    ],
+  },
+  { href: route('hormones', locale), label: t.nav.hormones },
+  { href: route('movement', locale), label: t.nav.movement },
+  { href: route('lectures', locale), label: t.nav.lectures },
+  { href: route('practical', locale), label: t.nav.practical },
+  { href: route('contact', locale), label: t.nav.contact },
+];
 
 function isActive(href: string) {
-  return currentPath === href || (href !== '/' && href !== '/fr/' && currentPath.startsWith(href));
+  return currentPath === href || (href !== homeHref && currentPath.startsWith(href));
 }
 ---
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href={base + '/'}>
+    <a class="brand" href={homeHref}>
       <img
         class="brand-mark"
         src="/logo-horizontal.svg"

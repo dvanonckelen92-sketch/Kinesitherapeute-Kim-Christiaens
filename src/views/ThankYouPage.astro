@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getDictionary, route } from '../i18n';
+import type { Locale } from '../consts';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getDictionary(locale);
+const ty = t.thankyou;
+---
+
+<Layout locale={locale} route="thanks" title={ty.metaTitle} description={ty.metaDescription} noindex>
+  <section class="section thank-you">
+    <div class="container">
+      <h1>{ty.title}</h1>
+      <p class="text-muted">{ty.text}</p>
+      <a class="btn btn-primary" href={route('home', locale)}>{t.cta.backHome}</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .thank-you {
+    text-align: center;
+    padding-block: clamp(4rem, 3rem + 4vw, 7rem);
+  }
+
+  .thank-you .btn {
+    margin-top: 1.5rem;
+  }
+</style>

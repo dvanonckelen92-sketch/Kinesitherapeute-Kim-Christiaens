@@ -1,20 +1,9 @@
+import type { Locale } from '../consts';
+
 export interface ServiceSummary {
   title: string;
   description: string;
   href: string;
-}
-
-export interface ListSection {
-  title: string;
-  intro?: string;
-  items: string[];
-}
-
-export interface SubService {
-  id: string;
-  title: string;
-  lead?: string;
-  sections: ListSection[];
 }
 
 interface NavBase {
@@ -77,9 +66,9 @@ interface NotFoundSection {
   text: string;
 }
 
-/* ---------- Nederlands: nieuwe structuur volgens de websitebrief ---------- */
+/* ---------- Eén structuur voor NL en FR, volgens de websitebrief ---------- */
 
-interface NlNav extends NavBase {
+interface Nav extends NavBase {
   about: string;
   pelvic: string;
   pelvicHome: string;
@@ -104,10 +93,10 @@ interface TopicPage {
   secondaryText: string[];
 }
 
-export interface NlDictionary {
-  lang: 'nl';
+export interface Dictionary {
+  lang: Locale;
   htmlLang: string;
-  nav: NlNav;
+  nav: Nav;
   cta: CtaLabels;
   footer: FooterLabels;
   home: {
@@ -116,6 +105,7 @@ export interface NlDictionary {
     heroTagline: string;
     heroTitle: string;
     heroIntro: string[];
+    servicesTitle: string;
     services: ServiceSummary[];
     wholeBodyTitle: string;
     wholeBodyText: string[];
@@ -144,6 +134,7 @@ export interface NlDictionary {
     eyebrow: string;
     title: string;
     intro: string;
+    audiencesTitle: string;
     audiences: { title: string; description: string; href: string }[];
     expectTitle: string;
     expectText: string[];
@@ -207,7 +198,6 @@ export interface NlDictionary {
     appointmentsText: string[];
     ratesTitle: string;
     rates: { label: string; duration: string; price: string }[];
-    ratesNote: string;
     prescriptionTitle: string;
     prescriptionText: string[];
     paymentTitle: string;
@@ -234,6 +224,7 @@ export interface NlDictionary {
       email: string;
       phone: string;
       phoneOptional: string;
+      phoneHint: string;
       subject: string;
       preferredContactLabel: string;
       preferredContactEmail: string;
@@ -253,103 +244,3 @@ export interface NlDictionary {
   legal: LegalSection;
   notFound: NotFoundSection;
 }
-
-/* ---------- Frans: bestaande structuur, ongewijzigd ---------- */
-
-interface FrNav extends NavBase {
-  perinatal: string;
-  pelvic: string;
-  manual: string;
-  rates: string;
-}
-
-export interface FrDictionary {
-  lang: 'fr';
-  htmlLang: string;
-  nav: FrNav;
-  cta: CtaLabels;
-  footer: FooterLabels;
-  home: {
-    metaTitle: string;
-    metaDescription: string;
-    heroTitle: string;
-    heroSubtitle: string;
-    heroText: string;
-    aboutTitle: string;
-    aboutText: string[];
-    servicesTitle: string;
-    servicesIntro: string;
-    services: ServiceSummary[];
-    whyTitle: string;
-    whyItems: { title: string; text: string }[];
-    areaTitle: string;
-    areaText: string;
-    areaPlaces: string[];
-    ctaTitle: string;
-    ctaText: string;
-  };
-  perinatal: {
-    metaTitle: string;
-    metaDescription: string;
-    title: string;
-    intro: string;
-    subServices: SubService[];
-  };
-  pelvic: {
-    metaTitle: string;
-    metaDescription: string;
-    title: string;
-    intro: string;
-    groups: {
-      id: string;
-      title: string;
-      categories: ListSection[];
-      treatments: ListSection;
-    }[];
-  };
-  manual: {
-    metaTitle: string;
-    metaDescription: string;
-    title: string;
-    intro: string[];
-    indicationsTitle: string;
-    indications: string[];
-  };
-  rates: {
-    metaTitle: string;
-    metaDescription: string;
-    title: string;
-    intro: string;
-    items: { label: string; value: string }[];
-    note: string;
-  };
-  contact: {
-    metaTitle: string;
-    metaDescription: string;
-    title: string;
-    intro: string;
-    addressTitle: string;
-    phoneTitle: string;
-    emailTitle: string;
-    mapTitle: string;
-    linksTitle: string;
-    links: { label: string; href: string }[];
-    formNote: string;
-    formTitle: string;
-    form: {
-      name: string;
-      email: string;
-      phone: string;
-      phoneOptional: string;
-      message: string;
-      submit: string;
-      honeypot: string;
-    };
-  };
-  thankyou: ThankYouSection;
-  privacy: PrivacySection;
-  legal: LegalSection;
-  notFound: NotFoundSection;
-}
-
-export type UiDictionary = NlDictionary | FrDictionary;

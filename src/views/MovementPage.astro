@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import { getDictionary, route } from '../i18n';
+import type { Locale } from '../consts';
+import { SITE } from '../consts';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getDictionary(locale);
+const m = t.movement;
+---
+
+<Layout
+  locale={locale}
+  route="movement"
+  title={m.metaTitle}
+  description={m.metaDescription}
+  breadcrumb={[{ label: t.nav.movement, href: route('movement', locale) }]}
+>
+  <PageIntro eyebrow={m.eyebrow} title={m.title} />
+
+  <section class="section">
+    <div class="container intro-grid">
+      <div class="intro-text">
+        {m.intro.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>{m.helpTitle}</h2>
+      <ul class="check-list topic-list">
+        {m.helpItems.map((item) => <li>{item}</li>)}
+      </ul>
+      <p class="closing-text text-muted">{m.closingText}</p>
+    </div>
+  </section>
+
+  <CtaBanner
+    title={t.home.ctaTitle}
+    text={t.home.ctaText}
+    ctaLabel={t.cta.contact}
+    ctaHref={route('contact', locale)}
+    secondaryLabel={t.cta.mailKim}
+    secondaryHref={`mailto:${SITE.email}`}
+  />
+</Layout>
+
+<style>
+  .intro-text {
+    max-width: 68ch;
+    font-size: 1.08rem;
+  }
+
+  .topic-list {
+    max-width: 46rem;
+  }
+
+  .closing-text {
+    max-width: 62ch;
+    margin-top: 1.75rem;
+  }
+</style>
