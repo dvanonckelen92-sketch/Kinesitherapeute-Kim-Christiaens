@@ -12,6 +12,7 @@ interface NavBase {
   menu: string;
   closeMenu: string;
   skipToContent: string;
+  breadcrumb: string;
   switchLang: string;
 }
 
@@ -96,6 +97,8 @@ interface TopicPage {
 export interface Dictionary {
   lang: Locale;
   htmlLang: string;
+  /** Werkgebied voor schema.org areaServed; enkel plaatsen die ook zichtbaar op de site staan (footer). */
+  areaServed: string[];
   nav: Nav;
   cta: CtaLabels;
   footer: FooterLabels;

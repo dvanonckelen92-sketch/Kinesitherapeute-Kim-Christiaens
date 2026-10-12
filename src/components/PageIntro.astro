@@ -1,17 +1,43 @@
 ---
+import LinkedText from './LinkedText.astro';
+import type { Locale } from '../consts';
+import { getDictionary, route } from '../i18n';
+
 interface Props {
+  locale: Locale;
   eyebrow: string;
   title: string;
   intro?: string;
+  /** Zichtbaar kruimelpad (zonder home); dezelfde lijst als de BreadcrumbList in Layout. */
+  breadcrumb?: { label: string; href: string }[];
 }
 
-const { title, intro } = Astro.props;
+const { locale, title, intro, breadcrumb = [] } = Astro.props;
+const t = getDictionary(locale);
+const trail = breadcrumb.length > 0 ? [{ label: t.nav.home, href: route('home', locale) }, ...breadcrumb] : [];
 ---
 
 <header class="page-intro">
   <div class="container">
+    {
+      trail.length > 0 && (
+        <nav class="breadcrumb" aria-label={t.nav.breadcrumb}>
+          <ol>
+            {trail.map((item, index) =>
+              index === trail.length - 1 ? (
+                <li aria-current="page">{item.label}</li>
+              ) : (
+                <li>
+                  <a href={item.href}>{item.label}</a>
+                </li>
+              )
+            )}
+          </ol>
+        </nav>
+      )
+    }
     <h1>{title}</h1>
-    {intro && <p class="intro-text">{intro}</p>}
+    {intro && <p class="intro-text"><LinkedText text={intro} locale={locale} /></p>}
   </div>
 </header>
 
@@ -20,6 +46,33 @@ const { title, intro } = Astro.props;
     background: linear-gradient(180deg, var(--color-bg-alt) 0%, #fff 100%);
     padding-block: clamp(2.5rem, 2rem + 2vw, 4.5rem) clamp(2rem, 1.5rem + 1.5vw, 3rem);
     border-bottom: 1px solid var(--color-border);
+  }
+
+  .breadcrumb ol {
+    list-style: none;
+    margin: 0 0 1.25rem;
+    padding: 0;
+    font-size: 0.9rem;
+    color: var(--color-ink-muted);
+  }
+
+  .breadcrumb li {
+    display: inline;
+    margin: 0;
+  }
+
+  .breadcrumb li + li::before {
+    content: '›';
+    padding-inline: 0.45em;
+    color: var(--color-ink-muted);
+  }
+
+  .breadcrumb a {
+    color: var(--color-ink-muted);
+  }
+
+  .breadcrumb a:hover {
+    color: var(--color-primary);
   }
 
   .intro-text {

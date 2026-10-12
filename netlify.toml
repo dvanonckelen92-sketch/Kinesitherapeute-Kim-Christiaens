@@ -42,3 +42,9 @@
   from = "/fr/therapie-manuelle/"
   to = "/fr/mouvement-et-sport/"
   status = 301
+
+# Franstalige foutpagina voor onbestaande /fr/-adressen (bestaande pagina's gaan voor)
+[[redirects]]
+  from = "/fr/*"
+  to = "/fr/404/"
+  status = 404

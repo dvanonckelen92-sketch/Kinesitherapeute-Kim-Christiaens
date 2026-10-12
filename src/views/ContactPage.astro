@@ -19,6 +19,7 @@ const { lat, lon } = SITE.coords;
 const bbox = `${lon - 0.008},${lat - 0.005},${lon + 0.008},${lat + 0.005}`;
 const mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${lat},${lon}`;
 const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}`;
+const breadcrumb = [{ label: t.nav.contact, href: route('contact', locale) }];
 ---
 
 <Layout
@@ -26,9 +27,9 @@ const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${lat
   route="contact"
   title={c.metaTitle}
   description={c.metaDescription}
-  breadcrumb={[{ label: t.nav.contact, href: route('contact', locale) }]}
+  breadcrumb={breadcrumb}
 >
-  <PageIntro eyebrow={c.eyebrow} title={c.title} intro={c.intro} />
+  <PageIntro locale={locale} breadcrumb={breadcrumb} eyebrow={c.eyebrow} title={c.title} intro={c.intro} />
 
   <section class="section">
     <div class="container contact-grid">

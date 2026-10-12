@@ -5,6 +5,7 @@ import { SITE } from '../consts';
 export const nl: Dictionary = {
   lang: 'nl',
   htmlLang: 'nl-BE',
+  areaServed: ['Heers', 'Sint-Truiden', 'Haspengouw'],
   nav: {
     home: 'Home',
     about: 'Over Kim',
@@ -21,6 +22,7 @@ export const nl: Dictionary = {
     menu: 'Menu',
     closeMenu: 'Menu sluiten',
     skipToContent: 'Ga naar de inhoud',
+    breadcrumb: 'Kruimelpad',
     switchLang: 'Bekijk deze pagina in het Frans',
   },
   cta: {
@@ -93,7 +95,7 @@ export const nl: Dictionary = {
     brandStoryTitle: 'The Happy Floor is mijn bredere verhaal',
     brandStoryText: [
       'The Happy Floor groeide vanuit mijn passie voor de bekkenbodem en vat samen hoe ik vandaag naar gezondheid kijk. Mijn werk gaat over alles wat met je bekkenbodem verbonden is: hormonen, ademhaling, beweging, kracht, herstel, seksualiteit en je goed voelen in je lichaam.',
-      'De naam verbindt mijn begeleiding, lezingen, workshops en Instagram in één herkenbaar verhaal. Waar je mij ook tegenkomt, je mag dezelfde warme, deskundige en brede benadering verwachten. Volg @thehappyfloorandmore op Instagram voor inzichten, herkenbare verhalen en praktische informatie.',
+      'De naam verbindt mijn begeleiding, [lezingen, workshops](lectures) en Instagram in één herkenbaar verhaal. Waar je mij ook tegenkomt, je mag dezelfde warme, deskundige en brede benadering verwachten. Volg @thehappyfloorandmore op Instagram voor inzichten, herkenbare verhalen en praktische informatie.',
     ],
     instagramCta: 'Volg op Instagram',
     ctaTitle: 'Klaar om kennis te maken?',
@@ -108,7 +110,7 @@ export const nl: Dictionary = {
     intro: [
       'Ik ben Kim Christiaens, kinesitherapeute en voortdurend nieuwsgierig naar hoe het lichaam werkt, verandert en zich aanpast.',
       'Mijn interesse in pelvic health is doorheen de jaren steeds groter geworden. Niet alleen omdat de bekkenbodem een fascinerend stukje anatomie is, maar vooral omdat klachten in het bekken zo’n grote invloed kunnen hebben op hoe iemand zich voelt, beweegt en leeft. Ik vind het belangrijk dat daarover gepraat kan worden, zonder schaamte, zonder taboes en zonder het gevoel dat je lichaam je in de steek laat.',
-      'Door mijn opleidingen en ervaring specialiseerde ik me in pelvische revalidatie, perinatale kinesitherapie, manuele therapie, women’s health, men’s pelvic health en hormonale gezondheid. Tegelijk werd mijn kijk breder. Ik kijk niet alleen naar een spier of gewricht, maar naar de persoon die voor mij zit: hoe beweeg je, hoe belast en herstel je, wat verandert er in je leven en wat vertelt je lichaam? Dat zijn vaak belangrijkere vragen dan alleen waar het pijn doet.',
+      'Door mijn opleidingen en ervaring specialiseerde ik me in pelvische revalidatie, perinatale kinesitherapie, manuele therapie, [women’s health](pelvicWomen), [men’s pelvic health](pelvicMen) en hormonale gezondheid. Tegelijk werd mijn kijk breder. Ik kijk niet alleen naar een spier of gewricht, maar naar de persoon die voor mij zit: hoe beweeg je, hoe belast en herstel je, wat verandert er in je leven en wat vertelt je lichaam? Dat zijn vaak belangrijkere vragen dan alleen waar het pijn doet.',
     ],
     approachTitle: 'Mijn manier van werken',
     approachText: [
@@ -159,7 +161,7 @@ export const nl: Dictionary = {
     ],
     expectTitle: 'Wat kun je verwachten',
     expectText: [
-      'Tijdens de intake brengen we je klachten, gewoonten, belasting en doelen in kaart. Onderzoek gebeurt altijd met uitleg en toestemming. Afhankelijk van je hulpvraag kunnen observatie, functieonderzoek, echografie of andere meet- en feedbackmethoden worden gebruikt.',
+      'Tijdens [de intake](practical) brengen we je klachten, gewoonten, belasting en doelen in kaart. Onderzoek gebeurt altijd met uitleg en toestemming. Afhankelijk van je hulpvraag kunnen observatie, functieonderzoek, echografie of andere meet- en feedbackmethoden worden gebruikt.',
       'De behandeling kan bestaan uit educatie, ademhalings- en ontspanningstechnieken, gerichte spiertraining, manuele technieken, gedragsadvies, oefentherapie en een stapsgewijze opbouw naar dagelijkse activiteiten of sport.',
     ],
   },
@@ -170,7 +172,7 @@ export const nl: Dictionary = {
     eyebrow: 'Pelvic health · Vrouwen',
     title: 'Je klachten zijn niet iets waar je zomaar mee moet leren leven',
     intro:
-      'Bekkenbodemklachten kunnen ontstaan of veranderen na een zwangerschap of bevalling, bij hormonale veranderingen, na een operatie, tijdens het sporten of zonder duidelijke aanleiding. Ze kunnen invloed hebben op bewegen, werken, slapen, seks en zelfvertrouwen.',
+      'Bekkenbodemklachten kunnen ontstaan of veranderen na een zwangerschap of bevalling, bij [hormonale veranderingen](hormones), na een operatie, tijdens [het sporten](movement) of zonder duidelijke aanleiding. Ze kunnen invloed hebben op bewegen, werken, slapen, seks en zelfvertrouwen.',
     checklistTitle: 'Je kunt onder andere terecht met',
     checklist: [
       'Urineverlies of plotse aandrang',
@@ -248,9 +250,9 @@ export const nl: Dictionary = {
     helpTitle: 'Waarmee kan ik helpen',
     helpItems: [
       'Veranderingen in je lichaam beter begrijpen',
-      'Bewegen en trainen aanpassen aan je belastbaarheid',
+      '[Bewegen en trainen](movement) aanpassen aan je belastbaarheid',
       'Spierkracht, botbelasting en herstel gericht opbouwen',
-      'Bekkenbodemklachten in hun bredere context bekijken',
+      '[Bekkenbodemklachten](pelvic) in hun bredere context bekijken',
       'Praktische leefstijlkeuzes bespreekbaar en haalbaar maken',
       'Gericht doorverwijzen wanneer medische beoordeling nodig is',
     ],
@@ -259,7 +261,7 @@ export const nl: Dictionary = {
       'We bekijken welke aanpassingen in beweging, krachttraining, slaap, stressregulatie, herstel en dagelijkse gewoonten jouw lichaam kunnen ondersteunen. Ook voeding en, wanneer passend, zorgvuldig gekozen supplementen kunnen worden besproken als onderdeel van een bredere aanpak.',
     ],
     referralText:
-      'Bij aandoeningen zoals endometriose en PCOS, bij uitgesproken cyclusproblemen of wanneer zwanger worden moeilijk lukt, sluit deze begeleiding aan bij medische opvolging. Waar nodig stem ik af met of verwijs ik door naar een huisarts, gynaecoloog, endocrinoloog, fertiliteitsarts of diëtist, zodat alle onderdelen van de begeleiding veilig bij elkaar passen.',
+      'Bij aandoeningen zoals [endometriose en PCOS](pelvicWomen), bij uitgesproken cyclusproblemen of wanneer zwanger worden moeilijk lukt, sluit deze begeleiding aan bij medische opvolging. Waar nodig stem ik af met of verwijs ik door naar een huisarts, gynaecoloog, endocrinoloog, fertiliteitsarts of diëtist, zodat alle onderdelen van de begeleiding veilig bij elkaar passen.',
   },
   movement: {
     metaTitle: 'Bewegen en sport | The Happy Floor',
@@ -269,7 +271,7 @@ export const nl: Dictionary = {
     title: 'Bewegen met vertrouwen in je lichaam',
     intro: [
       'Bewegen is een belangrijk onderdeel van gezondheid en herstel. Toch kan sporten onzeker maken wanneer je last hebt van urineverlies, drukgevoel, pijn, terugkerende blessures of een lichaam dat anders reageert dan vroeger.',
-      'Ik help je begrijpen welke factoren meespelen en hoe je beweging opnieuw kunt opbouwen. Daarbij kijken we niet alleen naar de bekkenbodem, maar ook naar ademhaling, romp, heupen, kracht, coördinatie, belastbaarheid en herstel.',
+      'Ik help je begrijpen welke factoren meespelen en hoe je beweging opnieuw kunt opbouwen. Daarbij kijken we niet alleen naar [de bekkenbodem](pelvic), maar ook naar ademhaling, romp, heupen, kracht, coördinatie, belastbaarheid en herstel.',
     ],
     helpTitle: 'Mogelijke hulpvragen',
     helpItems: [
@@ -278,7 +280,7 @@ export const nl: Dictionary = {
       'Terugkeer naar lopen en sport na zwangerschap of bevalling',
       'Bekken-, lies-, adductor- of hamstringklachten',
       'Moeite met drukregulatie tijdens heffen en tillen',
-      'Kracht en belastbaarheid opbouwen tijdens hormonale veranderingen',
+      'Kracht en belastbaarheid opbouwen tijdens [hormonale veranderingen](hormones)',
       'Opnieuw leren bewegen na pijn of een periode van inactiviteit',
     ],
     closingText:
@@ -413,7 +415,7 @@ export const nl: Dictionary = {
         title: 'Contactformulier',
         text: [
           'Wanneer je een contactformulier of aanvraagformulier invult, worden de gegevens die je zelf invult enkel gebruikt om je vraag te beantwoorden, een afspraak te bevestigen of een aanvraag voor een lezing of workshop te behandelen. Dit gebeurt op basis van jouw toestemming bij het versturen van het formulier en, waar van toepassing, om stappen te zetten voorafgaand aan een behandelingsovereenkomst (art. 6.1.a en 6.1.b AVG).',
-          'Deze gegevens worden niet gebruikt voor marketing en niet doorgegeven aan derden, buiten de hierna vermelde verwerkers. Ze worden bewaard tot maximaal 12 maanden na de laatste contactname, tenzij er een afspraak of behandelrelatie uit voortvloeit — in dat geval gelden de wettelijke bewaartermijnen voor patiëntendossiers.',
+          'Deze gegevens worden niet gebruikt voor marketing en niet doorgegeven aan derden, buiten de hierna vermelde verwerkers. Ze worden bewaard tot maximaal 12 maanden na de laatste contactname, tenzij er een afspraak of behandelrelatie uit voortvloeit. In dat geval gelden de wettelijke bewaartermijnen voor patiëntendossiers.',
         ],
       },
       {
@@ -434,7 +436,7 @@ export const nl: Dictionary = {
         title: 'Jouw rechten',
         text: [
           'Je hebt steeds het recht op inzage, verbetering, verwijdering en beperking van je gegevens, het recht om je toestemming in te trekken en het recht op overdraagbaarheid van je gegevens. Stuur hiervoor een e-mail naar info@kimchristiaens.be.',
-          'Je hebt ook het recht om een klacht in te dienen bij de Belgische Gegevensbeschermingsautoriteit (GBA), Drukpersstraat 35, 1000 Brussel — contact@apd-gba.be — www.gegevensbeschermingsautoriteit.be.',
+          'Je hebt ook het recht om een klacht in te dienen bij de Belgische Gegevensbeschermingsautoriteit (GBA), Drukpersstraat 35, 1000 Brussel, via contact@apd-gba.be of www.gegevensbeschermingsautoriteit.be.',
         ],
       },
       {
@@ -456,7 +458,7 @@ export const nl: Dictionary = {
         title: 'Identificatie',
         text: [
           `${SITE.legalName}, praktijk van Kim Christiaens, kinesitherapeute, met praktijkadres ${SITE.address.full}.`,
-          `Telefoon: ${SITE.phone} — E-mail: ${SITE.email}.`,
+          `Telefoon: ${SITE.phone}. E-mail: ${SITE.email}.`,
           `Ondernemingsnummer (KBO): ${SITE.companyNumber || 'wordt aangevuld'}.`,
           `Merknaam: ${SITE.brandFull}.`,
         ],

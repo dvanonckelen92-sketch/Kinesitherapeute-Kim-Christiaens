@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import PageIntro from '../components/PageIntro.astro';
 import CtaBanner from '../components/CtaBanner.astro';
+import LinkedText from '../components/LinkedText.astro';
 import { getDictionary, route } from '../i18n';
 import type { Locale } from '../consts';
 import { SITE } from '../consts';
@@ -13,6 +14,7 @@ interface Props {
 const { locale } = Astro.props;
 const t = getDictionary(locale);
 const a = t.about;
+const breadcrumb = [{ label: t.nav.about, href: route('about', locale) }];
 ---
 
 <Layout
@@ -20,14 +22,14 @@ const a = t.about;
   route="about"
   title={a.metaTitle}
   description={a.metaDescription}
-  breadcrumb={[{ label: t.nav.about, href: route('about', locale) }]}
+  breadcrumb={breadcrumb}
 >
-  <PageIntro eyebrow={a.eyebrow} title={a.title} />
+  <PageIntro locale={locale} breadcrumb={breadcrumb} eyebrow={a.eyebrow} title={a.title} />
 
   <section class="section">
     <div class="container intro-grid">
       <div class="intro-text">
-        {a.intro.map((paragraph) => <p>{paragraph}</p>)}
+        {a.intro.map((paragraph) => <p><LinkedText text={paragraph} locale={locale} /></p>)}
       </div>
     </div>
   </section>

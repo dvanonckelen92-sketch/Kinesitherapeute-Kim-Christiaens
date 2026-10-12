@@ -13,6 +13,10 @@ interface Props {
 const { locale } = Astro.props;
 const t = getDictionary(locale);
 const p = t.pelvicMen;
+const breadcrumb = [
+    { label: t.nav.pelvic, href: route('pelvic', locale) },
+    { label: t.nav.pelvicMen, href: route('pelvicMen', locale) },
+  ];
 ---
 
 <Layout
@@ -20,12 +24,9 @@ const p = t.pelvicMen;
   route="pelvicMen"
   title={p.metaTitle}
   description={p.metaDescription}
-  breadcrumb={[
-    { label: t.nav.pelvic, href: route('pelvic', locale) },
-    { label: t.nav.pelvicMen, href: route('pelvicMen', locale) },
-  ]}
+  breadcrumb={breadcrumb}
 >
-  <PageIntro eyebrow={p.eyebrow} title={p.title} intro={p.intro} />
+  <PageIntro locale={locale} breadcrumb={breadcrumb} eyebrow={p.eyebrow} title={p.title} intro={p.intro} />
 
   <section class="section">
     <div class="container">

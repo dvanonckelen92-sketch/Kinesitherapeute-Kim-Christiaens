@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import PageIntro from '../components/PageIntro.astro';
 import CtaBanner from '../components/CtaBanner.astro';
+import LinkedText from '../components/LinkedText.astro';
 import { getDictionary, route } from '../i18n';
 import type { Locale } from '../consts';
 import { SITE } from '../consts';
@@ -13,6 +14,7 @@ interface Props {
 const { locale } = Astro.props;
 const t = getDictionary(locale);
 const h = t.hormones;
+const breadcrumb = [{ label: t.nav.hormones, href: route('hormones', locale) }];
 ---
 
 <Layout
@@ -20,15 +22,15 @@ const h = t.hormones;
   route="hormones"
   title={h.metaTitle}
   description={h.metaDescription}
-  breadcrumb={[{ label: t.nav.hormones, href: route('hormones', locale) }]}
+  breadcrumb={breadcrumb}
 >
-  <PageIntro eyebrow={h.eyebrow} title={h.title} intro={h.intro} />
+  <PageIntro locale={locale} breadcrumb={breadcrumb} eyebrow={h.eyebrow} title={h.title} intro={h.intro} />
 
   <section class="section">
     <div class="container">
       <h2>{h.helpTitle}</h2>
       <ul class="check-list topic-list">
-        {h.helpItems.map((item) => <li>{item}</li>)}
+        {h.helpItems.map((item) => <li><LinkedText text={item} locale={locale} /></li>)}
       </ul>
     </div>
   </section>
@@ -38,7 +40,7 @@ const h = t.hormones;
       <h2 id="approach-heading">{h.approachTitle}</h2>
       <div class="approach-text">
         {h.approachText.map((paragraph) => <p>{paragraph}</p>)}
-        <p class="text-muted">{h.referralText}</p>
+        <p class="text-muted"><LinkedText text={h.referralText} locale={locale} /></p>
       </div>
     </div>
   </section>

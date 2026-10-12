@@ -17,6 +17,8 @@ Astro-website voor de kinesitherapiepraktijk van Kim Christiaens in Heers (regio
 
 Alle teksten staan in `src/i18n/nl.ts` (Nederlands) en `src/i18n/fr.ts` (Frans). Pas een tekst aan in het juiste bestand — de pagina's halen alles uit deze bestanden, dus er hoeft nergens anders iets aangepast te worden.
 
+Een interne link in een tekst schrijf je als `[woorden](pagina)`, met als pagina een sleutel uit `src/i18n/routes.ts`, bv. `bij [hormonale veranderingen](hormones)`. Dat werkt in de velden die via `LinkedText` worden getoond (o.a. de intro bovenaan een pagina).
+
 Praktijkgegevens (adres, telefoon, e-mail) staan centraal in `src/consts.ts`.
 
 ## Commands

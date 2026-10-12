@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import PageIntro from '../components/PageIntro.astro';
 import CtaBanner from '../components/CtaBanner.astro';
+import LinkedText from '../components/LinkedText.astro';
 import { getDictionary, route } from '../i18n';
 import type { Locale } from '../consts';
 import { SITE } from '../consts';
@@ -13,6 +14,7 @@ interface Props {
 const { locale } = Astro.props;
 const t = getDictionary(locale);
 const p = t.pelvicHome;
+const breadcrumb = [{ label: t.nav.pelvic, href: route('pelvic', locale) }];
 ---
 
 <Layout
@@ -20,9 +22,9 @@ const p = t.pelvicHome;
   route="pelvic"
   title={p.metaTitle}
   description={p.metaDescription}
-  breadcrumb={[{ label: t.nav.pelvic, href: route('pelvic', locale) }]}
+  breadcrumb={breadcrumb}
 >
-  <PageIntro eyebrow={p.eyebrow} title={p.title} intro={p.intro} />
+  <PageIntro locale={locale} breadcrumb={breadcrumb} eyebrow={p.eyebrow} title={p.title} intro={p.intro} />
 
   <section class="section" aria-labelledby="audiences-heading">
     <div class="container">
@@ -45,7 +47,7 @@ const p = t.pelvicHome;
     <div class="container">
       <h2 id="expect-heading">{p.expectTitle}</h2>
       <div class="expect-text">
-        {p.expectText.map((paragraph) => <p>{paragraph}</p>)}
+        {p.expectText.map((paragraph) => <p><LinkedText text={paragraph} locale={locale} /></p>)}
       </div>
     </div>
   </section>

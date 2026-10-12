@@ -12,6 +12,7 @@ interface Props {
 const { locale } = Astro.props;
 const t = getDictionary(locale);
 const l = t.lectures;
+const breadcrumb = [{ label: t.nav.lectures, href: route('lectures', locale) }];
 ---
 
 <Layout
@@ -19,9 +20,9 @@ const l = t.lectures;
   route="lectures"
   title={l.metaTitle}
   description={l.metaDescription}
-  breadcrumb={[{ label: t.nav.lectures, href: route('lectures', locale) }]}
+  breadcrumb={breadcrumb}
 >
-  <PageIntro eyebrow={l.eyebrow} title={l.title} />
+  <PageIntro locale={locale} breadcrumb={breadcrumb} eyebrow={l.eyebrow} title={l.title} />
 
   <section class="section">
     <div class="container intro-grid">

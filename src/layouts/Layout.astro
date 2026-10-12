@@ -54,8 +54,10 @@ const jsonLd: Record<string, unknown> = {
     latitude: SITE.coords.lat,
     longitude: SITE.coords.lon,
   },
-  areaServed: ['Heers', 'Sint-Truiden', 'Borgloon', 'Tongeren', 'Landen', 'Waremme'],
-  url: canonicalURL.toString(),
+  areaServed: t.areaServed,
+  url: new URL(homeHref, Astro.site).toString(),
+  // Enkel op de pagina waar de tarieven zichtbaar staan.
+  ...(route === 'practical' ? { priceRange: SITE.priceRange } : {}),
 };
 
 const breadcrumbLd =

@@ -1,0 +1,30 @@
+---
+/**
+ * Rendert een tekst uit nl.ts/fr.ts waarin een interne link staat als
+ * [woorden uit de tekst](routeKey), bv. "na [hormonale veranderingen](hormones)".
+ * Zo kunnen we bestaande woorden van Kim klikbaar maken zonder de tekst te wijzigen.
+ */
+import type { Locale } from '../consts';
+import { ROUTES, route, type RouteKey } from '../i18n';
+
+interface Props {
+  text: string;
+  locale: Locale;
+}
+
+const { text, locale } = Astro.props;
+
+const parts: ({ text: string } | { text: string; href: string })[] = [];
+const pattern = /\[([^\]]+)\]\(([A-Za-z]+)\)/g;
+let last = 0;
+for (const match of text.matchAll(pattern)) {
+  const [whole, label, key] = match;
+  if (!(key in ROUTES)) throw new Error(`Onbekende pagina "${key}" in tekst: ${text}`);
+  parts.push({ text: text.slice(last, match.index) });
+  parts.push({ text: label, href: route(key as RouteKey, locale) });
+  last = match.index + whole.length;
+}
+parts.push({ text: text.slice(last) });
+---
+
+{parts.map((part) => ('href' in part ? <a href={part.href}>{part.text}</a> : part.text))}

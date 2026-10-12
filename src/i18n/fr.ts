@@ -5,6 +5,7 @@ import { SITE } from '../consts';
 export const fr: Dictionary = {
   lang: 'fr',
   htmlLang: 'fr-BE',
+  areaServed: ['Heers', 'Saint-Trond', 'Hesbaye'],
   nav: {
     home: 'Accueil',
     about: 'À propos de Kim',
@@ -21,6 +22,7 @@ export const fr: Dictionary = {
     menu: 'Menu',
     closeMenu: 'Fermer le menu',
     skipToContent: 'Aller au contenu',
+    breadcrumb: 'Fil d’Ariane',
     switchLang: 'Voir cette page en néerlandais',
   },
   cta: {
@@ -95,7 +97,7 @@ export const fr: Dictionary = {
     brandStoryTitle: 'The Happy Floor reflète ma vision globale',
     brandStoryText: [
       'The Happy Floor est né de ma passion pour le plancher pelvien et résume ma manière actuelle d’aborder la santé. Le plancher pelvien ne fonctionne jamais de manière isolée. Mon travail concerne donc aussi tout ce qui lui est lié : hormones, respiration, mouvement, force, récupération, sexualité et bien-être dans son corps.',
-      'Ce nom réunit mon accompagnement, mon expertise, mes conférences, mes ateliers et Instagram dans une identité reconnaissable. Quel que soit le contexte dans lequel vous me découvrez, vous retrouverez la même approche chaleureuse, experte et globale. Suivez @thehappyfloorandmore pour des explications, des situations dans lesquelles vous reconnaître et des informations pratiques.',
+      'Ce nom réunit mon accompagnement, mon expertise, [mes conférences, mes ateliers](lectures) et Instagram dans une identité reconnaissable. Quel que soit le contexte dans lequel vous me découvrez, vous retrouverez la même approche chaleureuse, experte et globale. Suivez @thehappyfloorandmore pour des explications, des situations dans lesquelles vous reconnaître et des informations pratiques.',
     ],
     instagramCta: 'Suivre sur Instagram',
     ctaTitle: 'Prêt·e à faire connaissance ?',
@@ -110,7 +112,7 @@ export const fr: Dictionary = {
     intro: [
       'Je suis Kim Christiaens, kinésithérapeute, toujours curieuse de comprendre comment le corps fonctionne, évolue et s’adapte.',
       'Mon intérêt pour la santé pelvienne a grandi au fil des années. Non seulement parce que le plancher pelvien est une région anatomique fascinante, mais surtout parce que les troubles du bassin peuvent profondément influencer la manière dont une personne se sent, bouge et vit. Je trouve essentiel de pouvoir en parler. Sans honte, sans tabou et sans avoir le sentiment que votre corps vous abandonne.',
-      'Grâce à mes formations et à mon expérience, je me suis spécialisée en rééducation pelvienne, kinésithérapie périnatale, thérapie manuelle, santé des femmes, santé pelvienne masculine et santé hormonale. Ma vision s’est aussi élargie : je ne considère pas uniquement un muscle ou une articulation, mais la personne qui se trouve devant moi. Comment bougez-vous ? Comment gérez-vous les efforts et la récupération ? Qu’est-ce qui change dans votre vie ? Que vous dit votre corps ? Ces questions sont souvent plus utiles que la seule localisation de la douleur.',
+      'Grâce à mes formations et à mon expérience, je me suis spécialisée en rééducation pelvienne, kinésithérapie périnatale, thérapie manuelle, [santé des femmes](pelvicWomen), [santé pelvienne masculine](pelvicMen) et santé hormonale. Ma vision s’est aussi élargie : je ne considère pas uniquement un muscle ou une articulation, mais la personne qui se trouve devant moi. Comment bougez-vous ? Comment gérez-vous les efforts et la récupération ? Qu’est-ce qui change dans votre vie ? Que vous dit votre corps ? Ces questions sont souvent plus utiles que la seule localisation de la douleur.',
     ],
     approachTitle: 'Ma manière de travailler',
     approachText: [
@@ -164,7 +166,7 @@ export const fr: Dictionary = {
     ],
     expectTitle: 'À quoi vous attendre',
     expectText: [
-      'Lors du premier rendez-vous, nous faisons le point sur vos symptômes, vos habitudes, les contraintes auxquelles vous êtes soumis et vos objectifs. L’examen est toujours expliqué et réalisé avec votre consentement. Selon votre demande, il peut comprendre une observation, une évaluation fonctionnelle, une échographie ou d’autres méthodes de mesure et de biofeedback.',
+      'Lors du [premier rendez-vous](practical), nous faisons le point sur vos symptômes, vos habitudes, les contraintes auxquelles vous êtes soumis et vos objectifs. L’examen est toujours expliqué et réalisé avec votre consentement. Selon votre demande, il peut comprendre une observation, une évaluation fonctionnelle, une échographie ou d’autres méthodes de mesure et de biofeedback.',
       'Le traitement peut comprendre des explications, des techniques de respiration et de relaxation, un entraînement musculaire ciblé, des techniques manuelles, des conseils comportementaux, des exercices et une reprise progressive des activités quotidiennes ou du sport.',
     ],
   },
@@ -175,7 +177,7 @@ export const fr: Dictionary = {
     eyebrow: 'Santé pelvienne · Femmes',
     title: 'Vous ne devez pas simplement apprendre à vivre avec vos symptômes',
     intro:
-      'Les troubles du plancher pelvien peuvent apparaître ou évoluer après une grossesse ou un accouchement, lors de changements hormonaux, après une opération, pendant le sport ou sans cause évidente. Ils peuvent influencer vos mouvements, votre travail, votre sommeil, votre sexualité et votre confiance en vous.',
+      'Les troubles du plancher pelvien peuvent apparaître ou évoluer après une grossesse ou un accouchement, lors de [changements hormonaux](hormones), après une opération, pendant [le sport](movement) ou sans cause évidente. Ils peuvent influencer vos mouvements, votre travail, votre sommeil, votre sexualité et votre confiance en vous.',
     checklistTitle: 'Vous pouvez notamment consulter pour',
     checklist: [
       'Des fuites urinaires ou des envies soudaines et pressantes',
@@ -253,9 +255,9 @@ export const fr: Dictionary = {
     helpTitle: 'Comment puis-je vous aider',
     helpItems: [
       'Mieux comprendre les changements de votre corps',
-      'Adapter le mouvement et l’entraînement à votre capacité à supporter les efforts',
+      'Adapter [le mouvement et l’entraînement](movement) à votre capacité à supporter les efforts',
       'Développer progressivement la force musculaire, les sollicitations osseuses et la récupération',
-      'Replacer les troubles du plancher pelvien dans leur contexte global',
+      'Replacer [les troubles du plancher pelvien](pelvic) dans leur contexte global',
       'Aborder des choix de mode de vie pratiques et réalistes',
       'Vous orienter de manière ciblée lorsqu’une évaluation médicale est nécessaire',
     ],
@@ -265,7 +267,7 @@ export const fr: Dictionary = {
       'Nous examinons les adaptations possibles du mouvement, du renforcement musculaire, du sommeil, de la régulation du stress, de la récupération et des habitudes quotidiennes pour soutenir votre corps. L’alimentation et, lorsque cela est pertinent, des compléments soigneusement choisis peuvent aussi être abordés dans cette approche globale.',
     ],
     referralText:
-      'En cas d’endométriose, de SOPK, de troubles importants du cycle ou de difficultés à concevoir, cet accompagnement s’inscrit dans le suivi médical. Si nécessaire, je collabore avec un médecin généraliste, un gynécologue, un endocrinologue, un spécialiste de la fertilité ou un diététicien, ou je vous oriente vers eux, afin que les différentes interventions s’articulent en toute sécurité.',
+      'En cas [d’endométriose, de SOPK](pelvicWomen), de troubles importants du cycle ou de difficultés à concevoir, cet accompagnement s’inscrit dans le suivi médical. Si nécessaire, je collabore avec un médecin généraliste, un gynécologue, un endocrinologue, un spécialiste de la fertilité ou un diététicien, ou je vous oriente vers eux, afin que les différentes interventions s’articulent en toute sécurité.',
   },
   movement: {
     metaTitle: 'Mouvement et sport | The Happy Floor',
@@ -275,7 +277,7 @@ export const fr: Dictionary = {
     title: 'Bouger avec confiance dans votre corps',
     intro: [
       'Le mouvement est une composante importante de la santé et de la récupération. Pourtant, faire du sport peut devenir source d’incertitude en cas de fuites urinaires, de sensation de pression, de douleur, de blessures récurrentes ou lorsque le corps réagit autrement qu’avant.',
-      'Je vous aide à comprendre les facteurs en jeu et à reprendre progressivement le mouvement. Nous considérons le plancher pelvien, mais aussi la respiration, le tronc, les hanches, la force, la coordination, la capacité à supporter les efforts et la récupération.',
+      'Je vous aide à comprendre les facteurs en jeu et à reprendre progressivement le mouvement. Nous considérons [le plancher pelvien](pelvic), mais aussi la respiration, le tronc, les hanches, la force, la coordination, la capacité à supporter les efforts et la récupération.',
     ],
     helpTitle: 'Motifs possibles de consultation',
     helpItems: [
@@ -284,7 +286,7 @@ export const fr: Dictionary = {
       'La reprise de la course et du sport après une grossesse ou un accouchement',
       'Des douleurs au bassin, à l’aine, aux adducteurs ou aux ischio-jambiers',
       'Des difficultés à gérer les pressions lorsque vous soulevez ou portez une charge',
-      'Le développement de la force et de la capacité à supporter les efforts pendant les changements hormonaux',
+      'Le développement de la force et de la capacité à supporter les efforts pendant les [changements hormonaux](hormones)',
       'Réapprendre à bouger après une douleur ou une période d’inactivité',
     ],
     closingText:
@@ -420,14 +422,14 @@ export const fr: Dictionary = {
         title: 'Formulaires de contact',
         text: [
           'Lorsque vous complétez un formulaire de contact ou de demande, les informations que vous saisissez sont utilisées uniquement pour répondre à votre question, confirmer un rendez-vous ou traiter une demande de conférence ou d’atelier. Cela se fait sur la base de votre consentement lors de l’envoi du formulaire et, le cas échéant, des démarches précontractuelles nécessaires (art. 6.1.a et 6.1.b RGPD).',
-          'Ces données ne sont pas utilisées à des fins de marketing et ne sont transmises à aucun tiers, en dehors des sous-traitants mentionnés ci-dessous. Elles sont conservées 12 mois maximum après le dernier contact, sauf si un rendez-vous ou une relation de soins en découle — les délais légaux de conservation des dossiers patients s’appliquent alors.',
+          'Ces données ne sont pas utilisées à des fins de marketing et ne sont transmises à aucun tiers, en dehors des sous-traitants mentionnés ci-dessous. Elles sont conservées 12 mois maximum après le dernier contact, sauf si un rendez-vous ou une relation de soins en découle. Les délais légaux de conservation des dossiers patients s’appliquent alors.',
         ],
       },
       {
         title: 'Statistiques du site',
         text: [
           'Ce site utilise Netlify Analytics pour obtenir une vue d’ensemble du nombre de visiteurs et des pages consultées, sur la base de notre intérêt légitime à améliorer le site (art. 6.1.f RGPD). Ces statistiques sont établies à partir des journaux du serveur, sans cookies ni scripts de suivi, et ne permettent pas d’identifier les visiteurs individuellement.',
-          'Aucun cookie publicitaire ou de suivi tiers n’est utilisé — ce site n’affiche donc pas de bandeau de cookies.',
+          'Aucun cookie publicitaire ou de suivi tiers n’est utilisé. Ce site n’affiche donc pas de bandeau de cookies.',
         ],
       },
       {
@@ -441,7 +443,7 @@ export const fr: Dictionary = {
         title: 'Vos droits',
         text: [
           'Vous disposez à tout moment d’un droit d’accès, de rectification, d’effacement et de limitation de vos données, du droit de retirer votre consentement et du droit à la portabilité de vos données. Envoyez un e-mail à info@kimchristiaens.be.',
-          'Vous avez également le droit d’introduire une réclamation auprès de l’Autorité de protection des données (APD), rue de la Presse 35, 1000 Bruxelles — contact@apd-gba.be — www.autoriteprotectiondonnees.be.',
+          'Vous avez également le droit d’introduire une réclamation auprès de l’Autorité de protection des données (APD), rue de la Presse 35, 1000 Bruxelles, via contact@apd-gba.be ou www.autoriteprotectiondonnees.be.',
         ],
       },
       {
@@ -464,7 +466,7 @@ export const fr: Dictionary = {
         title: 'Identification',
         text: [
           `${SITE.legalName}, cabinet de Kim Christiaens, kinésithérapeute, situé ${SITE.address.full}.`,
-          `Téléphone : ${SITE.phone} — E-mail : ${SITE.email}.`,
+          `Téléphone : ${SITE.phone}. E-mail : ${SITE.email}.`,
           `Numéro d’entreprise (BCE) : ${SITE.companyNumber || 'à compléter'}.`,
           `Marque : ${SITE.brandFull}.`,
         ],

@@ -12,6 +12,8 @@ export const SITE = {
   instagram: '@thehappyfloorandmore',
   instagramUrl: 'https://www.instagram.com/thehappyfloorandmore/',
   website: 'www.kimchristiaens.be',
+  /** Prijsbereik voor schema.org priceRange; moet overeenkomen met de tarieven op Praktische info. */
+  priceRange: '€46-€100',
   phone: '+32 498 41 14 41',
   phoneHref: 'tel:+32498411441',
   /** Kim wil liefst geschreven contact: "stuur een bericht" opent WhatsApp, ook op een laptop via WhatsApp Web. */

@@ -21,6 +21,7 @@ const sections = [
   { title: p.cancelTitle, text: [p.cancelText] },
   { title: p.reachTitle, text: [p.reachText] },
 ];
+const breadcrumb = [{ label: t.nav.practical, href: route('practical', locale) }];
 ---
 
 <Layout
@@ -28,9 +29,9 @@ const sections = [
   route="practical"
   title={p.metaTitle}
   description={p.metaDescription}
-  breadcrumb={[{ label: t.nav.practical, href: route('practical', locale) }]}
+  breadcrumb={breadcrumb}
 >
-  <PageIntro eyebrow={p.eyebrow} title={p.title} intro={p.intro} />
+  <PageIntro locale={locale} breadcrumb={breadcrumb} eyebrow={p.eyebrow} title={p.title} intro={p.intro} />
 
   <section class="section">
     <div class="container">

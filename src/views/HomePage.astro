@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import CtaBanner from '../components/CtaBanner.astro';
 import InstagramIcon from '../components/InstagramIcon.astro';
+import LinkedText from '../components/LinkedText.astro';
 import { getDictionary, route } from '../i18n';
 import type { Locale } from '../consts';
 import { SITE } from '../consts';
@@ -73,7 +74,7 @@ const h = t.home;
         <h2 id="brand-heading">{h.brandStoryTitle}</h2>
       </div>
       <div class="brand-text">
-        {h.brandStoryText.map((paragraph) => <p class="text-muted">{paragraph}</p>)}
+        {h.brandStoryText.map((paragraph) => <p class="text-muted"><LinkedText text={paragraph} locale={locale} /></p>)}
         <div class="brand-actions">
           <a class="btn btn-secondary" href={route('about', locale)}>{t.nav.about}</a>
           <a class="btn btn-secondary" href={SITE.instagramUrl} target="_blank" rel="noopener noreferrer">
