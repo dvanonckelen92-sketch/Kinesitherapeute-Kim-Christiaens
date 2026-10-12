@@ -53,6 +53,7 @@ export const fr: Dictionary = {
       'J’accompagne les femmes, les hommes et les enfants face à des troubles qui peuvent avoir un impact important sur la vie quotidienne, mais dont il n’est pas toujours facile de parler : fuites urinaires, douleurs, symptômes de prolapsus, difficultés urinaires ou intestinales, troubles sexuels ou changements pendant et après une grossesse, durant la périménopause et la ménopause.',
       'Je m’intéresse aussi à ce qui se passe au-delà de la zone où vous ressentez vos symptômes. Votre plancher pelvien est lié au reste de votre corps. La respiration, le mouvement, la force, les tensions, le sommeil, la récupération, les hormones et les contraintes quotidiennes peuvent tous jouer un rôle. C’est pourquoi je prends en compte l’ensemble de votre histoire corporelle. Ensemble, nous cherchons ce dont vous avez besoin pour mieux comprendre votre corps, bouger plus librement et retrouver confiance dans ses capacités.',
     ],
+    heroSecondaryCta: 'Découvrir mon approche',
     servicesTitle: 'Comment puis-je vous aider',
     services: [
       {
@@ -96,6 +97,7 @@ export const fr: Dictionary = {
       'The Happy Floor est né de ma passion pour le plancher pelvien et résume ma manière actuelle d’aborder la santé. Le plancher pelvien ne fonctionne jamais de manière isolée. Mon travail concerne donc aussi tout ce qui lui est lié : hormones, respiration, mouvement, force, récupération, sexualité et bien-être dans son corps.',
       'Ce nom réunit mon accompagnement, mon expertise, mes conférences, mes ateliers et Instagram dans une identité reconnaissable. Quel que soit le contexte dans lequel vous me découvrez, vous retrouverez la même approche chaleureuse, experte et globale. Suivez @thehappyfloorandmore pour des explications, des situations dans lesquelles vous reconnaître et des informations pratiques.',
     ],
+    instagramCta: 'Suivre sur Instagram',
     ctaTitle: 'Prêt·e à faire connaissance ?',
     ctaText: 'N’hésitez pas à me contacter pour un rendez-vous ou pour toute question. Je me ferai un plaisir de vous aider.',
   },
@@ -357,6 +359,7 @@ export const fr: Dictionary = {
     reachTitle: 'Me contacter',
     reachText:
       'Pour un rendez-vous ou une question, je préfère recevoir un e-mail ou un message. Pendant les séances, je ne peux pas répondre au téléphone et écouter les messages vocaux est moins pratique pour moi. Un message écrit me permet de vous répondre plus rapidement et de façon plus précise. Les messages reçoivent généralement une réponse dans les trois jours ouvrables.',
+    ctaLabel: 'Demander un rendez-vous par e-mail ou par message',
   },
   contact: {
     metaTitle: 'Contact et rendez-vous | The Happy Floor',
@@ -366,9 +369,8 @@ export const fr: Dictionary = {
     title: 'Vous n’avez pas à trouver toutes les réponses par vous-même',
     intro:
       'Vous avez une question et vous ne savez pas par où commencer ? Expliquez brièvement ce qui vous pose problème et ce que vous aimeriez pouvoir faire à nouveau. Nous verrons ensuite quel accompagnement vous convient. Vous n’avez pas besoin de tout comprendre à votre corps avant de demander de l’aide : c’est justement ce que nous pouvons commencer à explorer ensemble.',
-    addressTitle: 'Adresse',
-    phoneTitle: 'Téléphone',
-    emailTitle: 'E-mail',
+    detailsTitle: 'Coordonnées',
+    messageCta: 'Envoyer un message',
     mapTitle: 'Planifier l’itinéraire',
     formNote: 'Je préfère un contact écrit ; merci de ne pas laisser de message vocal.',
     formTitle: 'Envoyer un message',

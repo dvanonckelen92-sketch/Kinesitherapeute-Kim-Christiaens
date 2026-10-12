@@ -11,8 +11,11 @@ export const SITE = {
   /** Instagram en domeinnaam behouden bewust "and more"; ze hoeven niet gelijk te zijn aan de merknaam. */
   instagram: '@thehappyfloorandmore',
   instagramUrl: 'https://www.instagram.com/thehappyfloorandmore/',
+  website: 'www.kimchristiaens.be',
   phone: '+32 498 41 14 41',
   phoneHref: 'tel:+32498411441',
+  /** Kim wil liefst geschreven contact: "stuur een bericht" opent WhatsApp, ook op een laptop via WhatsApp Web. */
+  whatsappHref: 'https://wa.me/32498411441',
   email: 'info@kimchristiaens.be',
   address: {
     street: 'Bovelingenstraat 387',

@@ -25,7 +25,7 @@ const h = t.home;
         {h.heroIntro.map((paragraph) => <p class="text-muted">{paragraph}</p>)}
         <div class="hero-actions">
           <a class="btn btn-primary" href={route('contact', locale)}>{t.cta.contact}</a>
-          <a class="btn btn-secondary" href={route('about', locale)}>{t.cta.discover}</a>
+          <a class="btn btn-secondary" href={route('about', locale)}>{h.heroSecondaryCta}</a>
         </div>
       </div>
       <div class="hero-visual" aria-hidden="true">
@@ -74,10 +74,13 @@ const h = t.home;
       </div>
       <div class="brand-text">
         {h.brandStoryText.map((paragraph) => <p class="text-muted">{paragraph}</p>)}
-        <a class="btn btn-secondary" href={SITE.instagramUrl} target="_blank" rel="noopener noreferrer">
-          <InstagramIcon />
-          <span>{SITE.instagram}</span>
-        </a>
+        <div class="brand-actions">
+          <a class="btn btn-secondary" href={route('about', locale)}>{t.nav.about}</a>
+          <a class="btn btn-secondary" href={SITE.instagramUrl} target="_blank" rel="noopener noreferrer">
+            <InstagramIcon />
+            <span>{h.instagramCta}</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -170,5 +173,11 @@ const h = t.home;
 
   .brand-text p {
     font-size: 1.05rem;
+  }
+
+  .brand-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
   }
 </style>

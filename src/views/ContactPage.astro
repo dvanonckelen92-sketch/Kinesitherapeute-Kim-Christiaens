@@ -5,6 +5,7 @@ import ContactForm from '../components/ContactForm.astro';
 import { getDictionary, route } from '../i18n';
 import type { Locale } from '../consts';
 import { SITE } from '../consts';
+import InstagramIcon from '../components/InstagramIcon.astro';
 
 interface Props {
   locale: Locale;
@@ -31,24 +32,25 @@ const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${lat
 
   <section class="section">
     <div class="container contact-grid">
-      <div class="contact-cards">
-        <div class="card contact-card contact-card-primary">
-          <h2>{c.emailTitle}</h2>
-          <p><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
-          <a class="btn btn-primary" href={`mailto:${SITE.email}`}>{t.cta.email}</a>
-        </div>
-        <div class="card contact-card">
-          <h2>{c.addressTitle}</h2>
-          <p>{SITE.address.street}<br />{SITE.address.postal}</p>
-          <a class="btn btn-secondary" href={directionsHref} rel="noopener">
-            {c.mapTitle}
+      <div class="card contact-card contact-card-primary">
+        <h2>{c.detailsTitle}</h2>
+        <address class="contact-details">
+          <strong>{SITE.brandFull}</strong>
+          <span>{SITE.address.street}<br />{SITE.address.postal}</span>
+          <span>T <a href={SITE.phoneHref}>{SITE.phone}</a></span>
+          <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+          <a href={route('home', locale)}>{SITE.website}</a>
+          <a class="contact-instagram" href={SITE.instagramUrl} target="_blank" rel="noopener noreferrer">
+            <InstagramIcon />
+            <span>Instagram {SITE.instagram}</span>
           </a>
+        </address>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href={`mailto:${SITE.email}`}>{t.cta.email}</a>
+          <a class="btn btn-primary" href={SITE.whatsappHref} target="_blank" rel="noopener noreferrer">{c.messageCta}</a>
+          <a class="btn btn-secondary" href={directionsHref} rel="noopener">{c.mapTitle}</a>
         </div>
-        <div class="contact-card-minor">
-          <h2>{c.phoneTitle}</h2>
-          <p><a href={SITE.phoneHref}>{SITE.phone}</a></p>
-          <p class="text-muted">{c.formNote}</p>
-        </div>
+        <p class="text-muted contact-note">{c.formNote}</p>
       </div>
 
       <div class="map-wrap">
@@ -89,18 +91,9 @@ const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${lat
     }
   }
 
-  .contact-cards {
-    display: grid;
-    gap: 1.25rem;
-  }
-
   .contact-card h2 {
     margin-top: 0;
     font-size: 1.2rem;
-  }
-
-  .contact-card .btn {
-    margin-top: 0.75rem;
   }
 
   .contact-card-primary {
@@ -113,25 +106,30 @@ const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${lat
     color: var(--color-primary-dark);
   }
 
-  .contact-card-minor {
-    padding-inline: 0.25rem;
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-style: normal;
   }
 
-  .contact-card-minor h2 {
-    margin: 0 0 0.4rem;
+  .contact-instagram {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    align-self: flex-start;
+  }
+
+  .contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .contact-note {
+    margin: 1rem 0 0;
     font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--color-ink-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-
-  .contact-card-minor p {
-    font-size: 0.95rem;
-  }
-
-  .contact-card-minor a {
-    color: var(--color-ink-muted);
   }
 
   .map-wrap {

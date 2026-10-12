@@ -105,6 +105,7 @@ export interface Dictionary {
     heroTagline: string;
     heroTitle: string;
     heroIntro: string[];
+    heroSecondaryCta: string;
     servicesTitle: string;
     services: ServiceSummary[];
     wholeBodyTitle: string;
@@ -113,6 +114,7 @@ export interface Dictionary {
     approachItems: string[];
     brandStoryTitle: string;
     brandStoryText: string[];
+    instagramCta: string;
     ctaTitle: string;
     ctaText: string;
   };
@@ -206,6 +208,7 @@ export interface Dictionary {
     cancelText: string;
     reachTitle: string;
     reachText: string;
+    ctaLabel: string;
   };
   contact: {
     metaTitle: string;
@@ -213,9 +216,8 @@ export interface Dictionary {
     eyebrow: string;
     title: string;
     intro: string;
-    addressTitle: string;
-    phoneTitle: string;
-    emailTitle: string;
+    detailsTitle: string;
+    messageCta: string;
     mapTitle: string;
     formNote: string;
     formTitle: string;

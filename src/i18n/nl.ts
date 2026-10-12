@@ -53,6 +53,7 @@ export const nl: Dictionary = {
       'Ik begeleid vrouwen, mannen en kinderen bij klachten die vaak een grote invloed hebben op het dagelijkse leven, maar waarover niet altijd gemakkelijk gesproken wordt. Denk aan urineverlies, pijn, verzakkingsklachten, plas- en stoelgangproblemen, seksuele klachten of veranderingen tijdens en na een zwangerschap, in de perimenopauze en de menopauze.',
       'Daarbij kijk ik verder dan de plaats waar je je klacht voelt. Ademhaling, beweging, kracht, spanning, slaap, herstel, hormonen en dagelijkse belasting kunnen allemaal meespelen. Samen zoeken we naar wat jij nodig hebt om je lichaam beter te begrijpen, vrijer te bewegen en opnieuw te vertrouwen in wat het kan.',
     ],
+    heroSecondaryCta: 'Ontdek mijn aanpak',
     servicesTitle: 'Waarmee kan ik je helpen',
     services: [
       {
@@ -94,6 +95,7 @@ export const nl: Dictionary = {
       'The Happy Floor groeide vanuit mijn passie voor de bekkenbodem en vat samen hoe ik vandaag naar gezondheid kijk. Mijn werk gaat over alles wat met je bekkenbodem verbonden is: hormonen, ademhaling, beweging, kracht, herstel, seksualiteit en je goed voelen in je lichaam.',
       'De naam verbindt mijn begeleiding, lezingen, workshops en Instagram in één herkenbaar verhaal. Waar je mij ook tegenkomt, je mag dezelfde warme, deskundige en brede benadering verwachten. Volg @thehappyfloorandmore op Instagram voor inzichten, herkenbare verhalen en praktische informatie.',
     ],
+    instagramCta: 'Volg op Instagram',
     ctaTitle: 'Klaar om kennis te maken?',
     ctaText: 'Neem gerust contact op voor een afspraak of met al je vragen. Ik help je graag verder.',
   },
@@ -351,6 +353,7 @@ export const nl: Dictionary = {
     reachTitle: 'Bereikbaarheid',
     reachText:
       'Voor een afspraak of vraag ontvang ik het liefst een e-mail of een berichtje. Tijdens behandelingen kan ik de telefoon niet opnemen en voicemail beluisteren is voor mij minder praktisch. Via een geschreven bericht kan ik sneller en gerichter antwoorden. Berichten worden doorgaans binnen drie werkdagen beantwoord.',
+    ctaLabel: 'Vraag een afspraak aan via e-mail of bericht',
   },
   contact: {
     metaTitle: 'Contact | The Happy Floor',
@@ -360,9 +363,8 @@ export const nl: Dictionary = {
     title: 'Je hoeft niet eerst alles zelf uit te zoeken',
     intro:
       'Heb je een vraag en weet je niet goed waar je moet beginnen? Vertel kort waar je tegenaan loopt en wat je graag opnieuw zou willen kunnen. Van daaruit bekijken we welke begeleiding passend is.',
-    addressTitle: 'Adres',
-    phoneTitle: 'Telefoon',
-    emailTitle: 'E-mail',
+    detailsTitle: 'Gegevens',
+    messageCta: 'Stuur een bericht',
     mapTitle: 'Route naar de praktijk',
     formNote: 'Voorkeur voor geschreven contact, gelieve geen voicemail achter te laten.',
     formTitle: 'Stuur een bericht',
