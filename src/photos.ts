@@ -8,6 +8,7 @@ import pelvisModel from './assets/photos/anatomisch-bekkenmodel.jpg';
 import practiceView from './assets/photos/uitzicht-praktijk-heers.jpg';
 import toiletPosture from './assets/photos/toilethouding-met-opstapje.jpg';
 import treatmentTable from './assets/photos/kim-christiaens-behandeltafel-praktijk.jpg';
+import kettlebell from './assets/photos/kim-christiaens-krachttraining-kettlebell.jpg';
 
 /**
  * Foto's van Karolien Coenen, gekozen door Kim (nov. 2026).
@@ -24,6 +25,7 @@ export const PHOTOS = {
   practiceView: { src: practiceView, position: '45% center' },
   toiletPosture: { src: toiletPosture, position: '70% 60%' },
   treatmentTable: { src: treatmentTable, position: 'center 35%' },
+  kettlebell: { src: kettlebell, position: 'center 30%' },
 } satisfies Record<string, { src: ImageMetadata; position: string }>;
 
 export type PhotoKey = keyof typeof PHOTOS;

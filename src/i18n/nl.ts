@@ -51,7 +51,7 @@ export const nl: Dictionary = {
     heroTagline: SITE.descriptor,
     heroTitle: 'Je lichaam begrijpen. Voelen. Bewegen. Vertrouwen.',
     heroIntro: [
-      'Welkom. Ik ben Kim Christiaens, bekkenbodemtherapeute gespecialiseerd in pelvic health, hormonale gezondheid en bewegen. Wat begon vanuit mijn passie voor de bekkenbodem, groeide uit tot een bredere kijk op het lichaam: hormonen, ademhaling, beweging, kracht, slaap, stress, herstel en seksualiteit zijn allemaal met elkaar verbonden.',
+      'Welkom. Ik ben Kim Christiaens, kinesitherapeute gespecialiseerd in pelvic health, hormonale gezondheid en bewegen. Wat begon vanuit mijn passie voor de bekkenbodem, groeide uit tot een bredere kijk op het lichaam: hormonen, ademhaling, beweging, kracht, slaap, stress, herstel en seksualiteit zijn allemaal met elkaar verbonden.',
       'Ik begeleid vrouwen, mannen en kinderen bij klachten die vaak een grote invloed hebben op het dagelijkse leven, maar waarover niet altijd gemakkelijk gesproken wordt. Denk aan urineverlies, pijn, verzakkingsklachten, plas- en stoelgangproblemen, seksuele klachten of veranderingen tijdens en na een zwangerschap, in de perimenopauze en de menopauze.',
       'Daarbij kijk ik verder dan de plaats waar je je klacht voelt. Ademhaling, beweging, kracht, spanning, slaap, herstel, hormonen en dagelijkse belasting kunnen allemaal meespelen. Samen zoeken we naar wat jij nodig hebt om je lichaam beter te begrijpen, vrijer te bewegen en opnieuw te vertrouwen in wat het kan.',
     ],
@@ -108,7 +108,7 @@ export const nl: Dictionary = {
     eyebrow: 'Over Kim',
     title: 'Nieuwsgierig naar het lichaam en naar het verhaal erachter',
     intro: [
-      'Ik ben Kim Christiaens, kinesitherapeute en voortdurend nieuwsgierig naar hoe het lichaam werkt, verandert en zich aanpast.',
+      'Als bekkenbodemtherapeute ben ik voortdurend nieuwsgierig naar hoe het lichaam werkt, verandert en zich aanpast.',
       'Mijn interesse in pelvic health is doorheen de jaren steeds groter geworden. Niet alleen omdat de bekkenbodem een fascinerend stukje anatomie is, maar vooral omdat klachten in het bekken zo’n grote invloed kunnen hebben op hoe iemand zich voelt, beweegt en leeft. Ik vind het belangrijk dat daarover gepraat kan worden, zonder schaamte, zonder taboes en zonder het gevoel dat je lichaam je in de steek laat.',
       'Door mijn opleidingen en ervaring specialiseerde ik me in pelvische revalidatie, perinatale kinesitherapie, manuele therapie, [women’s health](pelvicWomen), [men’s pelvic health](pelvicMen) en hormonale gezondheid. Tegelijk werd mijn kijk breder. Ik kijk niet alleen naar een spier of gewricht, maar naar de persoon die voor mij zit: hoe beweeg je, hoe belast en herstel je, wat verandert er in je leven en wat vertelt je lichaam? Dat zijn vaak belangrijkere vragen dan alleen waar het pijn doet.',
     ],
@@ -400,6 +400,7 @@ export const nl: Dictionary = {
     pelvisModel: 'Kim toont een anatomisch bekkenmodel met de spieren van de bekkenbodem',
     practiceView: 'Uitzicht vanuit de praktijk in Heers op de velden van Haspengouw',
     toiletPosture: 'Kim toont op het toilet de zithouding met de voeten op een opstapje',
+    kettlebell: 'Kim Christiaens houdt in haar praktijk een kettlebell met gestrekte arm boven haar hoofd',
     treatmentTable: 'Kim Christiaens zit lachend op de behandeltafel in haar praktijk, met anatomische platen van het bekken aan de muur',
   },
   thankyou: {

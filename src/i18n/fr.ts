@@ -406,6 +406,7 @@ export const fr: Dictionary = {
     pelvisModel: 'Kim montre un modèle anatomique du bassin avec les muscles du plancher pelvien',
     practiceView: 'Vue depuis le cabinet à Heers sur les champs de la Hesbaye',
     toiletPosture: 'Kim montre aux toilettes la position assise avec les pieds posés sur un petit marchepied',
+    kettlebell: 'Kim Christiaens tient un kettlebell à bout de bras au-dessus de sa tête, dans son cabinet',
     treatmentTable: 'Kim Christiaens, souriante, assise sur la table de traitement de son cabinet, devant des planches anatomiques du bassin',
   },
   thankyou: {
