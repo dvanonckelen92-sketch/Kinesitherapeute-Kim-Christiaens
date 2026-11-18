@@ -1,4 +1,5 @@
 import type { Locale } from '../consts';
+import type { PhotoKey } from '../photos';
 
 export interface ServiceSummary {
   title: string;
@@ -244,6 +245,8 @@ export interface Dictionary {
     practiceNoteTitle: string;
     practiceNoteText: string;
   };
+  /** Alt-tekst per foto: beschrijft wat er echt op de foto staat. */
+  photos: Record<PhotoKey, string>;
   thankyou: ThankYouSection;
   privacy: PrivacySection;
   legal: LegalSection;

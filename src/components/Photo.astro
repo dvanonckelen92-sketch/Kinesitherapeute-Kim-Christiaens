@@ -1,0 +1,35 @@
+---
+import { Picture } from 'astro:assets';
+import { PHOTOS, type PhotoKey } from '../photos';
+import { getDictionary } from '../i18n';
+import type { Locale } from '../consts';
+
+interface Props {
+  name: PhotoKey;
+  locale: Locale;
+  /** Foto bovenaan de pagina (LCP): meteen laden, met voorrang. */
+  priority?: boolean;
+  /** Beeldverhouding van het kader; de foto's zelf zijn 2:3. */
+  ratio?: '2/3' | '4/5';
+  class?: string;
+}
+
+const { name, locale, priority = false, ratio = '4/5', class: className } = Astro.props;
+const photo = PHOTOS[name];
+const alt = getDictionary(locale).photos[name];
+---
+
+<Picture
+  src={photo.src}
+  alt={alt}
+  formats={['avif', 'webp']}
+  widths={[400, 640, 900, 1200]}
+  sizes="(min-width: 62em) 26rem, (min-width: 36em) 28rem, calc(100vw - 3rem)"
+  loading={priority ? 'eager' : 'lazy'}
+  fetchpriority={priority ? 'high' : 'auto'}
+  decoding={priority ? 'sync' : 'async'}
+  class:list={['photo', className]}
+  pictureAttributes={{ class: 'photo-picture' }}
+  style={`aspect-ratio: ${ratio}; object-position: ${photo.position};`}
+/>
+

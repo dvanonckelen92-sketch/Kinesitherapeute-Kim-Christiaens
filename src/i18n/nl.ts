@@ -51,7 +51,7 @@ export const nl: Dictionary = {
     heroTagline: SITE.descriptor,
     heroTitle: 'Je lichaam begrijpen. Voelen. Bewegen. Vertrouwen.',
     heroIntro: [
-      'Welkom. Ik ben Kim Christiaens, kinesitherapeute gespecialiseerd in pelvic health, hormonale gezondheid en bewegen. Wat begon vanuit mijn passie voor de bekkenbodem, groeide uit tot een bredere kijk op het lichaam: hormonen, ademhaling, beweging, kracht, slaap, stress, herstel en seksualiteit zijn allemaal met elkaar verbonden.',
+      'Welkom. Ik ben Kim Christiaens, bekkenbodemtherapeute gespecialiseerd in pelvic health, hormonale gezondheid en bewegen. Wat begon vanuit mijn passie voor de bekkenbodem, groeide uit tot een bredere kijk op het lichaam: hormonen, ademhaling, beweging, kracht, slaap, stress, herstel en seksualiteit zijn allemaal met elkaar verbonden.',
       'Ik begeleid vrouwen, mannen en kinderen bij klachten die vaak een grote invloed hebben op het dagelijkse leven, maar waarover niet altijd gemakkelijk gesproken wordt. Denk aan urineverlies, pijn, verzakkingsklachten, plas- en stoelgangproblemen, seksuele klachten of veranderingen tijdens en na een zwangerschap, in de perimenopauze en de menopauze.',
       'Daarbij kijk ik verder dan de plaats waar je je klacht voelt. Ademhaling, beweging, kracht, spanning, slaap, herstel, hormonen en dagelijkse belasting kunnen allemaal meespelen. Samen zoeken we naar wat jij nodig hebt om je lichaam beter te begrijpen, vrijer te bewegen en opnieuw te vertrouwen in wat het kan.',
     ],
@@ -389,7 +389,18 @@ export const nl: Dictionary = {
     },
     practiceNoteTitle: 'Praktijk in het groen',
     practiceNoteText:
-      'De praktijk ligt in een rustige, landelijke omgeving in Heers. Foto’s van de praktijk en praktische informatie over parkeren, toegankelijkheid en de ingang volgen hier zodra ze beschikbaar zijn.',
+      'De praktijk ligt in een rustige, landelijke omgeving in Heers.',
+  },
+  photos: {
+    kimStairs: 'Kim Christiaens zit op de trap in haar praktijk, met een bekkenmodel in de handen',
+    consultModel: 'Kim legt met een bekkenmodel de werking van de bekkenbodem uit tijdens een gesprek in de praktijk',
+    ultrasound: 'Kim wijst een echobeeld aan op het scherm tijdens een echografie van de onderbuik',
+    resistanceBand: 'Kim doet een oefening voor met een elastische weerstandsband',
+    guidingMovement: 'Kim begeleidt een beweging met haar hand op de heup van een patiënt',
+    pelvisModel: 'Kim toont een anatomisch bekkenmodel met de spieren van de bekkenbodem',
+    practiceView: 'Uitzicht vanuit de praktijk in Heers op de velden van Haspengouw',
+    toiletPosture: 'Kim toont op het toilet de zithouding met de voeten op een opstapje',
+    treatmentTable: 'Kim Christiaens zit lachend op de behandeltafel in haar praktijk, met anatomische platen van het bekken aan de muur',
   },
   thankyou: {
     metaTitle: 'Bericht verzonden | The Happy Floor',

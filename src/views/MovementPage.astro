@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import PageIntro from '../components/PageIntro.astro';
 import CtaBanner from '../components/CtaBanner.astro';
+import Photo from '../components/Photo.astro';
 import LinkedText from '../components/LinkedText.astro';
 import { getDictionary, route } from '../i18n';
 import type { Locale } from '../consts';
@@ -27,10 +28,11 @@ const breadcrumb = [{ label: t.nav.movement, href: route('movement', locale) }];
   <PageIntro locale={locale} breadcrumb={breadcrumb} eyebrow={m.eyebrow} title={m.title} />
 
   <section class="section">
-    <div class="container intro-grid">
+    <div class="container media-split">
       <div class="intro-text">
         {m.intro.map((paragraph) => <p><LinkedText text={paragraph} locale={locale} /></p>)}
       </div>
+      <Photo name="guidingMovement" locale={locale} />
     </div>
   </section>
 

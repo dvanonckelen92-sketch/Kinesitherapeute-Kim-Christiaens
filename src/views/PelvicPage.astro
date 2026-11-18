@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import PageIntro from '../components/PageIntro.astro';
 import CtaBanner from '../components/CtaBanner.astro';
+import Photo from '../components/Photo.astro';
 import LinkedText from '../components/LinkedText.astro';
 import { getDictionary, route } from '../i18n';
 import type { Locale } from '../consts';
@@ -44,11 +45,14 @@ const breadcrumb = [{ label: t.nav.pelvic, href: route('pelvic', locale) }];
   </section>
 
   <section class="section section-alt" aria-labelledby="expect-heading">
-    <div class="container">
-      <h2 id="expect-heading">{p.expectTitle}</h2>
-      <div class="expect-text">
-        {p.expectText.map((paragraph) => <p><LinkedText text={paragraph} locale={locale} /></p>)}
+    <div class="container media-split">
+      <div>
+        <h2 id="expect-heading">{p.expectTitle}</h2>
+        <div class="expect-text">
+          {p.expectText.map((paragraph) => <p><LinkedText text={paragraph} locale={locale} /></p>)}
+        </div>
       </div>
+      <Photo name="consultModel" locale={locale} />
     </div>
   </section>
 

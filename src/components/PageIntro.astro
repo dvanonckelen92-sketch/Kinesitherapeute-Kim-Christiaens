@@ -14,6 +14,7 @@ interface Props {
 
 const { locale, title, intro, breadcrumb = [] } = Astro.props;
 const t = getDictionary(locale);
+const hasPhoto = Astro.slots.has('photo');
 const trail = breadcrumb.length > 0 ? [{ label: t.nav.home, href: route('home', locale) }, ...breadcrumb] : [];
 ---
 
@@ -36,8 +37,13 @@ const trail = breadcrumb.length > 0 ? [{ label: t.nav.home, href: route('home', 
         </nav>
       )
     }
-    <h1>{title}</h1>
-    {intro && <p class="intro-text"><LinkedText text={intro} locale={locale} /></p>}
+    <div class:list={[hasPhoto && 'media-split']}>
+      <div>
+        <h1>{title}</h1>
+        {intro && <p class="intro-text"><LinkedText text={intro} locale={locale} /></p>}
+      </div>
+      {hasPhoto && <slot name="photo" />}
+    </div>
   </div>
 </header>
 

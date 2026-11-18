@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import CtaBanner from '../components/CtaBanner.astro';
+import Photo from '../components/Photo.astro';
 import InstagramIcon from '../components/InstagramIcon.astro';
 import LinkedText from '../components/LinkedText.astro';
 import { getDictionary, route } from '../i18n';
@@ -29,17 +30,8 @@ const h = t.home;
           <a class="btn btn-secondary" href={route('about', locale)}>{h.heroSecondaryCta}</a>
         </div>
       </div>
-      <div class="hero-visual" aria-hidden="true">
-        <svg viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="210" cy="210" r="200" fill="var(--color-bg-alt-2)" />
-          <path
-            d="M210 320c-70-45-125-97-125-158C85 112 123 78 165 78c21 0 40 10 45 27 5-17 24-27 45-27 42 0 80 34 80 84 0 61-55 113-125 158Z"
-            fill="var(--color-primary)"
-          />
-          <circle cx="210" cy="150" r="16" fill="var(--color-gold-strong)" />
-          <circle cx="90" cy="90" r="18" fill="var(--color-gold-strong)" opacity="0.7" />
-          <circle cx="345" cy="300" r="24" fill="var(--color-primary-soft)" />
-        </svg>
+      <div class="hero-visual">
+        <Photo name="kimStairs" locale={locale} ratio="2/3" priority />
       </div>
     </div>
   </section>
@@ -133,7 +125,8 @@ const h = t.home;
   }
 
   .hero-visual {
-    max-width: 22rem;
+    width: 100%;
+    max-width: 26rem;
     margin-inline: auto;
   }
 

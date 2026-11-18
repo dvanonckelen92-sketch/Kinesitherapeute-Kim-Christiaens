@@ -395,7 +395,18 @@ export const fr: Dictionary = {
     },
     practiceNoteTitle: 'Un cabinet dans un cadre verdoyant',
     practiceNoteText:
-      'Le cabinet se trouve dans un environnement calme et rural à Heers. Des photos du cabinet et des informations pratiques sur le stationnement, l’accessibilité et l’entrée suivront ici dès qu’elles seront disponibles.',
+      'Le cabinet se trouve dans un environnement calme et rural à Heers.',
+  },
+  photos: {
+    kimStairs: 'Kim Christiaens assise dans l’escalier de son cabinet, un modèle de bassin entre les mains',
+    consultModel: 'Kim explique le fonctionnement du plancher pelvien à l’aide d’un modèle de bassin lors d’un entretien au cabinet',
+    ultrasound: 'Kim montre une image à l’écran pendant une échographie du bas-ventre',
+    resistanceBand: 'Kim montre un exercice avec une bande élastique de résistance',
+    guidingMovement: 'Kim guide un mouvement, la main posée sur la hanche d’une personne en séance',
+    pelvisModel: 'Kim montre un modèle anatomique du bassin avec les muscles du plancher pelvien',
+    practiceView: 'Vue depuis le cabinet à Heers sur les champs de la Hesbaye',
+    toiletPosture: 'Kim montre aux toilettes la position assise avec les pieds posés sur un petit marchepied',
+    treatmentTable: 'Kim Christiaens, souriante, assise sur la table de traitement de son cabinet, devant des planches anatomiques du bassin',
   },
   thankyou: {
     metaTitle: 'Message envoyé | The Happy Floor',

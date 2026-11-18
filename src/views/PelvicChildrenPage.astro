@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import PageIntro from '../components/PageIntro.astro';
 import CtaBanner from '../components/CtaBanner.astro';
+import Photo from '../components/Photo.astro';
 import { getDictionary, route } from '../i18n';
 import type { Locale } from '../consts';
 import { SITE } from '../consts';
@@ -26,7 +27,9 @@ const breadcrumb = [
   description={p.metaDescription}
   breadcrumb={breadcrumb}
 >
-  <PageIntro locale={locale} breadcrumb={breadcrumb} eyebrow={p.eyebrow} title={p.title} intro={p.intro} />
+  <PageIntro locale={locale} breadcrumb={breadcrumb} eyebrow={p.eyebrow} title={p.title} intro={p.intro}>
+    <Photo slot="photo" name="toiletPosture" locale={locale} priority />
+  </PageIntro>
 
   <section class="section">
     <div class="container">

@@ -310,3 +310,33 @@ button:focus-visible {
   position: absolute;
   left: -9999px;
 }
+
+/* Foto's (component Photo) en de layout tekst naast foto */
+.photo-picture {
+  display: block;
+}
+
+.photo {
+  display: block;
+  width: 100%;
+  max-width: 28rem;
+  height: auto;
+  margin-inline: auto;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  background: var(--color-bg-alt-2);
+}
+
+.media-split {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 56em) {
+  .media-split {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    gap: 3.5rem;
+  }
+}

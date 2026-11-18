@@ -6,6 +6,7 @@ import { getDictionary, route } from '../i18n';
 import type { Locale } from '../consts';
 import { SITE } from '../consts';
 import InstagramIcon from '../components/InstagramIcon.astro';
+import Photo from '../components/Photo.astro';
 
 interface Props {
   locale: Locale;
@@ -72,9 +73,12 @@ const breadcrumb = [{ label: t.nav.contact, href: route('contact', locale) }];
   </section>
 
   <section class="section">
-    <div class="container">
-      <h2>{c.practiceNoteTitle}</h2>
-      <p class="text-muted practice-note">{c.practiceNoteText}</p>
+    <div class="container media-split">
+      <div>
+        <h2>{c.practiceNoteTitle}</h2>
+        <p class="text-muted practice-note">{c.practiceNoteText}</p>
+      </div>
+      <Photo name="practiceView" locale={locale} />
     </div>
   </section>
 </Layout>

@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import PageIntro from '../components/PageIntro.astro';
 import LectureRequestForm from '../components/LectureRequestForm.astro';
+import Photo from '../components/Photo.astro';
 import { getDictionary, route } from '../i18n';
 import type { Locale } from '../consts';
 
@@ -25,10 +26,11 @@ const breadcrumb = [{ label: t.nav.lectures, href: route('lectures', locale) }];
   <PageIntro locale={locale} breadcrumb={breadcrumb} eyebrow={l.eyebrow} title={l.title} />
 
   <section class="section">
-    <div class="container intro-grid">
+    <div class="container media-split">
       <div class="intro-text">
         {l.intro.map((paragraph) => <p>{paragraph}</p>)}
       </div>
+      <Photo name="pelvisModel" locale={locale} />
     </div>
   </section>
 

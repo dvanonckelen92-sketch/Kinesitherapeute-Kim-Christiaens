@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import PageIntro from '../components/PageIntro.astro';
 import CtaBanner from '../components/CtaBanner.astro';
+import Photo from '../components/Photo.astro';
 import LinkedText from '../components/LinkedText.astro';
 import { getDictionary, route } from '../i18n';
 import type { Locale } from '../consts';
@@ -27,11 +28,14 @@ const breadcrumb = [{ label: t.nav.hormones, href: route('hormones', locale) }];
   <PageIntro locale={locale} breadcrumb={breadcrumb} eyebrow={h.eyebrow} title={h.title} intro={h.intro} />
 
   <section class="section">
-    <div class="container">
-      <h2>{h.helpTitle}</h2>
-      <ul class="check-list topic-list">
-        {h.helpItems.map((item) => <li><LinkedText text={item} locale={locale} /></li>)}
-      </ul>
+    <div class="container media-split">
+      <div>
+        <h2>{h.helpTitle}</h2>
+        <ul class="check-list topic-list">
+          {h.helpItems.map((item) => <li><LinkedText text={item} locale={locale} /></li>)}
+        </ul>
+      </div>
+      <Photo name="treatmentTable" locale={locale} />
     </div>
   </section>
 
