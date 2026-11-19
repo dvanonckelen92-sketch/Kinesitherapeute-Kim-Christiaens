@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.kimchristiaens.be',
+  site: 'https://kimchristiaens.be',
   i18n: {
     locales: ['nl', 'fr'],
     defaultLocale: 'nl',

@@ -2,6 +2,13 @@
   command = "npm run build"
   publish = "dist"
 
+# Primair domein is zonder www: www stuurt door naar kimchristiaens.be
+[[redirects]]
+  from = "https://www.kimchristiaens.be/*"
+  to = "https://kimchristiaens.be/:splat"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/bekkenbodemtherapie/"
   to = "/pelvic-health/"

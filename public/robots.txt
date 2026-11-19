@@ -53,4 +53,4 @@ Allow: /
 User-agent: Diffbot
 Allow: /
 
-Sitemap: https://www.kimchristiaens.be/sitemap-index.xml
+Sitemap: https://kimchristiaens.be/sitemap-index.xml
