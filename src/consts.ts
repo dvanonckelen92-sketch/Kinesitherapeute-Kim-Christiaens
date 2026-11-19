@@ -11,7 +11,7 @@ export const SITE = {
   /** Instagram en domeinnaam behouden bewust "and more"; ze hoeven niet gelijk te zijn aan de merknaam. */
   instagram: '@thehappyfloorandmore',
   instagramUrl: 'https://www.instagram.com/thehappyfloorandmore/',
-  website: 'www.kimchristiaens.be',
+  website: 'kimchristiaens.be',
   /** Prijsbereik voor schema.org priceRange; moet overeenkomen met de tarieven op Praktische info. */
   priceRange: '€46-€100',
   phone: '+32 498 41 14 41',
