@@ -55,3 +55,7 @@
   from = "/fr/*"
   to = "/fr/404/"
   status = 404
+
+# Meldt na elke productie-deploy alle URL's uit de sitemap aan bij IndexNow
+[[plugins]]
+  package = "/netlify/plugins/indexnow"
