@@ -31,22 +31,42 @@ const altHref = route ? routeHref(route, locale === 'nl' ? 'fr' : 'nl') : undefi
 const ogImageURL = new URL('/og-image.jpg', Astro.site);
 const homeHref = routeHref('home', locale);
 
+const siteRoot = new URL('/', Astro.site).toString();
 const jsonLd: Record<string, unknown> = {
   '@context': 'https://schema.org',
-  '@type': ['MedicalBusiness', 'PhysicalTherapy'],
+  // Physiotherapy is het LocalBusiness/MedicalBusiness-type voor een kinepraktijk.
+  // (PhysicalTherapy is in schema.org een behandeling, geen bedrijf.)
+  '@type': 'Physiotherapy',
+  '@id': `${siteRoot}#organization`,
   name: SITE.brandFull,
-  alternateName: SITE.brandName,
+  alternateName: [SITE.brandName, SITE.name],
   legalName: SITE.legalName,
-  logo: new URL('/icon-512.png', Astro.site).toString(),
+  vatID: SITE.companyNumber,
+  url: siteRoot,
+  logo: {
+    '@type': 'ImageObject',
+    url: new URL('/icon-512.png', Astro.site).toString(),
+    width: 512,
+    height: 512,
+  },
   image: ogImageURL.toString(),
   telephone: SITE.phone,
   email: SITE.email,
+  priceRange: SITE.priceRange,
+  currenciesAccepted: 'EUR',
+  knowsLanguage: ['nl', 'fr'],
   sameAs: [SITE.instagramUrl],
+  founder: {
+    '@type': 'Person',
+    name: 'Kim Christiaens',
+    jobTitle: t.htmlLang.startsWith('fr') ? 'Kinésithérapeute' : 'Kinesitherapeute',
+  },
   address: {
     '@type': 'PostalAddress',
     streetAddress: SITE.address.street,
     addressLocality: 'Heers',
     postalCode: '3870',
+    addressRegion: 'Limburg',
     addressCountry: 'BE',
   },
   geo: {
@@ -54,10 +74,8 @@ const jsonLd: Record<string, unknown> = {
     latitude: SITE.coords.lat,
     longitude: SITE.coords.lon,
   },
-  areaServed: t.areaServed,
-  url: new URL(homeHref, Astro.site).toString(),
-  // Enkel op de pagina waar de tarieven zichtbaar staan.
-  ...(route === 'practical' ? { priceRange: SITE.priceRange } : {}),
+  hasMap: `https://www.google.com/maps/search/?api=1&query=${SITE.coords.lat},${SITE.coords.lon}`,
+  areaServed: t.areaServed.map((name) => ({ '@type': 'Place', name })),
 };
 
 const breadcrumbLd =
