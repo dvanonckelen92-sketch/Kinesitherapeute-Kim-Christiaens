@@ -34,9 +34,9 @@ const homeHref = routeHref('home', locale);
 const siteRoot = new URL('/', Astro.site).toString();
 const jsonLd: Record<string, unknown> = {
   '@context': 'https://schema.org',
-  // MedicalBusiness met Physiotherapy als specialisme. "Physiotherapy" als @type wordt door
-  // validators gelezen als de MedicalSpecialty-enumeratie, die geen properties mag hebben.
-  '@type': 'MedicalBusiness',
+  // MedicalClinic is zowel MedicalBusiness (LocalBusiness) als MedicalOrganization, zodat
+  // medicalSpecialty geldig is. "Physiotherapy" zelf is een MedicalSpecialty-waarde, geen type.
+  '@type': 'MedicalClinic',
   medicalSpecialty: 'https://schema.org/Physiotherapy',
   '@id': `${siteRoot}#organization`,
   name: SITE.brandFull,
