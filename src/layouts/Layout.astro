@@ -34,9 +34,10 @@ const homeHref = routeHref('home', locale);
 const siteRoot = new URL('/', Astro.site).toString();
 const jsonLd: Record<string, unknown> = {
   '@context': 'https://schema.org',
-  // Physiotherapy is het LocalBusiness/MedicalBusiness-type voor een kinepraktijk.
-  // (PhysicalTherapy is in schema.org een behandeling, geen bedrijf.)
-  '@type': 'Physiotherapy',
+  // MedicalBusiness met Physiotherapy als specialisme. "Physiotherapy" als @type wordt door
+  // validators gelezen als de MedicalSpecialty-enumeratie, die geen properties mag hebben.
+  '@type': 'MedicalBusiness',
+  medicalSpecialty: 'https://schema.org/Physiotherapy',
   '@id': `${siteRoot}#organization`,
   name: SITE.brandFull,
   alternateName: [SITE.brandName, SITE.name],
@@ -77,6 +78,21 @@ const jsonLd: Record<string, unknown> = {
   hasMap: `https://www.google.com/maps/search/?api=1&query=${SITE.coords.lat},${SITE.coords.lon}`,
   areaServed: t.areaServed.map((name) => ({ '@type': 'Place', name })),
 };
+
+// Sitenaam voor Google (naam in de zoekresultaten). Hoort enkel op de homepage van het domein.
+const websiteLd =
+  currentPath === '/'
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        '@id': `${siteRoot}#website`,
+        name: SITE.brandName,
+        alternateName: [SITE.brandFull, SITE.name],
+        url: siteRoot,
+        inLanguage: ['nl-BE', 'fr-BE'],
+        publisher: { '@id': `${siteRoot}#organization` },
+      }
+    : undefined;
 
 const breadcrumbLd =
   breadcrumb.length > 0
@@ -128,6 +144,7 @@ const breadcrumbLd =
     <meta name="twitter:image" content={ogImageURL} />
 
     <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+    {websiteLd && <script type="application/ld+json" is:inline set:html={JSON.stringify(websiteLd)} />}
     {breadcrumbLd && <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbLd)} />}
   </head>
   <body>
